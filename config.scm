@@ -1,6 +1,7 @@
 (use-modules (gnu)
              (nongnu packages linux)
-             (nongnu system linux-initrd))
+             (nongnu system linux-initrd)
+	     (my-services syncthing))
 
 (use-service-modules networking ssh)
 
@@ -10,7 +11,8 @@
                      version-control
                      admin
                      file-systems
-                     samba)
+                     samba
+		     syncthing)
 
 (operating-system
   (kernel linux-lts)
@@ -47,7 +49,8 @@
                           screen
                           htop
                           fscrypt
-                          cifs-utils) %base-packages))
+                          cifs-utils
+			  syncthing) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -67,5 +70,6 @@
                           (openssh-configuration (openssh openssh-sans-x)
                                                  (authorized-keys `(("user" ,(local-file
                                                                               "yk_ssh.pub"))))
-                                                 (port-number 2222))))
+                                                 (port-number 2222)))
+		 my-syncthing-service)
            %base-services)))

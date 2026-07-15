@@ -3,7 +3,7 @@
              (nongnu system linux-initrd)
 	     (my-services syncthing))
 
-(use-service-modules networking ssh)
+(use-service-modules networking ssh desktop)
 
 (use-package-modules vim
                      screen
@@ -68,8 +68,10 @@
                                                                    "192.168.0.1")))))
                  (service openssh-service-type
                           (openssh-configuration (openssh openssh-sans-x)
+						 (password-authentication? #f)
                                                  (authorized-keys `(("user" ,(local-file
                                                                               "yk_ssh.pub"))))
                                                  (port-number 2222)))
+		 (service elogind-service-type)
 		 my-syncthing-service)
            %base-services)))

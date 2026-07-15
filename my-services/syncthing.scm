@@ -67,12 +67,7 @@
                                                                                hcpc
                                                                                lockdown
                                                                                
-                                                                               (syncthing-folder-device
-                                                                                (device
-                                                                                 pixel6)
-                                                                                
-                                                                                (encryption-password
-                                                                                 "M0nohydratechocolate")))))
+                                                                               )))
                                                                             (syncthing-folder
                                                                              (label
                                                                               "garbage")

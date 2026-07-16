@@ -1,7 +1,8 @@
 (use-modules (gnu)
              (nongnu packages linux)
              (nongnu system linux-initrd)
-	     (my-services syncthing))
+             (my-services syncthing)
+             (my-services transmission))
 
 (use-service-modules networking ssh desktop)
 
@@ -12,7 +13,8 @@
                      admin
                      file-systems
                      samba
-		     syncthing)
+                     syncthing
+                     bittorrent)
 
 (operating-system
   (kernel linux-lts)
@@ -41,8 +43,8 @@
                  (comment "main user")
                  (group "users")
 
-                 (supplementary-groups '("wheel" "audio" "video")))
-               %base-user-accounts))
+                 (supplementary-groups '("wheel" "audio" "video"
+                                         "transmission"))) %base-user-accounts))
 
   (packages (append (list vim
                           git
@@ -50,7 +52,9 @@
                           htop
                           fscrypt
                           cifs-utils
-			  syncthing) %base-packages))
+                          syncthing
+;;careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
+                          transmission) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -68,10 +72,9 @@
                                                                    "192.168.0.1")))))
                  (service openssh-service-type
                           (openssh-configuration (openssh openssh-sans-x)
-						 (password-authentication? #f)
+                                                 (password-authentication? #f)
                                                  (authorized-keys `(("user" ,(local-file
                                                                               "yk_ssh.pub"))))
                                                  (port-number 2222)))
-		 (service elogind-service-type)
-		 my-syncthing-service)
-           %base-services)))
+                 (service elogind-service-type) my-syncthing-service
+                 my-transmission-service) %base-services)))

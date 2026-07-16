@@ -1,5 +1,6 @@
 set number
 set relativenumber
+set autoindent
 syntax on
 
 set splitbelow

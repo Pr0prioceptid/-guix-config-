@@ -30,7 +30,7 @@
 				      ("ll" . "ls -lha")
                                       ("update" . "guix pull -C ~/my-config/ch/channels.scm")
                                       ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")
-                                      ("sysupgrade" . "guix system reconfigure -L ~/my-config ~/my-config/config.scm")
+                                      ("sysupgrade" . "sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm")
                                       ("homeupgrade" . "guix home reconfigure -L ~/my-config ~/my-config/home-configuration.scm")
                                       ("fullupgrade" . "sysupgrade && homeupgrade")
                                       ("checkpoint" . "guix describe -f channels > ~/my-config/ch/lock.scm")))))

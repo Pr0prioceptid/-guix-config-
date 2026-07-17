@@ -2,9 +2,13 @@
              (nongnu packages linux)
              (nongnu system linux-initrd)
              (my-services syncthing)
-             (my-services transmission))
+             (my-services transmission)
+	     (my-services miniflux))
 
-(use-service-modules networking ssh desktop)
+(use-service-modules networking 
+		     ssh 
+		     desktop
+		     databases)
 
 (use-package-modules vim
                      screen
@@ -14,7 +18,9 @@
                      file-systems
                      samba
                      syncthing
-                     bittorrent)
+                     bittorrent
+		     web
+		     databases)
 
 (operating-system
   (kernel linux-lts)
@@ -35,8 +41,7 @@
                         (mount-point "/")
                         (type "btrfs")) %base-file-systems))
 
-  (swap-devices (list (swap-space
-                        (target (file-system-label "my-swap")))))
+  (swap-devices (list (swap-space (target (file-system-label "my-swap")))))
 
   (users (cons (user-account
                  (name "user")
@@ -53,28 +58,27 @@
                           fscrypt
                           cifs-utils
                           syncthing
-;;careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
-                          transmission) %base-packages))
+			  ;;careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
+                          transmission
+			  postgresql
+			  miniflux) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
                           (list (static-networking (addresses (list (network-address
-                                                                     (device
-                                                                      "enp2s0")
-                                                                     (value
-                                                                      "192.168.0.121/24"))))
+                                                                     (device "enp2s0")
+                                                                     (value "192.168.0.121/24"))))
                                                    (routes (list (network-route
-                                                                  (destination
-                                                                   "default")
-                                                                  (gateway
-                                                                   "192.168.0.1"))))
-                                                   (name-servers '("9.9.9.9"
-                                                                   "192.168.0.1")))))
+                                                                  (destination "default")
+                                                                  (gateway "192.168.0.1"))))
+                                                   (name-servers '("9.9.9.9" "192.168.0.1")))))
                  (service openssh-service-type
                           (openssh-configuration (openssh openssh-sans-x)
                                                  (password-authentication? #f)
-                                                 (authorized-keys `(("user" ,(local-file
-                                                                              "yk_ssh.pub"))))
+                                                 (authorized-keys `(("user" ,(local-file "yk_ssh.pub"))))
                                                  (port-number 2222)))
-                 (service elogind-service-type) my-syncthing-service
-                 my-transmission-service) %base-services)))
+                 (service elogind-service-type) 
+		 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
+		 my-syncthing-service
+                 my-transmission-service
+		 my-miniflux-service) %base-services)))

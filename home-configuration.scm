@@ -27,6 +27,7 @@
 			   (environment-variables '(("EDITOR" . "vim")))
 			   (aliases '((".." . "cd ..")
 				      ("ls" . "ls --color=auto")
+				      ("grep" . "grep --color=auto")
 				      ("ll" . "ls -lha")
                                       ("update" . "guix pull -C ~/my-config/ch/channels.scm")
                                       ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")

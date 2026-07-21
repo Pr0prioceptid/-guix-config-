@@ -3,7 +3,8 @@
              (nongnu system linux-initrd)
              (my-services syncthing)
              (my-services transmission)
-	     (my-services miniflux))
+	     (my-services miniflux)
+	     (my-services i2pd))
 
 (use-service-modules networking 
 		     ssh 
@@ -20,7 +21,8 @@
                      syncthing
                      bittorrent
 		     web
-		     databases)
+		     databases
+		     i2p)
 
 (operating-system
   (kernel linux-lts)
@@ -61,7 +63,8 @@
 			  ;;careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
                           transmission
 			  postgresql
-			  miniflux) %base-packages))
+			  miniflux
+			  i2pd) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -81,4 +84,5 @@
 		 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
 		 my-syncthing-service
                  my-transmission-service
-		 my-miniflux-service) %base-services)))
+		 my-miniflux-service
+		 my-i2pd-service) %base-services)))

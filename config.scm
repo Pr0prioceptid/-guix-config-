@@ -23,7 +23,8 @@
                      bittorrent
 		     web
 		     databases
-		     i2p)
+		     i2p
+		     web-browsers)
 
 (operating-system
   (kernel linux-lts)
@@ -66,7 +67,8 @@
 			  postgresql
 			  miniflux
 			  i2pd
-			  go-github-com-majestrate-xd) %base-packages))
+			  go-github-com-majestrate-xd
+			  lynx) %base-packages))
 
   (services
    (append (list (service static-networking-service-type

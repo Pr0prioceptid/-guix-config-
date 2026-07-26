@@ -4,7 +4,8 @@
              (my-services syncthing)
              (my-services transmission)
 	     (my-services miniflux)
-	     (my-services i2pd))
+	     (my-services i2pd)
+	     (my-packages xd))
 
 (use-service-modules networking 
 		     ssh 
@@ -64,7 +65,8 @@
                           transmission
 			  postgresql
 			  miniflux
-			  i2pd) %base-packages))
+			  i2pd
+			  go-github-com-majestrate-xd) %base-packages))
 
   (services
    (append (list (service static-networking-service-type

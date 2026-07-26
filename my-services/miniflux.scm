@@ -7,4 +7,5 @@
            (miniflux-configuration
            (create-administrator-account? #t)
            (administrator-account-name "admin")
-           (administrator-account-password "filigreemanifest"))))
+           (administrator-account-password "filigreemanifest")
+	   (listen-address "0.0.0.0:8080"))))

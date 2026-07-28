@@ -5,7 +5,8 @@
              (my-services transmission)
 	     (my-services miniflux)
 	     (my-services i2pd)
-	     (my-packages xd))
+	     (my-packages xd)
+	     (my-services xd))
 
 (use-service-modules networking 
 		     ssh 
@@ -89,4 +90,5 @@
 		 my-syncthing-service
                  my-transmission-service
 		 my-miniflux-service
-		 my-i2pd-service) %base-services)))
+		 my-i2pd-service
+		 my-xd-service) %base-services)))

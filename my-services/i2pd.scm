@@ -11,10 +11,10 @@
    (list
     (shepherd-service
      (provision '(i2pd))
-     (requirement '(networking))
+     (requirement '(networking user-processes))
      (documentation "Run i2p daemon.")
      (start #~(make-forkexec-constructor
                (list #$(file-append i2pd "/bin/i2pd"))
 	       #:user "user"
 	       #:group "users"))
-     (stop #~(make-kill-destructor SIGINT))))))
+     (stop #~(make-kill-destructor SIGINT #:grace-period 600))))))

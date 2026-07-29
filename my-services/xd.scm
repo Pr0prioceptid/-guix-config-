@@ -27,25 +27,16 @@
                                                               (group:gid (getgrnam "xd"))))))
 
                                            (service-extension shepherd-root-service-type
-                                            (const (list (shepherd-service (provision ' (xd-daemon))
-                                                                           (requirement ' (i2pd))
+                                            (const (list (shepherd-service (provision '(xd-daemon))
+                                                                           (requirement '(i2pd))
                                                                            (documentation "Run XD daemon.")
                                                                            (start #~ (make-forkexec-constructor
                                                                              (list #$(file-append go-github-com-majestrate-xd "/bin/XD"))
                                                                              #:user "xd"
                                                                              #:group "xd"
                                                                              #:directory "/var/lib/xd"
-                                                                             #:environment-variables ' ("HOME=/var/lib/xd")))
+                                                                             #:environment-variables '("HOME=/var/lib/xd")))
                                                                            (stop #~ (make-kill-destructor))))))))
 
                          (default-value #f)
                          (description "Run the XD daemon."))))
-
-;;(begin
-;;(use-modules (guix build utils)
-;;(ice-9 passwd))
-;;(mkdir-p "/var/lib/xd")
-;;(let ((pw (getpwnam "xd")))
-;;(chown "/var/lib/xd"
-;;(passwd:uid pw)
-;;(passwd:gid pw))))

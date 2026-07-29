@@ -54,7 +54,7 @@
                  (group "users")
 
                  (supplementary-groups '("wheel" "audio" "video"
-                                         "transmission"))) %base-user-accounts))
+                                         "transmission" "xd"))) %base-user-accounts))
 
   (packages (append (list vim
                           git

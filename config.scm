@@ -60,6 +60,7 @@
                           git
                           screen
                           htop
+			  btop
                           fscrypt
                           cifs-utils
                           syncthing

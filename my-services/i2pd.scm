@@ -29,7 +29,9 @@
                                                                   (documentation "Run the I2Pd daemon.")
                                                                   (start #~(make-forkexec-constructor (list #$ (file-append i2pd "/bin/i2pd"))
                                                                             #:user "i2pd"
-                                                                            #:group "i2pd"))
+                                                                            #:group "i2pd"
+									    #:directory "/var/lib/i2pd"
+									    #:environment-variables '("HOME=/var/lib/i2pd")))
                                                                   (stop #~(make-kill-destructor SIGINT #:grace-period 600))))))))
                 (default-value #f)
                 (description "Run the I2Pd daemon under its own system user."))))

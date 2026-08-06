@@ -5,7 +5,6 @@
              (my-services transmission)
 	     (my-services miniflux)
 	     (my-services i2pd)
-	     (my-services i2pmail-simple)
 	     (my-packages xd)
 	     (my-services xd))
 
@@ -71,7 +70,8 @@
 			  miniflux
 			  i2pd
 			  go-github-com-majestrate-xd
-			  lynx) %base-packages))
+			  lynx
+			  rss-bridge) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -93,5 +93,4 @@
                  my-transmission-service
 		 my-miniflux-service
 		 my-i2pd-service
-		 my-i2pmail-service
 		 my-xd-service) %base-services)))

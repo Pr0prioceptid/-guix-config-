@@ -6,7 +6,8 @@
 	     (my-services miniflux)
 	     (my-services i2pd)
 	     (my-packages xd)
-	     (my-services xd))
+	     (my-services xd)
+	     (my-services dir-for-sogogi))
 
 (use-service-modules networking 
 		     ssh 
@@ -90,6 +91,7 @@
                                                  (port-number 2222)))
                  (service elogind-service-type) 
 		 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
+		 my-sogogi-dir
 		 (service sogogi-service-type (sogogi-configuration (listen ":8081") (location (list (sogogi-location (path "/") (dir "/srv/http/") (grant '("all ro")))))))
 		 my-syncthing-service
                  my-transmission-service

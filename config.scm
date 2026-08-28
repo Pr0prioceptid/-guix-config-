@@ -92,7 +92,7 @@
                  (service elogind-service-type) 
 		 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
 		 my-sogogi-dir
-		 (service sogogi-service-type (sogogi-configuration (listen ":8081") (location (list (sogogi-location (path "/") (dir "/srv/http/") (grant '("all ro")))))))
+		 (service sogogi-service-type (sogogi-configuration (listen ":8081") (location (list (sogogi-location (path "/") (dir "/srv/http/") (grant '("all ro")))))(user (list (sogogi-user (name "kindle") (password "accessbooks"))))))
 		 my-syncthing-service
                  my-transmission-service
 		 my-miniflux-service

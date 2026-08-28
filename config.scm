@@ -70,8 +70,7 @@
 			  miniflux
 			  i2pd
 			  go-github-com-majestrate-xd
-			  lynx
-			  rss-bridge) %base-packages))
+			  lynx) %base-packages))
 
   (services
    (append (list (service static-networking-service-type

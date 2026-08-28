@@ -69,11 +69,7 @@
                           miniflux
                           i2pd
                           go-github-com-majestrate-xd
-                          lynx
-                          rss-bridge
-                          ;; rss-bridge needs nginx & php-fpm to function, might be a future task to reverse-proxy all the web-pages hosted on various ports to subdirectories on http with nginx to.
-                          nginx
-                          php) %base-packages))
+                          lynx) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -98,16 +94,6 @@
                  (service elogind-service-type)
                  (service postgresql-service-type
                           (postgresql-configuration (postgresql postgresql)))
-                 (service nginx-service-type
-                          (nginx-configuration (server-blocks (list (nginx-server-configuration
-                                                                     (locations
-                                                                      (list (nginx-location-configuration
-                                                                             (uri "/static/")
-                                                                             (body
-                                                                              (string-append
-                                                                               "alias "
-                                                                               (file-append rss-bridge "/static/")
-                                                                               ";"))))))))))
                  my-syncthing-service
                  my-transmission-service
                  my-miniflux-service

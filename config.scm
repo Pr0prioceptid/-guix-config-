@@ -11,7 +11,8 @@
 (use-service-modules networking 
 		     ssh 
 		     desktop
-		     databases)
+		     databases
+		     web)
 
 (use-package-modules vim
                      screen
@@ -25,8 +26,7 @@
 		     web
 		     databases
 		     i2p
-		     web-browsers
-		     ftp)
+		     web-browsers)
 
 (operating-system
   (kernel linux-lts)
@@ -72,7 +72,7 @@
 			  i2pd
 			  go-github-com-majestrate-xd
 			  lynx
-			  vsftpd) %base-packages))
+			  sogogi) %base-packages))
 
   (services
    (append (list (service static-networking-service-type
@@ -90,6 +90,7 @@
                                                  (port-number 2222)))
                  (service elogind-service-type) 
 		 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
+		 (service sogogi-service-type (sogogi-configuration (listen ":8081") (location (list (sogogi-location (path "/") (dir "/srv/http/") (grant '("all ro")))))))
 		 my-syncthing-service
                  my-transmission-service
 		 my-miniflux-service

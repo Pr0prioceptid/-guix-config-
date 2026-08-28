@@ -25,7 +25,8 @@
 		     web
 		     databases
 		     i2p
-		     web-browsers)
+		     web-browsers
+		     ftp)
 
 (operating-system
   (kernel linux-lts)
@@ -70,7 +71,8 @@
 			  miniflux
 			  i2pd
 			  go-github-com-majestrate-xd
-			  lynx) %base-packages))
+			  lynx
+			  vsftpd) %base-packages))
 
   (services
    (append (list (service static-networking-service-type

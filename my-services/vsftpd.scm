@@ -18,7 +18,8 @@
                                                                                "-olocal_enable=YES"
                                                                                "-opasv_enable=YES"
                                                                                "-opasv_min_port=50000"
-                                                                               "-opasv_max_port=50100")))
+                                                                               "-opasv_max_port=50100"
+									       "-osecure_chroot_dir=/var/empty")))
                                           (stop #~(make-kill-destructor))))))
 
 (define-public my-ftp-client

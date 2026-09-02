@@ -17,7 +17,7 @@
                                                            (group "ftp")
                                                            (system? #t)
                                                            (comment "ftp client")
-                                                           (home-directory "/var/empty")))))
+                                                           (home-directory "/srv/ftp")))))
                                            (service-extension
                                             shepherd-root-service-type
                                             (const (list (shepherd-service (provision '(vsftpd))

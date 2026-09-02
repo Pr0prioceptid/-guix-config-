@@ -96,4 +96,5 @@
 		 my-miniflux-service
 		 my-i2pd-service
 		 my-xd-service
-		 my-vsftpd-service) %base-services)))
+		 my-vsftpd-service
+		 my-ftp-client) %base-services)))

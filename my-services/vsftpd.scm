@@ -6,33 +6,11 @@
   #:use-module (gnu system shadow))
 
 (define-public my-vsftpd-service
-  (service (service-type (name 'vsftpd)
-                         (extensions (list (service-extension
-                                            account-service-type
-                                            (const (list (user-group
-                                                    (name "vsftpd")
-                                                    (system? #t))
-                                                  (user-account
-                                                    (name "vsftpd")
-                                                    (group "vsftpd")
-                                                    (system? #t)
-                                                    (comment
-                                                     "vsftp daemon user")
-                                                    (home-directory
-                                                     "/var/empty")))))
-                                           (service-extension
-                                            shepherd-root-service-type
-                                            (const (list (shepherd-service (provision '
-                                                                     (vsftpd))
-                                                                    (requirement '
-                                                                     (networking
-                                                                      user-processes))
-                                                                    (documentation
-                                                                     "Run vsftp daemon.")
-                                                                    (start #~(make-forkexec-constructor
-                                                                              (list #$
-                                                                               (file-append
-                                                                                vsftpd
+  (simple-service 'vsftpd shepherd-root-service-type
+                  (list (shepherd-service (provision '(vsftpd))
+                                          (requirement '(networking user-processes))
+                                          (documentation "Run vsftp daemon.")
+                                          (start #~(make-forkexec-constructor (list #$(file-append vsftpd
                                                                                 "/sbin/vsftpd")
                                                                                "-olisten=YES"
                                                                                "-oanonymous_enable=NO"
@@ -40,15 +18,8 @@
                                                                                "-olocal_enable=YES"
                                                                                "-opasv_enable=YES"
                                                                                "-opasv_min_port=50000"
-                                                                               "-opasv_max_port=50100")
-                                                                              #:user
-                                                                              "vsftpd"
-                                                                              #:group
-                                                                              "vsftpd"))
-                                                                    (stop #~(make-kill-destructor))))))))
-                         (default-value #f)
-                         (description
-                          "Run the very secure ftp daemon under its own system user."))))
+                                                                               "-opasv_max_port=50100")))
+                                          (stop #~(make-kill-destructor))))))
 
 (define-public my-ftp-client
   (simple-service 'ftp-client account-service-type

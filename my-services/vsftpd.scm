@@ -16,27 +16,16 @@
                                                            (name "ftp")
                                                            (group "ftp")
                                                            (system? #t)
-                                                           (comment
-                                                            "ftp client")
-                                                           (home-directory
-                                                            "/var/empty")))))
+                                                           (comment "ftp client")
+                                                           (home-directory "/var/empty")))))
                                            (service-extension
                                             shepherd-root-service-type
-                                            (const (list (shepherd-service (provision '
-                                                                            (vsftpd))
-                                                                           (requirement '
-                                                                            (networking
-                                                                             user-processes))
-                                                                           (documentation
-                                                                            "Run vsftp daemon.")
-                                                                           (start #~
-                                                                            (make-forkexec-constructor
-                                                                             (list #$
-                                                                              (file-append
-                                                                               vsftpd
-                                                                               "/sbin/vsftpd"))))
-                                                                           (stop #~
-                                                                            (make-kill-destructor))))))))
+                                            (const (list (shepherd-service (provision '(vsftpd))
+                                                                           (requirement '(networking user-processes))
+                                                                           (documentation "Run vsftp daemon.")
+                                                                           (start #~(make-forkexec-constructor
+                                                                             (list #$(file-append vsftpd "/sbin/vsftpd")
+									     "-osecure_chroot_dir=/var/empty")))
+                                                                           (stop #~(make-kill-destructor))))))))
                          (default-value #f)
-                         (description
-                          "vsftpd daemon running as root with required ftp user for anonymous logins"))))
+                         (description "vsftpd daemon running as root with required ftp user for anonymous logins"))))

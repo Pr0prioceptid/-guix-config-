@@ -2,17 +2,41 @@
   #:use-module (gnu services)
   #:use-module (gnu services shepherd)
   #:use-module (guix gexp)
-  #:use-module (gnu packages ftp))
+  #:use-module (gnu packages ftp)
+  #:use-module (gnu system shadow))
 
 (define-public my-vsftpd-service
-  (simple-service 'vsftpd 
-  shepherd-root-service-type
-                  (list (shepherd-service (provision '(vsftp-daemon))
-                                          (requirement '(networking
-                                                         user-processes))
-                                          (documentation "Run vsftp daemon.")
-                                          (start #~(make-forkexec-constructor (list #$(file-append
-                                                                                vsftpd
-                                                                                "/sbin/vsftpd"))))
-                                          (stop #~(make-kill-destructor))))))
-
+  (service (service-type (name 'vsftpd)
+                         (extensions (list (service-extension
+                                            account-service-type
+                                            (const (list (user-group
+                                                           (name "ftp")
+                                                           (system? #t))
+                                                         (user-account
+                                                           (name "ftp")
+                                                           (group "ftp")
+                                                           (system? #t)
+                                                           (comment
+                                                            "ftp client")
+                                                           (home-directory
+                                                            "/var/empty")))))
+                                           (service-extension
+                                            shepherd-root-service-type
+                                            (const (list (shepherd-service (provision '
+                                                                            (vsftpd))
+                                                                           (requirement '
+                                                                            (networking
+                                                                             user-processes))
+                                                                           (documentation
+                                                                            "Run vsftp daemon.")
+                                                                           (start #~
+                                                                            (make-forkexec-constructor
+                                                                             (list #$
+                                                                              (file-append
+                                                                               vsftpd
+                                                                               "/sbin/vsftpd"))))
+                                                                           (stop #~
+                                                                            (make-kill-destructor))))))))
+                         (default-value #f)
+                         (description
+                          "vsftpd daemon running as root with required ftp user for anonymous logins"))))

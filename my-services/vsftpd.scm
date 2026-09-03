@@ -17,7 +17,15 @@
                                                            (group "ftp")
                                                            (system? #t)
                                                            (comment "ftp client")
-                                                           (home-directory "/srv/ftp")))))
+                                                           (home-directory "/srv/ftp")
+							   (create-home-directory? #f)))))
+					   (service-extension
+					    activation-service-type
+					    (const #~(begin 
+					     (use-modules (guix-build-utils))
+					     (mkdir-p "/srv/ftp")
+					     (chown "/srv/ftp" 0 0)
+					     (chmod "/srv/ftp" #o755))))
                                            (service-extension
                                             shepherd-root-service-type
                                             (const (list (shepherd-service (provision '(vsftpd))

@@ -22,7 +22,7 @@
 					   (service-extension
 					    activation-service-type
 					    (const #~(begin 
-					     (use-modules (guix-build-utils))
+					     (use-modules (guix build utils))
 					     (mkdir-p "/srv/ftp")
 					     (chown "/srv/ftp" 0 0)
 					     (chmod "/srv/ftp" #o755))))

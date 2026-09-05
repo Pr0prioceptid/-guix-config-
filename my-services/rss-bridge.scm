@@ -21,6 +21,8 @@
 			             (body
 			              (string-append
          			      	 "root " (file-append rss-bridge "/share/rss-bridge") ";\n"
-         			      	 "include snippets/")))))))))))
+         			      	 "include share/nginx/conf/fastcgi.conf;\n"
+					 "fastcgi_read_timeout 45s;\n"
+					 "fastcgi_pass unix:/run/php/rss-bridge.sock;\n")))))))))))
                          (default-value #f)
                          (description "Run rss-bridge"))))

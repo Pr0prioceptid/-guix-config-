@@ -94,18 +94,9 @@
                                                  (authorized-keys `(("user" ,(local-file "yk_ssh.pub"))))
                                                  (port-number 2222)))
                  (service elogind-service-type)
-                 (service postgresql-service-type
-                          (postgresql-configuration (postgresql postgresql)))
-                 (service nginx-service-type
-                          (nginx-configuration (server-blocks (list (nginx-server-configuration
-                                                                     (locations
-                                                                      (list (nginx-location-configuration
-                                                                             (uri "/static/")
-                                                                             (body
-                                                                              (string-append
-                                                                               "alias "
-                                                                               (file-append rss-bridge "/static/")
-                                                                               ";"))))))))))
+                 (service postgresql-service-type (postgresql-configuration (postgresql postgresql)))
+		 ;;php-fpm is required for rss-bridge
+		 ;;(service php-fpm-service-type)
                  my-syncthing-service
                  my-transmission-service
 		 my-miniflux-service

@@ -28,7 +28,7 @@
 			   (aliases '((".." . "cd ..")
 				      ("ls" . "ls --color=auto")
 				      ("grep" . "grep --color=auto")
-				      ("ll" . "ls -lha")
+				      ("ll" . "ls -l --color=auto")
                                       ("update" . "guix pull -C ~/my-config/ch/channels.scm")
                                       ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")
                                       ("sysupgrade" . "sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm")
@@ -36,5 +36,13 @@
                                       ("fullupgrade" . "sysupgrade && homeupgrade")
                                       ("checkpoint" . "guix describe -f channels > ~/my-config/ch/lock.scm")))))
 		 (service home-dotfiles-service-type
-			  (home-dotfiles-configuration (directories '("./dotfiles")))))
+			  (home-dotfiles-configuration (directories '("./dotfiles"))))
+		 (service home-inputrc-service-type
+		 	  (home-inputrc-configuration
+			   (key-bindings
+			    `(("Control-l" . "clear-screen")))
+			   (variables
+			    `(("editing-mode" . "vi")
+			      ("show-mode-in-prompt" . #t)
+			      ("colored-stats" . #t))))))
            %base-home-services)))

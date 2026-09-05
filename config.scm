@@ -27,7 +27,8 @@
 		     databases
 		     i2p
 		     web-browsers
-		     ftp)
+		     ftp
+		     php)
 
 (operating-system
   (kernel linux-lts)

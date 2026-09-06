@@ -17,15 +17,6 @@
                                                            (system? #t)
                                                            (comment "XD daemon")
                                                            (home-directory "/var/lib/xd")))))
-
-                                           (service-extension activation-service-type
-                                            (const #~(begin
-                                                       (use-modules (guix build utils))
-                                                       (mkdir-p "/var/lib/xd")
-                                                       (chown "/var/lib/xd"
-                                                              (passwd:uid (getpwnam "xd"))
-                                                              (group:gid (getgrnam "xd"))))))
-
                                            (service-extension shepherd-root-service-type
                                             (const (list (shepherd-service (provision '(xd-daemon))
                                                                            (requirement '(i2pd))

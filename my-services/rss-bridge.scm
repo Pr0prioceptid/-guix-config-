@@ -5,7 +5,7 @@
   #:use-module (guix gexp)
   #:use-module (gnu packages web))
 
-(define-public my-xd-service
+(define-public my-rss-bridge-service
   (service (service-type (name 'rss-bridge)
                          (extensions (list (service-extension nginx-service-type
 			  (const (list (nginx-server-configuration

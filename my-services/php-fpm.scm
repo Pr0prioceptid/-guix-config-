@@ -1,0 +1,6 @@
+(define-module (my-services php-fpm)
+  #:use-module (gnu services)
+  #:use-module (gnu services shepherd)
+  #:use-module (gnu system shadow)
+  #:use-module (guix gexp)
+  #:use-module (gnu packages php))

@@ -27,7 +27,8 @@
 		     databases
 		     i2p
 		     web-browsers
-		     ftp)
+		     ftp
+		     rsync)
 
 (operating-system
   (kernel linux-lts)
@@ -73,7 +74,8 @@
 			  i2pd
 			  go-github-com-majestrate-xd
 			  lynx
-			  vsftpd) %base-packages))
+			  vsftpd
+			  rsync) %base-packages))
 
   (services
    (append (list (service static-networking-service-type

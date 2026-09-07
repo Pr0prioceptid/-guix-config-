@@ -18,7 +18,7 @@
                                                            (comment "XD daemon")
                                                            (home-directory "/var/lib/xd")))))
                                            (service-extension shepherd-root-service-type
-                                            (const (list (shepherd-service (provision '(xd-daemon))
+                                            (const (list (shepherd-service (provision '(xd xd-daemon))
                                                                            (requirement '(i2pd))
                                                                            (documentation "Run XD daemon.")
                                                                            (start #~ (make-forkexec-constructor

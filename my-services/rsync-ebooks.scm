@@ -24,7 +24,7 @@
 							   destination)) 
 						(synchro "/var/lib/transmission-daemon/downloads/" 
 							 "/srv/ftp/transmission/") 
-						(synchro "var/lib/xd/storage/downloads" 
+						(synchro "/var/lib/xd/storage/downloads" 
 							 "/srv/ftp/xd")) 
 				       ;;I could leave this on just file-systems, but I don't want the situation of this service trying to function when some service has not created the relevant parent folder.  
 				       #:requirement '(file-systems vsftpd xd transmission-daemon)))))

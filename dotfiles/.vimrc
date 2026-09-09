@@ -15,11 +15,19 @@ set scrolloff=5
 " Do incremental searching 
 set incsearch
 
-filetype plugin indent on
 set number
 set relativenumber
-set autoindent
+
 syntax on
+filetype plugin indent on
+
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set virtualedit=block
 
 set splitbelow
 set splitright

@@ -4,32 +4,32 @@
 #:use-module (gnu services shepherd)
 #:use-module (gnu packages rsync))
 
-(define (synchro source destination)
- #~(#$(file-append rsync "/bin/rsync")
-  "-a"
-  "--delete"
-  "--include=*/"
-  "--include=*.pdf"
-  "--include=*.epub"
-  "--include=*.mobi"
-  "--exclude=*"
-  source
-  destination))
+(define (synchro source destination) 
+  #~(#$(file-append rsync "/bin/rsync") 
+     "-a" 
+     "--delete" 
+     "--include=*/" 
+     "--include=*.pdf" 
+     "--include=*.epub" 
+     "--include=*.mobi" 
+     "--exclude=*" 
+     source 
+     destination))
 
-(define rsync-transmission
- (shepherd-timer '(rsync-transmission) 
-  "0 7 * * *"
-  (synchro "/var/lib/transmission-daemon/downloads" 
-   "/srv/ftp/transmission/")
-  ;;Not sure whether to make transmission a requirement, but this probably prevents unforeseen behaviour"
-  #:requirement '(file-systems vsftpd transmission-daemon)))
+(define rsync-transmission 
+  (shepherd-timer '(rsync-transmission) 
+		  "0 7 * * *" 
+		  (synchro "/var/lib/transmission-daemon/downloads" 
+			   "/srv/ftp/transmission/") 
+		  ;;Not sure whether to make transmission a requirement, but this probably prevents unforeseen behaviour" 
+		  #:requirement '(file-systems vsftpd transmission-daemon)))
 
-(define rsync-xd
- (shepherd-timer '(rsync-xd) 
-  "0 7 * * *"
-  (synchro "/var/lib/xd/storage/downloads" 
-   "/srv/ftp/xd/")
-  #:requirement '(file-systems vsftpd xd)))
+(define rsync-xd 
+  (shepherd-timer '(rsync-xd) 
+		  "0 7 * * *" 
+		  (synchro "/var/lib/xd/storage/downloads" 
+			   "/srv/ftp/xd/") 
+		  #:requirement '(file-systems vsftpd xd)))
 
 (define-public rsync-ebooks-services
 	       (simple-service 'rsync-ebooks 
@@ -42,23 +42,22 @@
 	       (simple-service
 		 'rsync-ebooks
 		 shepherd-root-service-type
- (shepherd-timer '(rsync-ebooks) 
-  "0 7 * * *"
-  #~(begin
-   (define (synchro-sep source destination)
-    (system* #$(file-append rsync "/bin/rsync")
-     "-a"
-     "--delete"
-     "--include=*/"
-     "--include=*.pdf"
-     "--include=*.epub"
-     "--include=*.mobi"
-     "--exclude=*"
-     source
-     destination))
-   (synchro-sep "/var/lib/transmission-daemon/downloads/"
-    "/srv/ftp/transmission/")
-   (synchro-sep "var/lib/xd/storage/downloads" 
-    "/srv/ftp/xd")
-   ;;I could leave this on just file-systems, but I don't want the situation of this service trying to function when some service has not created the relevant parent folder.
-  #:requirement '(file-systems vsftpd xd transmission-daemon)))))
+		 (shepherd-timer '(rsync-ebooks) 
+				 "0 7 * * *" 
+				 #~(begin (define (synchro source destination) 
+					    (system* #$(file-append rsync "/bin/rsync") 
+						     "-a" 
+						     "--delete" 
+						     "--include=*/" 
+						     "--include=*.pdf" 
+						     "--include=*.epub" 
+						     "--include=*.mobi" 
+						     "--exclude=*" 
+						     source 
+						     destination)) 
+					  (synchro-sep "/var/lib/transmission-daemon/downloads/" 
+						       "/srv/ftp/transmission/") 
+					  (synchro-sep "var/lib/xd/storage/downloads" 
+						       "/srv/ftp/xd") 
+					  ;;I could leave this on just file-systems, but I don't want the situation of this service trying to function when some service has not created the relevant parent folder.  
+					  #:requirement '(file-systems vsftpd xd transmission-daemon)))))

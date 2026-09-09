@@ -7,7 +7,8 @@
 	     (my-services i2pd)
 	     (my-packages xd)
 	     (my-services xd)
-	     (my-services vsftpd))
+	     (my-services vsftpd)
+	     (my-services rsync-ebooks))
 
 (use-service-modules networking 
 		     ssh 
@@ -98,4 +99,5 @@
 		 my-miniflux-service
 		 my-i2pd-service
 		 my-xd-service
-		 my-vsftpd-service) %base-services)))
+		 my-vsftpd-service
+		 my-rsync-ebooks-timer) %base-services)))

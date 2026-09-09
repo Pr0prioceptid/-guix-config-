@@ -16,7 +16,7 @@
   source
   destination))
 
-(define-public rsync-transmission
+(define rsync-transmission
  (shepherd-timer '(rsync-transmission) 
   "0 7 * * *"
   (synchro "/var/lib/transmission-daemon/downloads" 
@@ -24,15 +24,24 @@
   ;;Not sure whether to make transmission a requirement, but this probably prevents unforeseen behaviour"
   #:requirement '(file-systems vsftpd transmission-daemon)))
 
-(define-public rsync-xd
+(define rsync-xd
  (shepherd-timer '(rsync-xd) 
   "0 7 * * *"
   (synchro "/var/lib/xd/storage/downloads" 
    "/srv/ftp/xd/")
   #:requirement '(file-systems vsftpd xd)))
 
+(define-public rsync-ebooks-services
+	       (simple-service 'rsync-ebooks 
+			       shepherd-root-service-type
+			       (list rsync-transmission
+				     rsync-xd)))
+
 ;;Below is the alternative arrangement, where one service manages multiple rsync commands
-(define-public rsync-ebooks
+(define-public rsync-ebooks-service
+	       (simple-service
+		 'rsync-ebooks
+		 shepherd-root-service-type
  (shepherd-timer '(rsync-ebooks) 
   "0 7 * * *"
   #~(begin
@@ -52,4 +61,4 @@
    (synchro-sep "var/lib/xd/storage/downloads" 
     "/srv/ftp/xd")
    ;;I could leave this on just file-systems, but I don't want the situation of this service trying to function when some service has not created the relevant parent folder.
-  #:requirement '(file-systems vsftpd xd transmission-daemon)))
+  #:requirement '(file-systems vsftpd xd transmission-daemon)))))

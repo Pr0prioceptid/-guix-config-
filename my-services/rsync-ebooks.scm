@@ -22,7 +22,7 @@
 			destination)) 
 	     (synchro "/var/lib/transmission-daemon/downloads/" 
 		      "/srv/ftp/transmission/") 
-	     (synchro "/var/lib/xd/storage/downloads" 
+	     (synchro "/var/lib/xd/storage/seeding" 
 		      "/srv/ftp/xd")))) 
 
 (define-public my-rsync-ebooks-timer

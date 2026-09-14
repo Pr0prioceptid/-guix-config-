@@ -8,12 +8,13 @@
              (my-packages xd)
              (my-services xd)
              (my-services vsftpd)
-             (my-services rsync-ebooks))
+             (my-services rsync-ebooks)
+             (my-services rss-bridge))
 
 (use-service-modules networking 
-		     ssh 
-		     desktop
-		     databases)
+                     ssh 
+                     desktop
+                     databases)
 
 (use-package-modules vim
                      screen
@@ -69,7 +70,10 @@
                           fscrypt
                           cifs-utils
                           syncthing
-                          ;;careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
+                          ;; careful, we need transmission locked on v4.1.3 for
+                          ;; myanonamouse, so use an inferior or a modified
+                          ;; package definition before using guix pull to
+                          ;; upgrade
                           transmission
                           postgresql
                           miniflux
@@ -79,7 +83,10 @@
                           vsftpd
                           rsync
                           rss-bridge
-                          ;; rss-bridge needs nginx & php-fpm to function, might be a future task to reverse-proxy all the web-pages hosted on various ports to subdirectories on http with nginx to.
+                          ;; rss-bridge needs nginx & php-fpm to function,
+                          ;; might be a future task to reverse-proxy all the
+                          ;; web-pages hosted on various ports to
+                          ;; subdirectories on http with nginx to.
                           nginx
                           php) %base-packages))
 
@@ -100,8 +107,7 @@
                  (service elogind-service-type) 
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
                  my-syncthing-service
-                 ;;php-fpm is required for rss-bridge
-                 ;;(service php-fpm-service-type)
+                 my-rss-bridge-service
                  my-transmission-service
                  my-miniflux-service
                  my-i2pd-service

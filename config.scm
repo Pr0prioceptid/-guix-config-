@@ -9,12 +9,14 @@
              (my-services xd)
              (my-services vsftpd)
              (my-services rsync-ebooks)
+             ;;(my-packages rss-bridge)
              (my-services rss-bridge))
 
 (use-service-modules networking 
                      ssh 
                      desktop
-                     databases)
+                     databases
+                     web)
 
 (use-package-modules vim
                      screen
@@ -82,6 +84,7 @@
                           lynx
                           vsftpd
                           rsync
+                          ;;my-rss-bridge
                           rss-bridge
                           ;; rss-bridge needs nginx & php-fpm to function,
                           ;; might be a future task to reverse-proxy all the
@@ -106,6 +109,11 @@
                                                  (port-number 2222))) 
                  (service elogind-service-type) 
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
+                 (service php-fpm-service-type 
+                          (php-fpm-configuration 
+                            (socket "/run/php/rss-bridge.sock")
+                            (process-manager 
+                              (php-fpm-static-process-manager-configuration (max-children 10)))))
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service

@@ -33,12 +33,6 @@
                                                                                                         ;;I could provide an absolute path here, but the brevity of the relative solution is appealing.
                                                                                                         "include fastcgi.conf;" 
                                                                                                         "fastcgi_read_timeout 45s;" 
-                                                                                                        "fastcgi_pass unix:/run/php/rss-bridge.sock;")))))))))
-                                                        (service-extension php-fpm-service-type
-                                                                           (const (list (php-fpm-configuration 
-                                                                                          (socket "/run/php/rss-bridge.sock") 
-                                                                                          (process-manager 
-                                                                                            (php-fpm-static-process-manager-configuration 
-                                                                                              (max-children 10))))))))) 
+                                                                                                        "fastcgi_pass unix:/run/php/rss-bridge.sock;"))))))))))) 
                                       (default-value #f) 
                                       (description "Run rss-bridge"))))

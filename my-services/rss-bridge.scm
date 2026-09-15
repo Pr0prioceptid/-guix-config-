@@ -3,7 +3,7 @@
   #:use-module (gnu services shepherd)
   #:use-module (gnu system shadow)
   #:use-module (guix gexp)
-  #:use-module (gnu packages web)
+  #:use-module (my-packages rss-bridge)
   #:use-module (gnu services web)
   #:use-module (gnu packages php)
   ;;both guix utils and gnu packages are for version-major & package-version
@@ -23,7 +23,7 @@
                                                                                                       (list 
                                                                                                         #~(string-append 
                                                                                                             "alias " 
-                                                                                                            #$(file-append rss-bridge "/share/rss-bridge/static/") 
+                                                                                                            #$(file-append my-rss-bridge "/share/rss-bridge/static/") 
                                                                                                             ";")))) 
                                                                                                   (nginx-location-configuration 
                                                                                                     (uri "= /") 
@@ -31,7 +31,7 @@
                                                                                                       (list 
                                                                                                         #~(string-append 
                                                                                                             "root " 
-                                                                                                            #$(file-append rss-bridge "/share/rss-bridge") 
+                                                                                                            #$(file-append my-rss-bridge "/share/rss-bridge") 
                                                                                                             ";") 
                                                                                                         ;;relative path for include has a root of /etc/nginx, which contains links to share/nginx/conf/ files under the nginx package in gnu/store.
                                                                                                         ;;I could provide an absolute path here, but the brevity of the relative solution is appealing.

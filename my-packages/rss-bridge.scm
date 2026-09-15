@@ -42,4 +42,3 @@ websites lacking feeds.  Supported websites include Facebook, Twitter,
 Instagram and YouTube.")
     (license (list license:public-domain
                    license:expat))))    ; vendor/simplehtmldom/simple_html_dom.php
-my-rss-bridge

@@ -9,7 +9,7 @@
              (my-services xd)
              (my-services vsftpd)
              (my-services rsync-ebooks)
-             ;;(my-packages rss-bridge)
+             (my-packages rss-bridge)
              (my-services rss-bridge))
 
 (use-service-modules networking 
@@ -84,8 +84,7 @@
                           lynx
                           vsftpd
                           rsync
-                          ;;my-rss-bridge
-                          rss-bridge
+                          my-rss-bridge
                           ;; rss-bridge needs nginx & php-fpm to function,
                           ;; might be a future task to reverse-proxy all the
                           ;; web-pages hosted on various ports to

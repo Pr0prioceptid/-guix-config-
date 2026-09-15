@@ -27,13 +27,14 @@
          ;;Change paths to not use source directory.
          (add-before 'install 'patch-paths
            (lambda _
-             (substitute* "lib/rssbridge.php"
+             (substitute* "lib/RssBridge.php"
                (("PATH_ROOT . 'cache/'")
                 "'/var/cache/rss-bridge/'")
                (("PATH_ROOT . 'whitelist.txt'")
                 "'/etc/rss-bridge/whitelist.txt'")
                (("PATH_ROOT . 'config.ini.php'")
                 "'/etc/rss-bridge/config.ini.php'")))))))
+    ;;(native-inputs (list php))
     (home-page "https://github.com/RSS-Bridge/rss-bridge")
     (synopsis "Generate Atom feeds for social networking websites")
     (description "rss-bridge generates Atom feeds for social networking

@@ -111,7 +111,7 @@
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
                  (service php-fpm-service-type 
                           (php-fpm-configuration 
-                            (socket "/run/php/rss-bridge.sock")
+                            ;;(socket "/run/php/rss-bridge.sock")
                             (process-manager 
                               (php-fpm-static-process-manager-configuration (max-children 10)))))
                  my-syncthing-service

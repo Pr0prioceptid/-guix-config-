@@ -10,7 +10,7 @@
              (my-services vsftpd)
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
-             (my-services rss-bridge))
+             (my-services nginx))
 
 (use-service-modules networking 
                      ssh 
@@ -110,11 +110,10 @@
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
                  (service php-fpm-service-type 
                           (php-fpm-configuration 
-                            ;;(socket "/run/php/rss-bridge.sock")
                             (process-manager 
                               (php-fpm-static-process-manager-configuration (max-children 10)))))
                  my-syncthing-service
-                 my-rss-bridge-service
+                 my-nginx-service
                  my-transmission-service
                  my-miniflux-service
                  my-i2pd-service

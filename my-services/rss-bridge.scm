@@ -17,9 +17,8 @@
                  (list (nginx-server-configuration 
                          (listen '("80")) 
                          (server-name '("rss.bridge")) 
-                         (root #~(string-append 
-                                 #$(file-append my-rss-bridge "/share/rss-bridge") 
-                                 ";"))
+                         (root (file-append my-rss-bridge "/share/rss-bridge"))
+                         (index (list "index.php"))
                          (locations 
                            (list (nginx-location-configuration 
                                    (uri "/static/") 
@@ -31,7 +30,7 @@
                                  (nginx-location-configuration 
                                    (uri "= /")
                                    (body
-                                     (list "try_files $uri /index.php")))
+                                     (list "try_files $uri /index.php;")))
                                  (nginx-location-configuration 
                                    (uri "= /index.php") 
                                    (body 

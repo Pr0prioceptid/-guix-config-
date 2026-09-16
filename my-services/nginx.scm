@@ -43,10 +43,18 @@
                               "        }\n"
                               "\n"
                               "        location = / {\n"
-                              "            root " my-rss-bridge "/share/rss-bridge;\n"
+                              "            root " my-rss-bridge "/share/rss-bridge/;\n"
                               "            include fastcgi.conf;\n"
                               "            fastcgi_read_timeout 45s;\n"
                               "            fastcgi_pass unix:/var/run/php8-fpm.sock;\n"
+                              "        }\n"
+                              "\n"
+                              "        location = /favicon.ico {\n"
+                              "            access_log off;"
+                              "        }\n"
+                              "\n"
+                              "        location = /robots.txt {\n"
+                              "            access_log off;"
                               "        }\n"
                               "    }\n"
                               "}\n"))
@@ -69,7 +77,7 @@
                                        (body 
                                          (list #~(string-append 
                                                    "root " 
-                                                   #$(file-append my-rss-bridge "/share/rss-bridge") 
+                                                   #$(file-append my-rss-bridge "/share/rss-bridge/") 
                                                    ";") 
                                                ;;relative path for include has a root of /etc/nginx. 
                                                ;;/etc/nginx contains links to nginx share/nginx/conf/. 
@@ -79,4 +87,12 @@
                                                #~(string-append 
                                                    "fastcgi_pass unix:/var/run/php" 
                                                    #$(version-major (package-version php)) 
-                                                   "-fpm.sock;"))))))))))))
+                                                   "-fpm.sock;"))))
+                                     (nginx-location-configuration 
+                                       (uri "= /favicon.ico")
+                                       (body
+                                         (list "access_log off;")))
+                                     (nginx-location-configuration 
+                                       (uri "= /robots.txt")
+                                       (body
+                                         (list "access_log off;")))))))))))

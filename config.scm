@@ -33,7 +33,8 @@
                      web-browsers
                      ftp
                      rsync
-                     php)
+                     php
+                     curl)
 
 (operating-system 
   (kernel linux-lts)
@@ -90,7 +91,8 @@
                           ;; web-pages hosted on various ports to
                           ;; subdirectories on http with nginx to.
                           nginx
-                          php) %base-packages))
+                          php
+                          curl) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

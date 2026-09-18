@@ -54,7 +54,7 @@
                                      (string-append bin "/XD-CLI"))))))))
     ;;perl is necessary here for sha256sum package
     (native-inputs (list perl))
-    (propagated-inputs (list go-github-com-pkg-sftp
+    (inputs (list go-github-com-pkg-sftp
                              go-github-com-zeebo-bencode
                              go-golang-org-x-crypto
                              go-github-com-leonelquinteros-gotext))
@@ -64,4 +64,4 @@
     ;;according to code in repo, mit license is actually expat? whatever
     (license license:expat)))
 
-;;go-github-com-majestrate-xd
+go-github-com-majestrate-xd

@@ -64,4 +64,4 @@
     ;;according to code in repo, mit license is actually expat? whatever
     (license license:expat)))
 
-go-github-com-majestrate-xd
+;;go-github-com-majestrate-xd

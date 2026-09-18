@@ -44,7 +44,14 @@
       (lambda _
       (substitute* (find-files "." "\\.go$")
       (("gopkg\\.in/leonelquinteros/gotext\\.v1")
-      "github.com/leonelquinteros/gotext")))))))
+      "github.com/leonelquinteros/gotext"))))
+      ;;below provides xd-cli, which interfaces with the rpc.
+      (add-after 'install 'install-xd-cli
+                 (lambda* (#:key outputs #:allow-other-keys)
+                          (let* ((out (assoc-ref outputs "out"))
+                                 (bin (string-append out "/bin")))
+                            (symlink (string-append bin "/XD")
+                                     (string-append bin "/XD-CLI"))))))))
     ;;perl is necessary here for sha256sum package
     (native-inputs (list perl))
     (propagated-inputs (list go-github-com-pkg-sftp

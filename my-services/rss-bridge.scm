@@ -3,9 +3,9 @@
   #:use-module (gnu services shepherd)
   #:use-module (gnu system shadow)
   #:use-module (guix gexp)
-  #:use-module (my-packages rss-bridge)
   #:use-module (gnu services web)
   #:use-module (gnu packages php)
+  #:use-module (gnu packages web)
   ;;both guix utils and gnu packages are for version-major & package-version
   #:use-module (guix utils)
   #:use-module (guix packages))
@@ -22,7 +22,7 @@
                   (list (nginx-server-configuration 
                           (listen '("80")) 
                           (server-name '("rss.bridge")) 
-                          (root (file-append my-rss-bridge "/share/rss-bridge"))
+                          (root (file-append rss-bridge "/share/rss-bridge"))
                           (index (list "index.php"))
                           (locations 
                             (list (nginx-location-configuration 
@@ -30,7 +30,7 @@
                                     (body 
                                       (list #~(string-append 
                                                 "alias " 
-                                                #$(file-append my-rss-bridge "/share/rss-bridge/static/") 
+                                                #$(file-append rss-bridge "/share/rss-bridge/static/") 
                                                 ";")))) 
                                   (nginx-location-configuration 
                                     (uri "= /")

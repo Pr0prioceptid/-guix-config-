@@ -10,6 +10,17 @@
   #:use-module (guix utils)
   #:use-module (guix packages))
 
+(define 
+  php-handoff
+  (list 
+    ;;relative path for include has a root of /etc/nginx. 
+    ;;/etc/nginx contains links to nginx share/nginx/conf/. 
+    ;;I could provide an absolute path here, but the brevity of the relative solution is appealing.  
+    "include fastcgi.conf;" 
+    "fastcgi_read_timeout 45s;" 
+    ;;php-fpm service in config.scm provides the following socket by default
+    #~(string-append "fastcgi_pass unix:/var/run/php" #$(version-major (package-version php)) "-fpm.sock;")))
+
 (define-public 
   my-rss-bridge-service 
   (service 
@@ -35,20 +46,11 @@
                                   (nginx-location-configuration 
                                     (uri "= /")
                                     (body
-                                      (list "try_files $uri /index.php;")))
+                                      php-handoff))
                                   (nginx-location-configuration 
                                     (uri "= /index.php") 
                                     (body 
-                                      (list ;;relative path for include has a root of /etc/nginx. 
-                                        ;;/etc/nginx contains links to nginx share/nginx/conf/. 
-                                        ;;I could provide an absolute path here, but the brevity of the relative solution is appealing.  
-                                        "include fastcgi.conf;" 
-                                        "fastcgi_read_timeout 45s;" 
-                                        ;;php-fpm service in config.scm provides the following socket by default
-                                        #~(string-append 
-                                            "fastcgi_pass unix:/var/run/php" 
-                                            #$(version-major (package-version php)) 
-                                            "-fpm.sock;"))))
+                                      php-handoff))
                                   (nginx-location-configuration 
                                     (uri "= /favicon.ico")
                                     (body

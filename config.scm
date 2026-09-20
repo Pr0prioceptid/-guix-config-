@@ -91,7 +91,7 @@
                           ;; web-pages hosted on various ports to
                           ;; subdirectories on http with nginx to.
                           nginx
-                          php
+                          php-8.4
                           curl) %base-packages))
 
   (services

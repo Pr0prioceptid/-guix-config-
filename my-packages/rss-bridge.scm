@@ -8,7 +8,7 @@
 (define-public my-rss-bridge
                (package
                  (name "rss-bridge")
-                 (version "2025-08-05")
+                 (version "f4aa9e0")
                  (source
                    (origin
                      (method git-fetch)
@@ -19,7 +19,7 @@
                      (file-name (git-file-name name version))
                      (sha256
                        (base32 
-                         "1gskl935yjr2a06v71pni0w9ncrdk1j0haxasyl5xw70d7xx3jac"))))
+                         "0rldm4ccw44q4jk7i3y7bgn7hybcy2qddkf9byikvbafw2rw355y"))))
                  (build-system copy-build-system)
                  (arguments
                    '(#:install-plan '(("." "share/rss-bridge"))

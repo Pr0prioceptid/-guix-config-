@@ -8,7 +8,7 @@
 (define-public my-rss-bridge
                (package
                  (name "rss-bridge")
-                 (version "2025-08-05")
+                 (version "f4aa9e0")
                  (source
                    (origin
                      (method git-fetch)
@@ -19,7 +19,7 @@
                      (file-name (git-file-name name version))
                      (sha256
                        (base32 
-                         "1gskl935yjr2a06v71pni0w9ncrdk1j0haxasyl5xw70d7xx3jac"))))
+                         "0rldm4ccw44q4jk7i3y7bgn7hybcy2qddkf9byikvbafw2rw355y"))))
                  (build-system copy-build-system)
                  (arguments
                    '(#:install-plan '(("." "share/rss-bridge"))
@@ -30,15 +30,8 @@
                        (add-before 'install 'patch-paths
                                    (lambda _ 
                                      (substitute* 
-                                       "lib/http.php"
-                                       (("curl_setopt\\(\\$ch, CURLOPT_RETURNTRANSFER, true\\);")
-                                        (string-append
-                                          "curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n"
-                                          "curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);\n"
-                                          "curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);")))
-                                     (substitute* 
                                        "lib/bootstrap.php" 
-                                       (("const PATH_CACHE = __DIR__ \\. '/\\.\\./cache/';") 
+                                       (("const PATH_CACHE = __DIR__ . '/../cache/';") 
                                         "const PATH_CACHE = '/var/cache/rss-bridge/';"))
                                      (substitute* 
                                        "lib/RssBridge.php"
@@ -54,4 +47,4 @@
                               Instagram and YouTube.")
                               (license (list license:public-domain
                                              license:expat))))    
-my-rss-bridge
+;;my-rss-bridge

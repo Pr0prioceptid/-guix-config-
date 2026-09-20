@@ -46,6 +46,7 @@
       (("gopkg\\.in/leonelquinteros/gotext\\.v1")
       "github.com/leonelquinteros/gotext"))))
       ;;below provides xd-cli, which interfaces with the rpc.
+      ;;It seems to have some interesting behaviour; leaves behind new trackers.ini in $PWD
       (add-after 'install 'install-xd-cli
                  (lambda* (#:key outputs #:allow-other-keys)
                           (let* ((out (assoc-ref outputs "out"))

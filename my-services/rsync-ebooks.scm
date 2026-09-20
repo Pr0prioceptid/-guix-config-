@@ -12,6 +12,7 @@
 	       ;;consider using 'invoke' rather than 'system*': should be a simple replacement
 	       (system* #$(file-append rsync "/bin/rsync") 
 			"-a" 
+            "-m"
 			"--delete" 
 			"--include=*/" 
 			"--include=*.pdf" 

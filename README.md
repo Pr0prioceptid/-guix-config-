@@ -44,6 +44,9 @@ guix gc
 # Delete old system generations
 guix system delete-generations
 
+# Combination of the two above in one command
+guix gc -d ...
+
 # Delete old home generations
 guix home delete-generations
 

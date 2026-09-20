@@ -90,7 +90,10 @@
                  (service openssh-service-type 
                           (openssh-configuration (openssh openssh-sans-x) 
                                                  (password-authentication? #f)
-                                                 (authorized-keys `(("user" ,(local-file "yk_ssh.pub"))))
+                                                 (authorized-keys `(("user" ,
+                                                                     (plain-file
+                                                                       "yk_ssh"
+                                                                       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIG5jna56bj0YTJNH3dvB9FjUvG+AWXEJ9fQOiPVWcyxuAAAABHNzaDo= archaea sshkey"))))
                                                  (port-number 2222))) 
                  (service elogind-service-type) 
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 

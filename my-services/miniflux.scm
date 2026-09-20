@@ -8,4 +8,6 @@
                           (create-administrator-account? #t)
                           (administrator-account-name "admin")
                           (administrator-account-password "filigreemanifest")
-                          (listen-address "0.0.0.0:8080"))))
+                          (listen-address "0.0.0.0:8080")
+                          (extra-settings
+                            (list "FETCHER_ALLOW_PRIVATE_NETWORKS=1")))))

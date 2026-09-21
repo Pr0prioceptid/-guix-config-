@@ -1,14 +1,22 @@
-(use-modules (gnu)
+(use-modules (gnu) 
              (nongnu packages linux)
              (nongnu system linux-initrd)
              (my-services syncthing)
-             (my-services transmission)
-             (my-services miniflux)
+             (my-services transmission) 
+             (my-services miniflux) 
              (my-services i2pd)
              (my-packages xd)
-             (my-services xd))
+             (my-services xd)
+             (my-services vsftpd)
+             (my-services rsync-ebooks)
+             (my-packages rss-bridge)
+             (my-services rss-bridge))
 
-(use-service-modules networking ssh desktop databases)
+(use-service-modules networking 
+                     ssh 
+                     desktop
+                     databases
+                     web)
 
 (use-package-modules vim
                      screen
@@ -22,9 +30,13 @@
                      web
                      databases
                      i2p
-                     web-browsers)
+                     web-browsers
+                     ftp
+                     rsync
+                     php
+                     curl)
 
-(operating-system
+(operating-system 
   (kernel linux-lts)
   (initrd microcode-initrd)
   (firmware (list linux-firmware))
@@ -43,8 +55,7 @@
                         (mount-point "/")
                         (type "btrfs")) %base-file-systems))
 
-  (swap-devices (list (swap-space
-                        (target (file-system-label "my-swap")))))
+  (swap-devices (list (swap-space (target (file-system-label "my-swap")))))
 
   (users (cons (user-account
                  (name "user")
@@ -52,8 +63,7 @@
                  (group "users")
 
                  (supplementary-groups '("wheel" "audio" "video"
-                                         "transmission" "xd")))
-               %base-user-accounts))
+                                         "transmission" "xd"))) %base-user-accounts))
 
   (packages (append (list vim
                           git
@@ -63,39 +73,65 @@
                           fscrypt
                           cifs-utils
                           syncthing
-                          ;; careful, we need transmission locked on v4.1.3, so use an inferior or a modified package definition before using guix pull to upgrade
+                          ;; careful, we need transmission locked on v4.1.3 for
+                          ;; myanonamouse, so use an inferior or a modified
+                          ;; package definition before using guix pull to
+                          ;; upgrade
                           transmission
                           postgresql
                           miniflux
                           i2pd
                           go-github-com-majestrate-xd
-                          lynx) %base-packages))
+                          lynx
+                          vsftpd
+                          rsync
+                          my-rss-bridge
+                          ;; rss-bridge needs nginx & php-fpm to function,
+                          ;; might be a future task to reverse-proxy all the
+                          ;; web-pages hosted on various ports to
+                          ;; subdirectories on http with nginx to.
+                          nginx
+                          php
+                          curl) %base-packages))
 
   (services
-   (append (list (service static-networking-service-type
-                          (list (static-networking (addresses (list (network-address
-                                                                     (device
-                                                                      "enp2s0")
-                                                                     (value
-                                                                      "192.168.0.121/24"))))
-                                                   (routes (list (network-route
-                                                                  (destination
-                                                                   "default")
-                                                                  (gateway
-                                                                   "192.168.0.1"))))
-                                                   (name-servers '("9.9.9.9"
-                                                                   "192.168.0.1")))))
-                 (service openssh-service-type
-                          (openssh-configuration (openssh openssh-sans-x)
+   (append (list (service static-networking-service-type 
+                          (list (static-networking (addresses (list (network-address 
+                                                                      (device "enp2s0") 
+                                                                      (value "192.168.0.121/24"))))
+                                                   (routes (list (network-route 
+                                                                   (destination "default") 
+                                                                   (gateway "192.168.0.1"))))
+                                                   (name-servers '("9.9.9.9" "192.168.0.1")))))
+                 (service openssh-service-type 
+                          (openssh-configuration (openssh openssh-sans-x) 
                                                  (password-authentication? #f)
-                                                 (authorized-keys `(("user" ,(local-file
-                                                                              "yk_ssh.pub"))))
-                                                 (port-number 2222)))
-                 (service elogind-service-type)
-                 (service postgresql-service-type
-                          (postgresql-configuration (postgresql postgresql)))
+                                                 (authorized-keys `(("user" ,
+                                                                     (plain-file
+                                                                       "yk_ssh"
+                                                                       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIG5jna56bj0YTJNH3dvB9FjUvG+AWXEJ9fQOiPVWcyxuAAAABHNzaDo= archaea sshkey"))))
+                                                 (port-number 2222))) 
+                 (service elogind-service-type) 
+                 (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
+                 (service php-fpm-service-type 
+                          (php-fpm-configuration 
+                            (process-manager 
+                              (php-fpm-static-process-manager-configuration (max-children 10)))
+                            (php-ini-file
+                              (plain-file "rss-bridge-php.ini"
+                                          ;;php-fpm requires certs to rip from websites itself
+                                          ;;I've seen some mentions of using an environment-variables
+                                          ;; field instead of php-ini-file, which would be preferable,
+                                          ;;  but this isn't implemented in my version of guix (yet?).
+                                          (string-append
+                                            "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n"
+                                            "openssl.cafile = /etc/ssl/certs/ca-certificates.crt\n"
+                                            "openssl.capath = /etc/ssl/certs\n")))))
                  my-syncthing-service
+                 my-rss-bridge-service
                  my-transmission-service
                  my-miniflux-service
                  my-i2pd-service
-                 my-xd-service) %base-services)))
+                 my-xd-service
+                 my-vsftpd-service
+                 my-rsync-ebooks-timer) %base-services)))

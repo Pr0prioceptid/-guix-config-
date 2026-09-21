@@ -87,14 +87,6 @@ information about all your tunnels."))
           (comment "I2P daemon user")
           (home-directory "/var/lib/i2pd"))))
 
-(define (i2pd-directory config)
-  #~(begin
-      (use-modules (guix build utils))
-      (mkdir-p "/var/lib/i2pd")
-      (chown "/var/lib/i2pd"
-             (passwd:uid (getpwnam "i2pd"))
-             (group:gid (getgrnam "i2pd")))))
-
 (define (i2pd-run config)
   (list (shepherd-service (provision '(i2pd))
                           (requirement '(networking user-processes))
@@ -118,8 +110,6 @@ information about all your tunnels."))
   (service-type (name 'i2pd)
                 (extensions (list (service-extension account-service-type
                                                      i2pd-account)
-                                  (service-extension activation-service-type
-                                                     i2pd-directory)
                                   (service-extension
                                    shepherd-root-service-type i2pd-run)))
                 (default-value (tunnels-list-configuration))

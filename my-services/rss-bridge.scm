@@ -1,0 +1,76 @@
+(define-module (my-services rss-bridge)
+               #:use-module (gnu services)
+               #:use-module (gnu services shepherd)
+               #:use-module (gnu system shadow)
+               #:use-module (guix gexp)
+               #:use-module (my-packages rss-bridge)
+               #:use-module (gnu services web)
+               #:use-module (gnu packages php)
+               ;;both guix utils and gnu packages are for version-major & package-version
+               #:use-module (guix utils)
+               #:use-module (guix packages))
+
+(define-public 
+  my-rss-bridge-service 
+  (service 
+    (service-type 
+      (name 'my-rss-bridge)
+      (extensions 
+        (list (service-extension 
+                nginx-service-type
+                (const 
+                  (list (nginx-server-configuration 
+                          (listen '("8081")) 
+                          (server-name '("rss-bridge.cthethe.com")) 
+                          (root (file-append my-rss-bridge "/share/rss-bridge"))
+                          (index (list "index.php"))
+                          (locations 
+                            (list (nginx-location-configuration 
+                                    (uri "/static/") 
+                                    (body 
+                                      (list #~(string-append 
+                                                "alias " 
+                                                #$(file-append my-rss-bridge "/share/rss-bridge/static/") 
+                                                ";")))) 
+                                  (nginx-location-configuration 
+                                    (uri "= /")
+                                    (body
+                                      (list
+                                        "rewrite ^ /index.php last;")))
+                                  (nginx-location-configuration 
+                                    (uri "= /index.php") 
+                                    (body 
+                                      (list 
+                                        ;;relative path for include has a root of /etc/nginx. 
+                                        ;;/etc/nginx contains links to nginx share/nginx/conf/. 
+                                        ;;I could provide an absolute path here, but the brevity of the relative solution is appealing.  
+                                        "include fastcgi.conf;" 
+                                        #~(string-append 
+                                            "fastcgi_param SCRIPT_FILENAME " 
+                                            #$(file-append my-rss-bridge "/share/rss-bridge/index.php") 
+                                            ";")
+                                        "fastcgi_read_timeout 45s;" 
+                                        ;;php-fpm service in config.scm provides the following socket by default
+                                        #~(string-append 
+                                            "fastcgi_pass unix:/var/run/php" 
+                                            #$(version-major (package-version php)) 
+                                            "-fpm.sock;"))))
+                                  (nginx-location-configuration 
+                                    (uri "= /favicon.ico")
+                                    (body
+                                      (list "access_log off;")))
+                                  (nginx-location-configuration 
+                                    (uri "= /robots.txt")
+                                    (body
+                                      (list "access_log off;")))))))))
+              (service-extension
+                activation-service-type
+                (const 
+                  #~(begin
+                      (use-modules (guix build utils))
+                      (mkdir-p "/var/cache/rss-bridge")
+                      (chown  "/var/cache/rss-bridge"
+                              (passwd:uid (getpwnam "php-fpm"))
+                              (group:gid (getgrnam "php-fpm"))))))))
+      (default-value #f)
+      (description "Hosts rss-bridge (an atom feed generator) on nginx"))))

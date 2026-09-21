@@ -20,7 +20,7 @@
                 nginx-service-type
                 (const 
                   (list (nginx-server-configuration 
-                          (listen '("80")) 
+                          (listen '("8081")) 
                           (server-name '("rss-bridge.cthethe.com")) 
                           (root (file-append my-rss-bridge "/share/rss-bridge"))
                           (index (list "index.php"))

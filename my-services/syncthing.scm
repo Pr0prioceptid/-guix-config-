@@ -45,4 +45,4 @@
                                           (label "garbage") 
                                           (id "aqpzj-wgrdt") 
                                           (path "~/.GARBAGE") 
-                                          (devices (list pixel6)))))))))))
+                                          (devices (list pixel6 lockdown)))))))))))

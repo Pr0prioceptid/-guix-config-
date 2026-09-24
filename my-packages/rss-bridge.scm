@@ -29,9 +29,19 @@
                        ;;Change paths to not use source directory.
                        (add-before 'install 'patch-paths
                                    (lambda _ 
+                                     ;;Below adds a few options into http.php which turns off
+                                     ;; cert checking for https, which is apparently a 
+                                     ;;  security issue, but I don't think it'd be a big deal.
+                                     (substitute*
+                                       "lib/http.php"
+                                       (("curl_setopt\\(\\$ch, CURLOPT_RETURNTRANSFER, true\\);")
+                                        (string-append
+                                          "curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n"
+                                          "curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);\n"
+                                          "curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);")))
                                      (substitute* 
                                        "lib/bootstrap.php" 
-                                       (("const PATH_CACHE = __DIR__ . '/../cache/';") 
+                                       (("const PATH_CACHE = __DIR__ \\. '/\\.\\./cache/';") 
                                         "const PATH_CACHE = '/var/cache/rss-bridge/';"))
                                      (substitute* 
                                        "lib/RssBridge.php"

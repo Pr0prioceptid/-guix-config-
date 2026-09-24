@@ -115,26 +115,6 @@
                   php-craue-config-bundle
                   php-bdunogier-guzzle-site-authenticator
                   php-babdev-pagerfanta-bundle))
-    (native-inputs (list php-symfony-web-server-bundle
-                         php-symfony-web-profiler-bundle
-                         php-symfony-var-dumper
-                         php-symfony-phpunit-bridge
-                         php-symfony-maker-bundle
-                         php-symfony-debug-bundle
-                         php-symfony-css-selector
-                         php-symfony-browser-kit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-doctrine
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-http-mock-client
-                         php-m6web-redis-mock
-                         php-friendsoftwig-twigcs
-                         php-friendsofphp-php-cs-fixer
-                         php-ergebnis-composer-normalize
-                         php-doctrine-doctrine-fixtures-bundle
-                         php-dama-doctrine-test-bundle))
     (synopsis "")
     (description "open source self hostable read-it-later web application")
     (home-page "https://github.com/wallabag/wallabag")
@@ -157,9 +137,6 @@
     (inputs (list php-willdurand-hateoas php-symfony-framework-bundle
                   php-symfony-expression-language
                   php-symfony-dependency-injection php-jms-serializer-bundle))
-    (native-inputs (list php-twig-twig php-symfony-stopwatch
-                         php-phpunit-phpunit php-doctrine-coding-standard
-                         php-doctrine-annotations))
     (synopsis "")
     (description "Integration of Hateoas into Symfony2.")
     (home-page "")
@@ -181,17 +158,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-expression-language php-jms-serializer
                   php-jms-metadata))
-    (native-inputs (list php-twig-twig
-                         php-symfony-yaml
-                         php-symfony-routing
-                         php-phpspec-prophecy
-                         php-phpspec-prophecy-phpunit
-                         php-phpdocumentor-type-resolver
-                         php-pagerfanta-core
-                         php-doctrine-persistence
-                         php-doctrine-coding-standard
-                         php-doctrine-annotations
-                         php-phpunit-phpunit))
     (synopsis "")
     (description
      "A PHP library to support implementing representations for HATEOAS REST web services")
@@ -256,8 +222,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-ctype php-symfony-polyfill-mbstring
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-cs-fixer-shim php-phpunit-phpunit
-                         php-phpstan-phpstan php-psr-container))
     (synopsis "")
     (description
      "Twig, the flexible, fast, and secure template language for PHP")
@@ -301,14 +265,6 @@
     (build-system composer-build-system)
     (inputs (list php-twig-twig php-symfony-twig-bundle
                   php-symfony-framework-bundle))
-    (native-inputs (list php-twig-string-extra
-                         php-twig-markdown-extra
-                         php-twig-intl-extra
-                         php-twig-inky-extra
-                         php-twig-html-extra
-                         php-twig-cssinliner-extra
-                         php-twig-cache-extra
-                         php-league-commonmark))
     (synopsis "")
     (description "A Symfony bundle for extra Twig extensions")
     (home-page "https://twig.symfony.com")
@@ -329,8 +285,6 @@
         (base32 "1w7dsbq4kbrdm3lqb2j6b0w4f6m459k7hl54n0nm7pws5kcgzqx2"))))
     (build-system composer-build-system)
     (inputs (list php-tecnickcom-tc-lib-pdf))
-    (native-inputs (list php-phpunit-phpunit php-pdepend-pdepend
-                         php-carthage-software-mago))
     (synopsis "")
     (description
      "Deprecated legacy PDF engine for PHP. Use instead tecnickcom/tc-lib-pdf.")
@@ -354,26 +308,6 @@
     (inputs (list php-symfony-translation-contracts
                   php-symfony-polyfill-mbstring php-symfony-polyfill-ctype
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-type-info
-                         php-symfony-translation
-                         php-symfony-string
-                         php-symfony-property-info
-                         php-symfony-property-access
-                         php-symfony-process
-                         php-symfony-mime
-                         php-symfony-intl
-                         php-symfony-http-kernel
-                         php-symfony-http-foundation
-                         php-symfony-http-client
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-symfony-dependency-injection
-                         php-symfony-console
-                         php-symfony-config
-                         php-symfony-clock
-                         php-symfony-cache
-                         php-egulias-email-validator))
     (synopsis "")
     (description "Provides tools to validate values")
     (home-page "https://symfony.com")
@@ -396,17 +330,6 @@
     (inputs (list php-symfony-http-kernel php-symfony-http-foundation
                   php-symfony-twig-bridge php-symfony-dependency-injection
                   php-symfony-config))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-web-link
-                         php-symfony-translation
-                         php-symfony-stopwatch
-                         php-symfony-runtime
-                         php-symfony-routing
-                         php-symfony-framework-bundle
-                         php-symfony-form
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-symfony-asset))
     (synopsis "")
     (description
      "Provides a tight integration of Twig into the Symfony full-stack framework")
@@ -428,7 +351,7 @@
         (base32 "04iayrc9a95j3n173f338vq3rnriyafpmwbg5q1ryjm7khb9yh38"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-ctype php-symfony-deprecation-contracts))
-    (native-inputs (list php-psr-log))
+    
     (synopsis "")
     (description
      "Provides all the tools needed to build any kind of template system")
@@ -456,17 +379,6 @@
                   php-symfony-http-kernel
                   php-symfony-http-foundation
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-web-token-jwt-library
-                         php-symfony-translation
-                         php-symfony-security-csrf
-                         php-symfony-routing
-                         php-symfony-rate-limiter
-                         php-symfony-http-client-contracts
-                         php-symfony-http-client
-                         php-symfony-expression-language
-                         php-symfony-clock
-                         php-symfony-cache
-                         php-psr-log))
     (synopsis "")
     (description "Symfony Security Component - HTTP Integration")
     (home-page "https://symfony.com")
@@ -488,19 +400,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-service-contracts php-symfony-password-hasher
                   php-symfony-event-dispatcher-contracts))
-    (native-inputs (list php-symfony-validator
-                         php-symfony-translation
-                         php-symfony-string
-                         php-symfony-property-access
-                         php-symfony-ldap
-                         php-symfony-http-foundation
-                         php-symfony-expression-language
-                         php-symfony-event-dispatcher
-                         php-symfony-dependency-injection
-                         php-symfony-cache
-                         php-psr-log
-                         php-psr-cache
-                         php-psr-container))
     (synopsis "")
     (description "Symfony Security Component - Core Library")
     (home-page "https://symfony.com")
@@ -531,28 +430,6 @@
                   php-symfony-dependency-injection
                   php-symfony-config
                   php-symfony-clock))
-    (native-inputs (list php-web-token-jwt-library
-                         php-symfony-yaml
-                         php-symfony-validator
-                         php-symfony-twig-bridge
-                         php-symfony-twig-bundle
-                         php-symfony-translation
-                         php-symfony-serializer
-                         php-symfony-runtime
-                         php-symfony-rate-limiter
-                         php-symfony-property-info
-                         php-symfony-process
-                         php-symfony-lock
-                         php-symfony-ldap
-                         php-symfony-http-client
-                         php-symfony-framework-bundle
-                         php-symfony-form
-                         php-symfony-expression-language
-                         php-symfony-dom-crawler
-                         php-symfony-css-selector
-                         php-symfony-console
-                         php-symfony-browser-kit
-                         php-symfony-asset))
     (synopsis "")
     (description
      "Provides a tight integration of the Security component into the Symfony full-stack framework")
@@ -574,12 +451,6 @@
         (base32 "189sfmrp7ib6ylwgxwgj57cgnyajaf66as5q6i7ml5k1mfdln8rs"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-http-foundation
-                         php-symfony-expression-language
-                         php-symfony-dependency-injection
-                         php-symfony-config
-                         php-psr-log))
     (synopsis "")
     (description "Maps an HTTP request to a set of configuration variables")
     (home-page "https://symfony.com")
@@ -602,7 +473,7 @@
     (inputs (list php-symfony-deprecation-contracts
                   php-symfony-dependency-injection
                   php-friendsofphp-proxy-manager-lts))
-    (native-inputs (list php-symfony-config))
+    
     (synopsis "")
     (description
      "Provides integration for ProxyManager with various Symfony components")
@@ -650,8 +521,6 @@
                   php-symfony-dependency-injection
                   php-symfony-config
                   php-monolog-monolog))
-    (native-inputs (list php-symfony-yaml php-symfony-console
-                         php-phpunit-phpunit))
     (synopsis "")
     (description "Symfony MonologBundle")
     (home-page "https://symfony.com")
@@ -672,14 +541,6 @@
         (base32 "082ad5gi7m9mcnsg8wik3yh1pf6r0jx3z4qi8864yxcm6mjvay3a"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-mbstring php-symfony-polyfill-intl-idn))
-    (native-inputs (list php-symfony-serializer
-                         php-symfony-property-info
-                         php-symfony-property-access
-                         php-symfony-process
-                         php-symfony-dependency-injection
-                         php-phpdocumentor-reflection-docblock
-                         php-league-html-to-markdown
-                         php-egulias-email-validator))
     (synopsis "")
     (description "Allows manipulating MIME messages")
     (home-page "https://symfony.com")
@@ -705,8 +566,6 @@
                   php-psr-log
                   php-psr-event-dispatcher
                   php-egulias-email-validator))
-    (native-inputs (list php-symfony-twig-bridge php-symfony-messenger
-                         php-symfony-http-client php-symfony-console))
     (synopsis "")
     (description "Helps sending emails")
     (home-page "https://symfony.com")
@@ -732,30 +591,6 @@
                   php-symfony-error-handler
                   php-symfony-deprecation-contracts
                   php-psr-log))
-    (native-inputs (list php-twig-twig
-                         php-symfony-var-exporter
-                         php-symfony-var-dumper
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-translation-contracts
-                         php-symfony-translation
-                         php-symfony-stopwatch
-                         php-symfony-serializer
-                         php-symfony-routing
-                         php-symfony-rate-limiter
-                         php-symfony-property-access
-                         php-symfony-process
-                         php-symfony-http-client-contracts
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-symfony-dom-crawler
-                         php-symfony-dependency-injection
-                         php-symfony-css-selector
-                         php-symfony-console
-                         php-symfony-config
-                         php-symfony-clock
-                         php-symfony-browser-kit
-                         php-psr-cache))
     (synopsis "")
     (description
      "Provides a structured process for converting a Request into a Response")
@@ -778,15 +613,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-mbstring
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-rate-limiter
-                         php-symfony-mime
-                         php-symfony-http-kernel
-                         php-symfony-expression-language
-                         php-symfony-dependency-injection
-                         php-symfony-clock
-                         php-symfony-cache
-                         php-predis-predis
-                         php-doctrine-dbal))
     (synopsis "")
     (description "Defines an object-oriented layer for the HTTP specification")
     (home-page "https://symfony.com")
@@ -807,7 +633,7 @@
         (base32 "1bh3rqdbcl1wnkjsk4461zsibl42m46ncqpszdbid6s8qpf3zkcg"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-mailer))
-    (native-inputs (list php-symfony-http-client))
+    
     (synopsis "")
     (description "Symfony Google Mailer Bridge")
     (home-page "https://symfony.com")
@@ -842,50 +668,6 @@
                   php-symfony-dependency-injection
                   php-symfony-config
                   php-symfony-cache))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-webhook
-                         php-symfony-web-link
-                         php-symfony-workflow
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-type-info
-                         php-symfony-twig-bundle
-                         php-symfony-translation
-                         php-symfony-string
-                         php-symfony-stopwatch
-                         php-symfony-serializer
-                         php-symfony-semaphore
-                         php-symfony-security-bundle
-                         php-symfony-scheduler
-                         php-symfony-runtime
-                         php-symfony-rate-limiter
-                         php-symfony-property-info
-                         php-symfony-process
-                         php-symfony-polyfill-intl-icu
-                         php-symfony-object-mapper
-                         php-symfony-notifier
-                         php-symfony-mime
-                         php-symfony-messenger
-                         php-symfony-mailer
-                         php-symfony-lock
-                         php-symfony-json-streamer
-                         php-symfony-http-client
-                         php-symfony-html-sanitizer
-                         php-symfony-form
-                         php-symfony-expression-language
-                         php-symfony-dotenv
-                         php-symfony-dom-crawler
-                         php-symfony-css-selector
-                         php-symfony-console
-                         php-symfony-clock
-                         php-symfony-browser-kit
-                         php-symfony-asset-mapper
-                         php-symfony-asset
-                         php-seld-jsonlint
-                         php-phpstan-phpdoc-parser
-                         php-phpdocumentor-reflection-docblock
-                         php-dragonmantank-cron-expression
-                         php-doctrine-persistence))
     (synopsis "")
     (description
      "Provides a tight integration between Symfony components and the Symfony full-stack framework")
@@ -915,22 +697,6 @@
                   php-symfony-options-resolver
                   php-symfony-event-dispatcher
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-var-dumper
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-translation
-                         php-symfony-security-csrf
-                         php-symfony-security-core
-                         php-symfony-intl
-                         php-symfony-http-kernel
-                         php-symfony-http-foundation
-                         php-symfony-html-sanitizer
-                         php-symfony-expression-language
-                         php-symfony-dependency-injection
-                         php-symfony-console
-                         php-symfony-config
-                         php-symfony-clock
-                         php-doctrine-collections))
     (synopsis "")
     (description "Allows to easily create, process and reuse HTML forms")
     (home-page "https://symfony.com")
@@ -950,7 +716,7 @@
        (sha256
         (base32 "19p10mx11sgw7jq2s6kzink85m2b1hm8i9v9ybrprcaavw3w0hh3"))))
     (build-system composer-build-system)
-    (native-inputs (list php-symfony-filesystem))
+    
     (synopsis "")
     (description
      "Finds files and directories via an intuitive fluent interface")
@@ -973,15 +739,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-event-dispatcher-contracts
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-stopwatch
-                         php-symfony-service-contracts
-                         php-symfony-http-foundation
-                         php-symfony-framework-bundle
-                         php-symfony-expression-language
-                         php-symfony-error-handler
-                         php-symfony-dependency-injection
-                         php-symfony-config
-                         php-psr-log))
     (synopsis "")
     (description
      "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them")
@@ -1004,9 +761,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-var-dumper php-symfony-polyfill-php85
                   php-psr-log))
-    (native-inputs (list php-symfony-webpack-encore-bundle
-                         php-symfony-serializer php-symfony-http-kernel
-                         php-symfony-deprecation-contracts php-symfony-console))
     (synopsis "")
     (description "Provides tools to manage errors and ease debugging PHP code")
     (home-page "https://symfony.com")
@@ -1027,7 +781,7 @@
         (base32 "1mabfafzvbw1kkrc60b6ax28s9n0lrzn9vkv7m0ngzf8xjypjnzh"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-mbstring php-symfony-polyfill-ctype))
-    (native-inputs (list php-symfony-css-selector))
+    
     (synopsis "")
     (description "Eases DOM navigation for HTML and XML documents")
     (home-page "https://symfony.com")
@@ -1053,30 +807,6 @@
                   php-symfony-deprecation-contracts
                   php-doctrine-persistence
                   php-doctrine-event-manager))
-    (native-inputs (list php-symfony-var-dumper
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-type-info
-                         php-symfony-translation
-                         php-symfony-stopwatch
-                         php-symfony-security-core
-                         php-symfony-property-info
-                         php-symfony-property-access
-                         php-symfony-messenger
-                         php-symfony-lock
-                         php-symfony-http-kernel
-                         php-symfony-form
-                         php-symfony-expression-language
-                         php-symfony-doctrine-messenger
-                         php-symfony-dependency-injection
-                         php-symfony-console
-                         php-symfony-config
-                         php-symfony-cache
-                         php-psr-log
-                         php-doctrine-orm
-                         php-doctrine-dbal
-                         php-doctrine-data-fixtures
-                         php-doctrine-collections))
     (synopsis "")
     (description
      "Provides integration for Doctrine with various Symfony components")
@@ -1099,8 +829,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-var-exporter php-symfony-service-contracts
                   php-symfony-deprecation-contracts php-psr-container))
-    (native-inputs (list php-symfony-yaml php-symfony-expression-language
-                         php-symfony-config))
     (synopsis "")
     (description
      "Allows you to standardize and centralize the way objects are constructed in your application")
@@ -1122,7 +850,7 @@
         (base32 "0s7da2pr45q2i1fjsx0wn18y28qpr5pra2lw4014iimz741j4i86"))))
     (build-system composer-build-system)
     (inputs (list php-psr-log))
-    (native-inputs (list php-symfony-http-kernel))
+    
     (synopsis "")
     (description "Provides tools to ease debugging PHP code")
     (home-page "https://symfony.com")
@@ -1145,21 +873,6 @@
     (inputs (list php-symfony-string php-symfony-service-contracts
                   php-symfony-polyfill-php85 php-symfony-polyfill-mbstring
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-var-dumper
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-stopwatch
-                         php-symfony-process
-                         php-symfony-mime
-                         php-symfony-messenger
-                         php-symfony-lock
-                         php-symfony-http-kernel
-                         php-symfony-http-foundation
-                         php-symfony-filesystem
-                         php-symfony-event-dispatcher
-                         php-symfony-dependency-injection
-                         php-symfony-config
-                         php-psr-log))
     (synopsis "")
     (description
      "Eases the creation of beautiful and testable command line interfaces")
@@ -1182,9 +895,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-ctype php-symfony-filesystem
                   php-symfony-deprecation-contracts))
-    (native-inputs (list php-symfony-yaml php-symfony-service-contracts
-                         php-symfony-messenger php-symfony-finder
-                         php-symfony-event-dispatcher))
     (synopsis "")
     (description
      "Helps you find, load, combine, autofill and validate configuration values of any kind")
@@ -1205,8 +915,6 @@
        (sha256
         (base32 "131k3lspxrnkqzvfwp9zzbs1dw2zhffn67z542nv9kfxz9g66npl"))))
     (build-system composer-build-system)
-    (native-inputs (list php-symfony-http-kernel php-symfony-http-foundation
-                         php-symfony-http-client))
     (synopsis "")
     (description
      "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files")
@@ -1234,15 +942,6 @@
                   php-symfony-config
                   php-symfony-cache
                   php-gedmo-doctrine-extensions))
-    (native-inputs (list php-symfony-security-core
-                         php-symfony-phpunit-bridge
-                         php-symfony-mime
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan))
     (synopsis "")
     (description "Integration of the gedmo/doctrine-extensions with Symfony")
     (home-page "https://github.com/stof/StofDoctrineExtensionsBundle")
@@ -1274,28 +973,6 @@
                   php-sentry-sentry
                   php-jean85-pretty-package-versions
                   php-guzzlehttp-psr7))
-    (native-inputs (list php-vimeo-psalm
-                         php-symfony-twig-bundle
-                         php-symfony-security-http
-                         php-symfony-security-core
-                         php-symfony-process
-                         php-symfony-phpunit-bridge
-                         php-symfony-monolog-bundle
-                         php-symfony-messenger
-                         php-symfony-http-client
-                         php-symfony-framework-bundle
-                         php-symfony-dom-crawler
-                         php-symfony-cache
-                         php-symfony-browser-kit
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-masterminds-html5
-                         php-friendsofphp-php-cs-fixer
-                         php-doctrine-doctrine-bundle
-                         php-doctrine-dbal))
     (synopsis "")
     (description "Symfony integration for Sentry (http://getsentry.com)")
     (home-page "http://getsentry.com")
@@ -1319,21 +996,6 @@
     (inputs (list php-symfony-http-kernel php-symfony-framework-bundle
                   php-symfony-dependency-injection php-symfony-config
                   php-doctrine-annotations))
-    (native-inputs (list php-twig-twig
-                         php-symfony-yaml
-                         php-symfony-twig-bundle
-                         php-symfony-security-bundle
-                         php-symfony-phpunit-bridge
-                         php-symfony-monolog-bridge
-                         php-symfony-monolog-bundle
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-symfony-dom-crawler
-                         php-symfony-doctrine-bridge
-                         php-symfony-browser-kit
-                         php-doctrine-orm
-                         php-doctrine-doctrine-bundle
-                         php-doctrine-dbal))
     (synopsis "")
     (description
      "This bundle provides a way to configure your controllers with annotations")
@@ -1526,8 +1188,6 @@
         (base32 "155mm8fl60gg41m9az4li7p0w96d6vpn65xa01pc1qrnclrc5kmm"))))
     (build-system composer-build-system)
     (inputs (list php-psr-http-message))
-    (native-inputs (list php-phpunit-phpcov php-phpunit-phpunit
-                         php-phpstan-phpstan php-friendsofphp-php-cs-fixer))
     (synopsis "")
     (description
      "A flexible and feature-complete Redis/Valkey client for PHP.")
@@ -1549,8 +1209,6 @@
         (base32 "1mn7fwlcv3ck3dr75i2gik7m68m8kjn528pbka2a4g4f7xxmr5lg"))))
     (build-system composer-build-system)
     (inputs (list php-pragmarx-random))
-    (native-inputs (list php-tightenco-collect php-squizlabs-php-codesniffer
-                         php-phpunit-phpunit))
     (synopsis "")
     (description "Create recovery codes for two factor auth")
     (home-page "https://github.com/antonioribeiro/recovery")
@@ -1591,12 +1249,6 @@
         (base32 "1jvsx6mrnqvpj2bnzdgshy0mg23r89df2hz9053whls5fsqwb7p7"))))
     (build-system composer-build-system)
     (inputs (list php-psr-http-message php-clue-stream-filter))
-    (native-inputs (list php-laminas-laminas-diactoros
-                         php-slim-slim
-                         php-phpspec-phpspec
-                         php-http-message-factory
-                         php-guzzlehttp-psr7
-                         php-ergebnis-composer-normalize))
     (synopsis "")
     (description "HTTP Message related tools")
     (home-page "http://php-http.org")
@@ -1630,25 +1282,6 @@
                   php-http-discovery
                   php-http-client-implementation
                   php-http-client-common))
-    (native-inputs (list php-twig-twig
-                         php-symfony-web-profiler-bundle
-                         php-symfony-twig-bundle
-                         php-symfony-stopwatch
-                         php-symfony-http-foundation
-                         php-symfony-framework-bundle
-                         php-symfony-dom-crawler
-                         php-symfony-cache
-                         php-symfony-browser-kit
-                         php-phpunit-phpunit
-                         php-http-throttle-plugin
-                         php-http-promise
-                         php-http-mock-client
-                         php-http-cache-plugin
-                         php-nyholm-psr7
-                         php-nyholm-nsa
-                         php-matthiasnoback-symfony-dependency-injection-test
-                         php-matthiasnoback-symfony-config-test
-                         php-guzzlehttp-psr7))
     (synopsis "")
     (description "Symfony integration for HTTPlug")
     (home-page "http://httplug.io")
@@ -1669,8 +1302,6 @@
         (base32 "0jjs4rpq8fxvmgwvsx7xig9cx5phpqz1c27ifwd1v0niirc9lwij"))))
     (build-system composer-build-system)
     (inputs (list php-psr-http-message php-psr-http-client php-http-promise))
-    (native-inputs (list php-phpspec-phpspec
-                         php-friends-of-phpspec-phpspec-code-coverage))
     (synopsis "")
     (description "HTTPlug, the HTTP client abstraction for PHP")
     (home-page "http://httplug.io")
@@ -1691,8 +1322,6 @@
         (base32 "0qz6ghqzfbwkff9rcy0xqd71spq0jpij9a7a6xfblwg8qnvybi9k"))))
     (build-system composer-build-system)
     (inputs (list php-http-discovery php-guzzlehttp-guzzle php-http-httplug))
-    (native-inputs (list php-guzzlehttp-ringphp
-                         php-http-client-integration-tests php-phpunit-phpunit))
     (synopsis "")
     (description "Guzzle 5 HTTP Adapter")
     (home-page "http://httplug.io")
@@ -1712,13 +1341,6 @@
        (sha256
         (base32 "1ig4vpbwzb7a3dayd34bf63p23pbg1bl1zaa6nmx25p4qpg8rnyp"))))
     (build-system composer-build-system)
-    (native-inputs (list php-sebastian-comparator
-                         php-symfony-phpunit-bridge
-                         php-phpspec-phpspec
-                         php-http-message-factory
-                         php-http-httplug
-                         php-graham-campbell-phpspec-skip-example-extension
-                         php-composer-composer))
     (synopsis "")
     (description
      "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations")
@@ -1746,8 +1368,6 @@
                   php-psr-http-client
                   php-http-message
                   php-http-httplug))
-    (native-inputs (list php-phpunit-phpunit php-nyholm-psr7
-                         php-guzzlehttp-psr7 php-doctrine-instantiator))
     (synopsis "")
     (description "Common HTTP Client implementations and tools for HTTPlug")
     (home-page "http://httplug.io")
@@ -1776,8 +1396,6 @@
                   php-symfony-config
                   php-symfony-event-dispatcher
                   php-symfony-dependency-injection))
-    (native-inputs (list php-phpstan-phpstan-phpunit php-phpstan-phpstan
-                         php-phpunit-phpunit php-symfony-serializer))
     (synopsis "")
     (description
      "Integrates php-amqplib with Symfony & RabbitMq. Formerly emag-tech-labs/rabbitmq-bundle, oldsound/rabbitmq-bundle.")
@@ -1799,8 +1417,6 @@
         (base32 "0hnwrsskqbilx70hqn31y8gjzy2m27cdnadrm2i83nkq336wvm6h"))))
     (build-system composer-build-system)
     (inputs (list php-phpseclib-phpseclib))
-    (native-inputs (list php-nategood-httpful php-squizlabs-php-codesniffer
-                         php-phpunit-phpunit))
     (synopsis "")
     (description
      "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.")
@@ -1822,7 +1438,7 @@
         (base32 "02yghp01rskn5ivwgyaykax6ldlmwm03fk005w49w64vlj0pslq0"))))
     (build-system composer-build-system)
     (inputs (list php-twig-twig php-pagerfanta-core))
-    (native-inputs (list php-phpunit-phpunit))
+    
     (synopsis "")
     (description "Twig integration for Pagerfanta")
     (home-page "")
@@ -1843,7 +1459,7 @@
         (base32 "19vh8zr60f5j97h6bjn64hpkwfs32w7f4xa9ps25iacr6vfsw7qs"))))
     (build-system composer-build-system)
     (inputs (list php-pagerfanta-core php-doctrine-orm))
-    (native-inputs (list php-symfony-cache php-phpunit-phpunit))
+    
     (synopsis "")
     (description "Pagerfanta adapter for Doctrine ORM")
     (home-page "")
@@ -1864,13 +1480,6 @@
         (base32 "1bwh3xnys7cszb8s0mql8fyljapwfncm3kk9hh05gckzrcgr99c1"))))
     (build-system composer-build-system)
     (inputs (list php-webimpress-safe-writer php-laminas-laminas-code))
-    (native-inputs (list php-vimeo-psalm
-                         php-squizlabs-php-codesniffer
-                         php-roave-infection-static-analysis-plugin
-                         php-phpunit-phpunit
-                         php-phpbench-phpbench
-                         php-doctrine-coding-standard
-                         php-codelicia-xulieta))
     (synopsis "")
     (description
      "A library providing utilities to generate, instantiate and generally operate with Object Proxies")
@@ -1892,10 +1501,6 @@
         (base32 "07w7rb35j7x3kx5jhclhaqj21hwn4n1vqf7171m0w47cnwkx78j8"))))
     (build-system composer-build-system)
     (inputs (list php-psr-log php-symfony-framework-bundle))
-    (native-inputs (list php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan-phpunit php-phpstan-phpstan
-                         php-phpunit-phpunit))
     (synopsis "")
     (description
      "Adds CORS (Cross-Origin Resource Sharing) headers support in your Symfony application")
@@ -1933,34 +1538,6 @@
                   php-psr-cache
                   php-phpdocumentor-type-resolver
                   php-phpdocumentor-reflection-docblock))
-    (native-inputs (list php-willdurand-negotiation
-                         php-willdurand-hateoas-bundle
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-twig-bundle
-                         php-symfony-translation
-                         php-symfony-serializer
-                         php-symfony-security-http
-                         php-symfony-security-csrf
-                         php-symfony-phpunit-bridge
-                         php-symfony-form
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-symfony-dom-crawler
-                         php-symfony-cache
-                         php-symfony-browser-kit
-                         php-symfony-asset
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-jms-serializer-bundle
-                         php-jms-serializer
-                         php-friendsofsymfony-rest-bundle
-                         php-friendsofphp-php-cs-fixer
-                         php-doctrine-inflector
-                         php-api-platform-core))
     (synopsis "")
     (description "Generates documentation for your REST API from attributes")
     (home-page "")
@@ -1981,9 +1558,6 @@
         (base32 "1rn0nzx8zy91mhb51g03ffwyn25ij97ylhhf44nwh9vk4g707hiy"))))
     (build-system composer-build-system)
     (inputs (list php-twig-twig))
-    (native-inputs (list php-friendsofphp-php-cs-fixer
-                         php-coveralls-php-coveralls
-                         php-symfony-phpunit-bridge))
     (synopsis "")
     (description "This library integrates Matomo into Twig")
     (home-page "")
@@ -2007,7 +1581,7 @@
     (description
      "Composer package that gives you access to and (unlike all the others at this time) autoloads S.C. Chen's PHP Simple HTML DOM Parser Library")
     (home-page "http://simplehtmldom.sourceforge.net/")
-    (license unknown-license!)))
+    (license license:expat)))
 
 (define-public php-lexik-form-filter-bundle
   (package
@@ -2025,9 +1599,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-framework-bundle php-symfony-form
                   php-doctrine-orm))
-    (native-inputs (list php-symfony-var-dumper php-symfony-phpunit-bridge
-                         php-doctrine-mongodb-odm-bundle
-                         php-doctrine-doctrine-bundle))
     (synopsis "")
     (description
      "This bundle aim to provide classes to build some form filters and then build a doctrine query from this form filter.")
@@ -2049,16 +1620,6 @@
         (base32 "1b0l68xaxldk1cn3r8nbykclvzjkpn0cr7f3mk4inpapra0bazqk"))))
     (build-system composer-build-system)
     (inputs (list php-psr-clock))
-    (native-inputs (list php-phpunit-phpunit
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-phpbench-phpbench
-                         php-lcobucci-coding-standard
-                         php-lcobucci-clock
-                         php-infection-infection))
     (synopsis "")
     (description
      "A simple library to work with JSON Web Token and JSON Web Signature")
@@ -2079,12 +1640,6 @@
        (sha256
         (base32 "05gq28w8xl8my20d0gcnhwkh59sxnd42wvpyjj1mvpryfbpmbc1l"))))
     (build-system composer-build-system)
-    (native-inputs (list php-vimeo-psalm
-                         php-psalm-plugin-phpunit
-                         php-phpunit-phpunit
-                         php-laminas-laminas-stdlib
-                         php-laminas-laminas-coding-standard
-                         php-doctrine-annotations))
     (synopsis "")
     (description
      "Extensions to the PHP Reflection API, static code scanning, and code generation")
@@ -2107,10 +1662,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-framework-bundle php-kphoen-rulerz-bridge
                   php-kphoen-rulerz))
-    (native-inputs (list php-liip-rmt
-                         php-matthiasnoback-symfony-dependency-injection-test
-                         php-mikey179-vfsstream php-symfony-phpunit-bridge
-                         php-phpunit-phpunit))
     (synopsis "")
     (description "Symfony2 Bundle for RulerZ")
     (home-page "https://github.com/K-Phoen/RulerZBundle")
@@ -2131,21 +1682,6 @@
         (base32 "0g95s5727vg01lqh4f0zsm49apraf491fp4k7h7s6slbb32l38vz"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-property-access php-hoa-ruler))
-    (native-inputs (list php-liip-rmt
-                         php-kphoen-rusty
-                         php-behat-behat
-                         php-phpspec-phpspec
-                         php-coduo-phpspec-data-provider-extension
-                         php-mikey179-vfsstream
-                         php-solarium-solarium
-                         php-illuminate-database
-                         php-pomm-project-cli
-                         php-pomm-project-model-manager
-                         php-pomm-project-foundation
-                         php-ruflin-elastica
-                         php-elasticsearch-elasticsearch
-                         php-doctrine-orm
-                         php-vlucas-phpdotenv))
     (synopsis "")
     (description "Powerful implementation of the Specification pattern")
     (home-page "https://github.com/K-Phoen/RulerZ")
@@ -2168,19 +1704,6 @@
     (inputs (list php-symfony-framework-bundle
                   php-symfony-dependency-injection php-symfony-config
                   php-jms-metadata php-jms-serializer))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-twig-bundle
-                         php-symfony-templating
-                         php-symfony-stopwatch
-                         php-symfony-form
-                         php-symfony-finder
-                         php-symfony-expression-language
-                         php-phpunit-phpunit
-                         php-doctrine-orm
-                         php-doctrine-coding-standard
-                         php-doctrine-annotations))
     (synopsis "")
     (description
      "Allows you to easily serialize, and deserialize data of any complexity")
@@ -2203,28 +1726,6 @@
     (build-system composer-build-system)
     (inputs (list php-phpstan-phpdoc-parser php-jms-metadata
                   php-doctrine-lexer php-doctrine-instantiator))
-    (native-inputs (list php-twig-twig
-                         php-symfony-yaml
-                         php-symfony-validator
-                         php-symfony-uid
-                         php-symfony-translation
-                         php-symfony-form
-                         php-symfony-filesystem
-                         php-symfony-expression-language
-                         php-symfony-dependency-injection
-                         php-symfony-clock
-                         php-rector-rector
-                         php-psr-container
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan
-                         php-phpbench-phpbench
-                         php-ocramius-proxy-manager
-                         php-jackalope-jackalope-doctrine-dbal
-                         php-doctrine-phpcr-odm
-                         php-doctrine-persistence
-                         php-doctrine-orm
-                         php-doctrine-coding-standard
-                         php-doctrine-annotations))
     (synopsis "")
     (description
      "Library for (de-)serializing data of any complexity; supports XML, and JSON.")
@@ -2246,8 +1747,6 @@
         (base32 "1i021i4wvak0hailx5kz13nf5yy5jsr37kx2jfn6578xvy6ndpr8"))))
     (build-system composer-build-system)
     (inputs (list php-psr-log))
-    (native-inputs (list php-pda-pheanstalk php-aws-aws-sdk-php
-                         php-predis-predis php-phpunit-phpunit))
     (synopsis "")
     (description "Php package to manage queue tasks in a simple way")
     (home-page "http://github.com/javibravo/simpleue")
@@ -2268,12 +1767,6 @@
         (base32 "0si0z4m79mjapqnv1h4dhz7a92dc36956rhbnqwnl0wifrxyk3pr"))))
     (build-system composer-build-system)
     (inputs (list php-masterminds-html5 php-psr-log))
-    (native-inputs (list php-rector-rector
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-symfony-phpunit-bridge
-                         php-monolog-monolog
-                         php-friendsofphp-php-cs-fixer))
     (synopsis "")
     (description "Automatic article extraction from HTML")
     (home-page "")
@@ -2308,15 +1801,6 @@
                   php-j0k3r-graby-site-config
                   php-http-interop-http-factory-guzzle
                   php-fossar-htmlawed))
-    (native-inputs (list php-symfony-phpunit-bridge
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-http-mock-client
-                         php-http-guzzle6-adapter
-                         php-guzzlehttp-guzzle
-                         php-friendsofphp-php-cs-fixer))
     (synopsis "")
     (description "Graby helps you extract article content from web pages")
     (home-page "")
@@ -2337,9 +1821,6 @@
         (base32 "1v09sb5j41fg7wpf0ld6ksk5in1cganc8nz0id65ly2frvijr1fk"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-yaml))
-    (native-inputs (list php-symfony-phpunit-bridge php-symfony-filesystem
-                         php-phpunit-phpunit php-phpspec-prophecy-phpunit
-                         php-composer-composer))
     (synopsis "")
     (description "Composer script handling your ignored parameter file")
     (home-page "https://github.com/Incenteev/ParameterHandler")
@@ -2359,7 +1840,7 @@
        (sha256
         (base32 "0gabz5p0y5zxwwyvka7aw4gfdywxyc81jzqy91skr8h1q7wgr96a"))))
     (build-system composer-build-system)
-    (native-inputs (list php-phpunit-phpunit))
+    
     (synopsis "")
     (description "Converts HTML to formatted plain text")
     (home-page "")
@@ -2381,10 +1862,6 @@
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-php82 php-symfony-polyfill-php80
                   php-psr-http-message php-psr-http-factory))
-    (native-inputs (list php-phpunit-phpunit php-http-psr7-integration-tests
-                         php-jshttp-mime-db
-                         php-http-interop-http-factory-tests
-                         php-bamarni-composer-bin-plugin))
     (synopsis "")
     (description
      "PSR-7 message implementation that also provides common utility methods")
@@ -2411,12 +1888,6 @@
                   php-psr-http-client
                   php-guzzlehttp-psr7
                   php-guzzlehttp-promises))
-    (native-inputs (list php-psr-log
-                         php-phpunit-phpunit
-                         php-http-message-factory
-                         php-guzzlehttp-test-server
-                         php-guzzle-client-integration-tests
-                         php-bamarni-composer-bin-plugin))
     (synopsis "")
     (description "Guzzle is a PHP HTTP client library")
     (home-page "")
@@ -2454,13 +1925,6 @@
                   php-symfony-event-dispatcher
                   php-symfony-dependency-injection
                   php-symfony-config))
-    (native-inputs (list php-symfony-phpunit-bridge
-                         php-symfony-mime
-                         php-symfony-mailer
-                         php-symfony-console
-                         php-phpunit-phpunit
-                         php-friendsofphp-php-cs-fixer
-                         php-doctrine-doctrine-bundle))
     (synopsis "")
     (description "Symfony FOSUserBundle")
     (home-page "http://friendsofsymfony.github.com")
@@ -2491,26 +1955,6 @@
                   php-symfony-deprecation-contracts
                   php-symfony-dependency-injection
                   php-symfony-config))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-web-profiler-bundle
-                         php-symfony-validator
-                         php-symfony-twig-bundle
-                         php-symfony-serializer
-                         php-symfony-security-bundle
-                         php-symfony-phpunit-bridge
-                         php-symfony-mime
-                         php-symfony-form
-                         php-symfony-expression-language
-                         php-symfony-css-selector
-                         php-symfony-browser-kit
-                         php-symfony-asset
-                         php-sensio-framework-extra-bundle
-                         php-psr-log
-                         php-psr-http-message
-                         php-jms-serializer-bundle
-                         php-jms-serializer
-                         php-friendsofphp-php-cs-fixer
-                         php-doctrine-annotations))
     (synopsis "")
     (description
      "This Bundle provides various tools to rapidly develop RESTful API's with Symfony")
@@ -2535,23 +1979,6 @@
     (inputs (list php-symfony-security-bundle php-symfony-framework-bundle
                   php-symfony-dependency-injection
                   php-friendsofsymfony-oauth2-php))
-    (native-inputs (list php-willdurand-propel-typehintable-behavior
-                         php-symfony-yaml
-                         php-symfony-twig-bundle
-                         php-symfony-templating
-                         php-symfony-phpunit-bridge
-                         php-symfony-form
-                         php-symfony-console
-                         php-symfony-class-loader
-                         php-propel-propel1
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-shim
-                         php-phpstan-phpstan-phpunit
-                         php-mock-php-mock-phpunit
-                         php-phing-phing
-                         php-doctrine-orm
-                         php-doctrine-mongodb-odm
-                         php-doctrine-doctrine-bundle))
     (synopsis "")
     (description "Symfony2 OAuth Server Bundle")
     (home-page "http://friendsofsymfony.github.com")
@@ -2574,10 +2001,6 @@
     (inputs (list php-willdurand-jsonp-callback-validator
                   php-symfony-serializer php-symfony-framework-bundle
                   php-symfony-deprecation-contracts php-symfony-console))
-    (native-inputs (list php-symfony-phpunit-bridge
-                         php-symfony-expression-language
-                         php-jakoch-phantomjs-installer
-                         php-neronmoon-scriptsdev))
     (synopsis "")
     (description
      "A pretty nice way to expose your Symfony routing to client applications.")
@@ -2598,7 +2021,7 @@
        (sha256
         (base32 "0pbmxpa8q6m77bfsy0ygwzgmz35gz6lbrmpc0859x3qglh772c92"))))
     (build-system composer-build-system)
-    (native-inputs (list php-phpunit-phpunit))
+    
     (synopsis "")
     (description "An SVG sanitizer for PHP")
     (home-page "")
@@ -2619,7 +2042,7 @@
         (base32 "181w6rwnpd0gd0f7va0mw0x3bivmi6aggpv1sfblkx7fbx0qs6r5"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-intl-idn php-doctrine-lexer))
-    (native-inputs (list php-vimeo-psalm php-phpunit-phpunit))
+    
     (synopsis "")
     (description "A library for validating emails against several RFCs")
     (home-page "https://github.com/egulias/EmailValidator")
@@ -2641,13 +2064,6 @@
     (build-system composer-build-system)
     (inputs (list php-psr-cache php-doctrine-event-manager
                   php-doctrine-deprecations))
-    (native-inputs (list php-symfony-finder
-                         php-symfony-cache
-                         php-phpunit-phpunit
-                         php-doctrine-coding-standard
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan))
     (synopsis "")
     (description
      "The Doctrine Persistence project is a set of shared interfaces and functionality that the different Doctrine object mappers share.")
@@ -2680,14 +2096,6 @@
                   php-doctrine-deprecations
                   php-doctrine-dbal
                   php-doctrine-collections))
-    (native-inputs (list php-symfony-cache
-                         php-psr-log
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-phpbench-phpbench
-                         php-doctrine-coding-standard))
     (synopsis "")
     (description "Object-Relational-Mapper for PHP")
     (home-page "https://www.doctrine-project.org/projects/orm.html")
@@ -2714,20 +2122,6 @@
                   php-doctrine-event-manager
                   php-doctrine-deprecations
                   php-doctrine-dbal))
-    (native-inputs (list php-symfony-yaml
-                         php-symfony-process
-                         php-symfony-cache
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-fig-log-test
-                         php-doctrine-sql-formatter
-                         php-doctrine-persistence
-                         php-doctrine-orm
-                         php-doctrine-coding-standard))
     (synopsis "")
     (description
      "PHP Doctrine Migrations project offer additional functionality on top of the database abstraction layer (DBAL) for versioning your database schema and easily deploying changes to it. It is a very easy to use and a powerful tool.")
@@ -2748,9 +2142,6 @@
        (sha256
         (base32 "1vxalbgw351i8qs5vhd646q94d6q7zcn2jyx85gdhdc8yjv40f8b"))))
     (build-system composer-build-system)
-    (native-inputs (list php-phpunit-phpunit php-phpstan-phpstan
-                         php-phpdocumentor-guides-cli
-                         php-doctrine-coding-standard))
     (synopsis "")
     (description
      "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.")
@@ -2783,16 +2174,6 @@
                   php-doctrine-migrations
                   php-doctrine-doctrine-bundle
                   php-doctrine-dbal))
-    (native-inputs (list php-symfony-var-exporter
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-doctrine-orm
-                         php-doctrine-coding-standard
-                         php-composer-semver))
     (synopsis "")
     (description "Symfony DoctrineMigrationsBundle")
     (home-page "https://www.doctrine-project.org")
@@ -2823,28 +2204,6 @@
                   php-doctrine-persistence
                   php-doctrine-deprecations
                   php-doctrine-dbal))
-    (native-inputs (list php-twig-twig
-                         php-symfony-yaml
-                         php-symfony-web-profiler-bundle
-                         php-symfony-validator
-                         php-symfony-twig-bridge
-                         php-symfony-string
-                         php-symfony-stopwatch
-                         php-symfony-security-bundle
-                         php-symfony-runtime
-                         php-symfony-property-info
-                         php-symfony-messenger
-                         php-symfony-http-kernel
-                         php-symfony-expression-language
-                         php-symfony-doctrine-messenger
-                         php-psr-log
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-doctrine-orm
-                         php-doctrine-coding-standard))
     (synopsis "")
     (description "Symfony DoctrineBundle")
     (home-page "https://www.doctrine-project.org")
@@ -2865,17 +2224,6 @@
         (base32 "07fghg9690i6rim6b1dd0pilwhdhq2q01rdqb66msh2yi52phs94"))))
     (build-system composer-build-system)
     (inputs (list php-psr-log php-psr-cache php-doctrine-deprecations))
-    (native-inputs (list php-symfony-console
-                         php-symfony-cache
-                         php-squizlabs-php-codesniffer
-                         php-slevomat-coding-standard
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-jetbrains-phpstorm-stubs
-                         php-fig-log-test
-                         php-doctrine-coding-standard))
     (synopsis "")
     (description
      "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.")
@@ -2897,14 +2245,6 @@
         (base32 "0mbr8n26nn4n49zqgaxlgbyxr7wdm63mbz87f873vf2cc0dr8g7z"))))
     (build-system composer-build-system)
     (inputs (list php-doctrine-persistence))
-    (native-inputs (list php-vimeo-psalm
-                         php-symfony-phpunit-bridge
-                         php-squizlabs-php-codesniffer
-                         php-doctrine-coding-standard
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-doctrine-collections))
     (synopsis "")
     (description
      "PHP Doctrine Common project is a library that provides additional functionality that other Doctrine projects depend on such as better reflection support, proxies and much more.")
@@ -2926,8 +2266,6 @@
         (base32 "01s14rayx7c1zqzj45dkikhrfmri0q83qb3p146y1swca1wa3j9i"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-php86 php-doctrine-deprecations))
-    (native-inputs (list php-phpunit-phpunit php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan php-doctrine-coding-standard))
     (synopsis "")
     (description
      "PHP Doctrine Collections library that adds additional functionality on top of PHP arrays.")
@@ -2949,7 +2287,7 @@
         (base32 "19bwfcasjc9ilqm8rc1ms5dm13h3xzzzcc7fbg5lh3hg8pxiky1a"))))
     (build-system composer-build-system)
     (inputs (list php-paragonie-random-compat))
-    (native-inputs (list php-phpunit-phpunit php-yoast-phpunit-polyfills))
+    
     (synopsis "")
     (description "Secure PHP Encryption Library")
     (home-page "")
@@ -2980,21 +2318,6 @@
                   php-symfony-cache
                   php-psr-cache
                   php-doctrine-doctrine-bundle))
-    (native-inputs (list php-symfony-web-profiler-bundle
-                         php-symfony-twig-bundle
-                         php-symfony-property-info
-                         php-symfony-phpunit-bridge
-                         php-symfony-browser-kit
-                         php-symfony-asset
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-deprecation-rules
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-doctrine-orm
-                         php-craue-translations-tests
-                         php-composer-semver))
     (synopsis "")
     (description
      "Database-stored settings made available via a service for your Symfony project.")
@@ -3021,9 +2344,6 @@
                   php-symfony-config
                   php-psr-log
                   php-guzzlehttp-guzzle))
-    (native-inputs (list php-symfony-phpunit-bridge
-                         php-nyholm-symfony-bundle-test php-monolog-monolog
-                         php-friendsofphp-php-cs-fixer))
     (synopsis "")
     (description
      "A guzzle plugin that adds, if necessary, authentication data to requests. Uses credentials and cookies, with login requests to the sites.")
@@ -3052,76 +2372,388 @@
                   php-symfony-config
                   php-psr-container
                   php-pagerfanta-core))
-    (native-inputs (list php-twig-twig
-                         php-symfony-translation
-                         php-symfony-twig-bundle
-                         php-symfony-twig-bridge
-                         php-symfony-serializer
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-symfony
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan
-                         php-phpstan-extension-installer
-                         php-pagerfanta-twig
-                         php-matthiasnoback-symfony-dependency-injection-test
-                         php-jms-serializer-bundle
-                         php-jms-serializer))
     (synopsis "")
     (description "Bundle integrating Pagerfanta with Symfony")
     (home-page "")
     (license license:expat)))
 
-(define-public php-symfony-web-server-bundle
+(define-public php-symfony-expression-language
   (package
-    (name "php-symfony-web-server-bundle")
-    (version "4.4.44")
+    (name "php-symfony-expression-language")
+    (version "8.1.6")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/web-server-bundle.git")
+             (url "https://github.com/symfony/expression-language.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "0r16dc65z05grhkvk7aj1rj5dsj57xm2kl2sig8ahs98fn1yc8kh"))))
+        (base32 "1cq1nkg39fmjjn24vz2f5n3zkhycb03ijf98aqw0a4dd9q1iab8w"))))
     (build-system composer-build-system)
-    (inputs (list php-symfony-process
-                  php-symfony-polyfill-php80
-                  php-symfony-polyfill-ctype
-                  php-symfony-http-kernel
-                  php-symfony-dependency-injection
-                  php-symfony-console
-                  php-symfony-config))
+    (inputs (list php-symfony-service-contracts php-symfony-cache))
     (synopsis "")
     (description
-     "Provides commands for running applications using the PHP built-in web server")
+     "Provides an engine that can compile and evaluate expressions")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-web-profiler-bundle
+(define-public php-jms-metadata
   (package
-    (name "php-symfony-web-profiler-bundle")
+    (name "php-jms-metadata")
+    (version "2.9.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/schmittjoh/metadata.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0izj0x0f5iaz2p83mj8qz7nwia4ipb9r1whldckfc36p6816dc74"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Class/method/property metadata management in PHP")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-symfony-service-contracts
+  (package
+    (name "php-symfony-service-contracts")
+    (version "3.7.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/service-contracts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "08j26cqx6hmsfsisx4yagjrs34h6rxy324anrnapq15sxdgqz2bv"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-deprecation-contracts php-psr-container))
+    (synopsis "")
+    (description "Generic abstractions related to writing services")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-cache
+  (package
+    (name "php-symfony-cache")
     (version "8.1.7")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/web-profiler-bundle.git")
+             (url "https://github.com/symfony/cache.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "153338pi1vyx41r30anmfxw1y94qrs0m3kz0hmj3pb4bcqjlmxg0"))))
+        (base32 "1vgin041dd775grqw73qqb3c7y6mc2px239w7kaf7rh537hhqf8w"))))
     (build-system composer-build-system)
-    (inputs (list php-symfony-twig-bundle php-symfony-routing
-                  php-symfony-http-kernel php-symfony-framework-bundle
-                  php-symfony-config))
-    (native-inputs (list php-symfony-stopwatch php-symfony-runtime
-                         php-symfony-css-selector php-symfony-console
-                         php-symfony-browser-kit))
+    (inputs (list php-symfony-var-exporter php-symfony-service-contracts
+                  php-symfony-cache-contracts php-psr-log php-psr-cache))
+    (synopsis "")
+    (description "Provides extended PSR-6, PSR-16 (and tags) implementations")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-deprecation-contracts
+  (package
+    (name "php-symfony-deprecation-contracts")
+    (version "3.7.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/deprecation-contracts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "15w8jpagzkg5fhz7lryr8g4bpamiha5b4rwn6zmsp3f5kxgi5jhc"))))
+    (build-system composer-build-system)
     (synopsis "")
     (description
-     "Provides a development tool that gives detailed information about the execution of any request")
+     "A generic function and convention to trigger deprecation notices")
     (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-container
+  (package
+    (name "php-psr-container")
+    (version "2.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/container.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "02438i87fa344xm6iv2wsk5pmyjkacdiaa085a4zggw1ivwch8dc"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Common Container Interface (PHP FIG PSR-11)")
+    (home-page "https://github.com/php-fig/container")
+    (license license:expat)))
+
+(define-public php-symfony-var-exporter
+  (package
+    (name "php-symfony-var-exporter")
+    (version "8.1.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/var-exporter.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1gykdbdyjz56h8qsixw7xa8lbrxi1jnwg23cfv5vj95caakyfm0c"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-deepclone
+                  php-symfony-deprecation-contracts))
+    (synopsis "")
+    (description
+     "Provides tools to export, instantiate, hydrate, clone and lazy-load PHP objects")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-cache-contracts
+  (package
+    (name "php-symfony-cache-contracts")
+    (version "3.7.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/cache-contracts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0bkbvcrfi0430z7wz789la6yma82a63k58p5ckb5nkak34vqd6v5"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-cache))
+    (synopsis "")
+    (description "Generic abstractions related to caching")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-cache
+  (package
+    (name "php-psr-cache")
+    (version "3.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/cache.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "17z58lcndi97s2lxivv9pcr9yqvrzvrhinwvr2xh4g310wc6pcal"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Common interface for caching libraries")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-deepclone
+  (package
+    (name "php-symfony-polyfill-deepclone")
+    (version "1.42.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-deepclone.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0pyla8vi5rd57m1m76y8m22ymfgy2lr997p64qzyw2f1jfpp2cdl"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Symfony polyfill for the deepclone extension")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-phpstan-phpdoc-parser
+  (package
+    (name "php-phpstan-phpdoc-parser")
+    (version "2.3.5")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/phpstan/phpdoc-parser.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "058nij0795n2byf0g8wa1qnk427cfl070x7a8lb75nmmlf7b6p8z"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHPDoc parser with support for nullable, intersection and generic types")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-doctrine-lexer
+  (package
+    (name "php-doctrine-lexer")
+    (version "3.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/doctrine/lexer.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0hnvzwz1k07f3pcax4inmsyykjh09gr0w81a8mggk691hdqlvl1h"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.")
+    (home-page "https://www.doctrine-project.org/projects/lexer.html")
+    (license license:expat)))
+
+(define-public php-doctrine-instantiator
+  (package
+    (name "php-doctrine-instantiator")
+    (version "2.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/doctrine/instantiator.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0mznpgilqd7nlkd01ii6fp8s3qncq6anncji3k1qksbl5580nnz2"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "A small, lightweight utility to instantiate objects in PHP without invoking their constructors")
+    (home-page "https://www.doctrine-project.org/projects/instantiator.html")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-php85
+  (package
+    (name "php-symfony-polyfill-php85")
+    (version "1.41.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-php85.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "015mlkxmvamzzx5yjflxggz6nxiggm4hgarr1mf4swrbg1575am3"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-mbstring
+  (package
+    (name "php-symfony-polyfill-mbstring")
+    (version "1.38.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-mbstring.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "19bkjhnysqi1a72xay9dlaczafwnr4dxlixk033j7rlnqm4a3xr6"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Symfony polyfill for the Mbstring extension")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-filesystem
+  (package
+    (name "php-symfony-filesystem")
+    (version "8.1.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/filesystem.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1yiw6crrp5agsdfg4xa0rdlh31m0sx0f3nn4s30dk78ixxihg8dw"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-mbstring php-symfony-polyfill-ctype
+                  php-symfony-deprecation-contracts))
+    
+    (synopsis "")
+    (description "Provides basic utilities for the filesystem")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-ctype
+  (package
+    (name "php-symfony-polyfill-ctype")
+    (version "1.37.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-ctype.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1xnpbmaclrfw984scs3sqs7mynma9v74b38zbwbb05vrr9c00v9v"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Symfony polyfill for ctype functions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-event-dispatcher-contracts
+  (package
+    (name "php-symfony-event-dispatcher-contracts")
+    (version "3.7.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/event-dispatcher-contracts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0rzzq3vl2pzy2gjn11py19ywh74rmb12dfsqg9q7gmsi45d4w4f1"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-event-dispatcher))
+    (synopsis "")
+    (description "Generic abstractions related to dispatching event")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-event-dispatcher
+  (package
+    (name "php-psr-event-dispatcher")
+    (version "1.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/event-dispatcher.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1rxjscznzihbpgngwci61ji8qy5c623qmpy9zpqbj0f5vv8l99kp"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Standard interfaces for event handling.")
+    (home-page "")
     (license license:expat)))
 
 (define-public php-symfony-var-dumper
@@ -3139,245 +2771,1187 @@
         (base32 "1bng7b3asayw2qvs3aq2wlxllnc8kqy60b7zq4j2qr8dlig8qkzn"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-mbstring))
-    (native-inputs (list php-twig-twig php-symfony-uid php-symfony-process
-                         php-symfony-http-kernel php-symfony-console))
     (synopsis "")
     (description
      "Provides mechanisms for walking through any arbitrary PHP variable")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-phpunit-bridge
+(define-public php-masterminds-html5
   (package
-    (name "php-symfony-phpunit-bridge")
-    (version "8.1.6")
+    (name "php-masterminds-html5")
+    (version "2.11.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/phpunit-bridge.git")
+             (url "https://github.com/Masterminds/html5-php.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "0l3vav3v38w7klb8v849cjkn6dy4315r52ad5lyglc8bqfa5122l"))))
+        (base32 "139gc8y8fnwq6ki1j85725jrmh1q53qjmn15npvf9s9kqn88mswp"))))
     (build-system composer-build-system)
-    (native-inputs (list php-symfony-error-handler
-                         php-symfony-deprecation-contracts))
+    
+    (synopsis "")
+    (description "An HTML5 parser and serializer.")
+    (home-page "http://masterminds.github.io/html5-php")
+    (license license:expat)))
+
+(define-public php-grandt-relativepath
+  (package
+    (name "php-grandt-relativepath")
+    (version "1.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Grandt/PHPRelativePath.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1486mydx22n4bank3bw1r883mfvnj946wi5ixldz27lg9g7hlmjj"))))
+    (build-system composer-build-system)
     (synopsis "")
     (description
-     "Provides utilities for PHPUnit, especially user deprecation notices management")
+     "A class for cleaning up/collapsing relative paths. Like real_path, but without the need for the path to exist on the filesystem.")
+    (home-page "https://github.com/Grandt/PHPRelativePath")
+    (license license:lgpl2.1)))
+
+(define-public php-grandt-phpresizegif
+  (package
+    (name "php-grandt-phpresizegif")
+    (version "1.0.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Grandt/PHPResizeGif.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1v9kcqsnncn32irx33khqlnhbn1h1nvnnifxvinzvjp4hnwh8c0y"))))
+    (build-system composer-build-system)
+    (inputs (list php-grandt-binstring))
+    (synopsis "")
+    (description
+     "GIF89a compliant Gif resizer, including transparency and optimized gifs with sub sized elements.")
+    (home-page "https://github.com/Grandt/PHPResizeGif")
+    (license license:lgpl2.1)))
+
+(define-public php-phpzip-phpzip
+  (package
+    (name "php-phpzip-phpzip")
+    (version "2.0.8")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Grandt/PHPZip.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "09yn2xx83ca2qbgqi5r3vqg0panv5il8jk88iwzjkf0w79di31b7"))))
+    (build-system composer-build-system)
+    (inputs (list php-grandt-phpzipmerge php-grandt-relativepath
+                  php-grandt-binstring))
+    (synopsis "")
+    (description
+     "Package to create and stream archives of compressed files in ZIP format with PHP 5.3+")
+    (home-page "https://github.com/Grandt/PHPZip")
+    (license license:lgpl2.1)))
+
+(define-public php-grandt-binstring
+  (package
+    (name "php-grandt-binstring")
+    (version "1.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Grandt/PHPBinString.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0a5zkh2n80lwdg4bipinnpv9hyz9f7s9vf6nri84qlx4659y4jgh"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "A class for working around the use of mbstring.func_override")
+    (home-page "https://github.com/Grandt/PHPBinString")
+    (license license:lgpl2.1)))
+
+(define-public php-grandt-phpzipmerge
+  (package
+    (name "php-grandt-phpzipmerge")
+    (version "1.0.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Grandt/PHPZipMerge.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1pyzv82fs8375pas4hjlrmh1ddczlidxbz4xw4ldz9g70i670la7"))))
+    (build-system composer-build-system)
+    (inputs (list php-grandt-relativepath php-grandt-binstring))
+    (synopsis "")
+    (description "Merge and stream multiple Zip files on the fly.")
+    (home-page "https://github.com/Grandt/PHPZipMerge")
+    (license license:lgpl2.1)))
+
+(define-public php-symfony-translation-contracts
+  (package
+    (name "php-symfony-translation-contracts")
+    (version "3.7.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/translation-contracts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1zalpdvkxjnvh3w1knqda3agca7jhqc2a15cjng5x0g4n20rjk64"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Generic abstractions related to translation")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-maker-bundle
+(define-public php-symfony-string
   (package
-    (name "php-symfony-maker-bundle")
-    (version "1.68.0")
+    (name "php-symfony-string")
+    (version "8.1.7")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/maker-bundle.git")
+             (url "https://github.com/symfony/string.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "0wklanxqc8pvcccwb4nrrlwb7fsakgjz8shpcja0s98l7f5bq7sz"))))
+        (base32 "1gy0sc2c0f16jx0d27czjk8vyd2pciyn56xlxhd0xzlqijhcsdsl"))))
     (build-system composer-build-system)
-    (inputs (list php-symfony-process
-                  php-symfony-http-kernel
-                  php-symfony-framework-bundle
-                  php-symfony-finder
-                  php-symfony-filesystem
-                  php-symfony-deprecation-contracts
-                  php-symfony-dependency-injection
-                  php-symfony-console
-                  php-symfony-config
-                  php-nikic-php-parser
-                  php-doctrine-inflector))
-    (native-inputs (list php-twig-twig
-                         php-symfony-yaml
-                         php-symfony-security-http
-                         php-symfony-security-core
-                         php-symfony-phpunit-bridge
-                         php-symfony-http-client
-                         php-symfony-doctrine-bridge
-                         php-doctrine-persistence
-                         php-doctrine-orm
-                         php-doctrine-doctrine-bundle
-                         php-composer-semver))
+    (inputs (list php-symfony-polyfill-mbstring
+                  php-symfony-polyfill-intl-normalizer
+                  php-symfony-polyfill-intl-grapheme
+                  php-symfony-polyfill-ctype))
     (synopsis "")
     (description
-     "Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.")
-    (home-page
-     "https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html")
+     "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way")
+    (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-debug-bundle
+(define-public php-symfony-polyfill-intl-normalizer
   (package
-    (name "php-symfony-debug-bundle")
+    (name "php-symfony-polyfill-intl-normalizer")
+    (version "1.42.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-intl-normalizer.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "12x4x8k80g66bl20n44xkxww76s6ggdpp63pm74fff76p4nv6fd0"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Symfony polyfill for intl's Normalizer class and related functions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-intl-grapheme
+  (package
+    (name "php-symfony-polyfill-intl-grapheme")
+    (version "1.41.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-intl-grapheme.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "11841cq9kcqhrl5i9y9z2ljz3cha66mp9zga2yw9n0xvybxdcwa3"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Symfony polyfill for intl's grapheme_* functions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-twig-bridge
+  (package
+    (name "php-symfony-twig-bridge")
+    (version "8.1.7")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/twig-bridge.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1r70bvp2f3apcjyzgk246b5k4yzq2c7sximqnxhqfmfg2ac1afj0"))))
+    (build-system composer-build-system)
+    (inputs (list php-twig-twig php-symfony-translation-contracts))
+    (synopsis "")
+    (description
+     "Provides integration for Twig with various Symfony components")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-tecnickcom-tc-lib-pdf
+  (package
+    (name "php-tecnickcom-tc-lib-pdf")
+    (version "8.76.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0yrhkn91k496dnfnzpgk2p5sfp9va8ka1ipj3ly514mbrghryzgn"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-parser
+                  php-tecnickcom-tc-lib-pdf-graph
+                  php-tecnickcom-tc-lib-pdf-page
+                  php-tecnickcom-tc-lib-unicode
+                  php-tecnickcom-tc-lib-unicode-data
+                  php-tecnickcom-tc-lib-pdf-sign
+                  php-tecnickcom-tc-lib-pdf-encrypt
+                  php-tecnickcom-tc-lib-file
+                  php-tecnickcom-tc-lib-pdf-font
+                  php-tecnickcom-tc-lib-pdf-image
+                  php-tecnickcom-tc-lib-color
+                  php-tecnickcom-tc-lib-barcode))
+    (synopsis "")
+    (description "PHP PDF Library")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-parser
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-parser")
+    (version "3.16.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-parser.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "04lgsx1xz7vs5vwyhak2s11h809z6lgp531xbpzfcy5d0bkl64pv"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-filter))
+    (synopsis "")
+    (description "PHP library to parse PDF documents")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-graph
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-graph")
+    (version "2.18.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-graph.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0k9kb7rl9kil2qs1b5bykgk52m61s5g5wp77mq3mcxk5aiqp7vf2"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-encrypt
+                  php-tecnickcom-tc-lib-color))
+    (synopsis "")
+    (description "PHP library containing PDF graphic and geometric methods")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-page
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-page")
+    (version "4.16.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-page.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ria8i2yapyc748szm77c1sdfhymkyfg8zlvi09cwx4wfvsqgkji"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-encrypt
+                  php-tecnickcom-tc-lib-color))
+    (synopsis "")
+    (description "PHP library containing PDF page formats and definitions")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-unicode
+  (package
+    (name "php-tecnickcom-tc-lib-unicode")
+    (version "3.0.8")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-unicode.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1x8pb1x1sg22s6yn9da5sj6fz10irvjars2006vid92ihsx6an3f"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-unicode-data))
+    (synopsis "")
+    (description "PHP library to process UTF-8 and Unicode text")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-unicode-data
+  (package
+    (name "php-tecnickcom-tc-lib-unicode-data")
+    (version "3.0.8")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-unicode-data.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1pv391wcpv922yqrmkwlsh4m96mb2g39364k1a7dn70m7fksk6hx"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "PHP library containing Unicode definitions")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-sign
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-sign")
+    (version "2.0.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-sign.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0krqh2hk9pf3jmk8vmzilg233a99zjdd1y4v2fd7bmb5mzim5h13"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHP library to create and embed digital signatures (PKCS#7 / CAdES / PAdES) in PDF documents")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-encrypt
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-encrypt")
+    (version "2.11.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-encrypt.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ndd71v6x78k967y1kqlpk2rvfil3xd88d15b114cr73wjjph7vl"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "PHP library to encrypt and decrypt PDF data")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-file
+  (package
+    (name "php-tecnickcom-tc-lib-file")
+    (version "3.9.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-file.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0rr5jv4ggzk20c4ww5zba58jh4nkf2lw76h88zr3ii29ynik7l4s"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHP library for safe low-level file access: byte-level reads, path allowlisting, file caching and directory lookup")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-font
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-font")
+    (version "4.4.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-font.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1zilw842gphb78qh3bhzw7c8i282wl461hdj0lzyf0xl0lvmhzb8"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-encrypt
+                  php-tecnickcom-tc-lib-unicode-data
+                  php-tecnickcom-tc-lib-file))
+    (synopsis "")
+    (description "PHP library containing PDF font methods and utilities")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-image
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-image")
+    (version "3.14.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-image.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "17r0bsvkkxxidfrqjgqyzr30yw4lcq306pi0azhgi32nhja4ddf3"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-pdf-encrypt php-tecnickcom-tc-lib-file))
+    (synopsis "")
+    (description "PHP library containing PDF Image methods")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-color
+  (package
+    (name "php-tecnickcom-tc-lib-color")
+    (version "3.0.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-color.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0zc4swcmjswn3banqhhx8gj143pr0pvbl1lwdimgcjfqvc6n7szy"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "PHP library to manipulate various color representations")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-barcode
+  (package
+    (name "php-tecnickcom-tc-lib-barcode")
+    (version "2.16.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-barcode.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0lrhaa2lp4f0jgpll99zljf60029yww25n7h8ri264jcl5m3i1yn"))))
+    (build-system composer-build-system)
+    (inputs (list php-tecnickcom-tc-lib-color))
+    (synopsis "")
+    (description
+     "PHP library to generate 73 types of linear, 2D and postal barcodes as SVG, PNG, HTML or GD images")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-tecnickcom-tc-lib-pdf-filter
+  (package
+    (name "php-tecnickcom-tc-lib-pdf-filter")
+    (version "2.11.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tecnickcom/tc-lib-pdf-filter.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1m1inrkmf8lf41fmbdbcw5bbdjnlxa8p245z0isb9ih1vz1rki0x"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHP library to decode PDF compression and encryption filters")
+    (home-page "https://tcpdf.org")
+    (license license:lgpl3+)))
+
+(define-public php-symfony-property-access
+  (package
+    (name "php-symfony-property-access")
+    (version "8.1.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/property-access.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "03nc9yvga5ylzczg2fwjbyv0f2fdxjwn3bh2xv9ki257yrda21ig"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-property-info))
+    
+    (synopsis "")
+    (description
+     "Provides functions to read and write from/to an object or array using a simple string notation")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-password-hasher
+  (package
+    (name "php-symfony-password-hasher")
     (version "8.1.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/debug-bundle.git")
+             (url "https://github.com/symfony/password-hasher.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "0sl8fflrhmg0q1hp3mi5pl5x2ckicg5wsnk5wfnwycapmpgns6s9"))))
+        (base32 "10pi5kzdxk16z5vgq3sn4f01v4yr6vmd76055b5ka8iad5gkywxn"))))
     (build-system composer-build-system)
-    (inputs (list php-symfony-var-dumper php-symfony-twig-bridge
-                  php-symfony-http-kernel php-symfony-dependency-injection
-                  php-symfony-config))
-    (native-inputs (list php-symfony-web-profiler-bundle))
+    
     (synopsis "")
-    (description
-     "Provides a tight integration of the Symfony VarDumper component and the ServerLogCommand from MonologBridge into the Symfony full-stack framework")
+    (description "Provides password hashing utilities")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-css-selector
+(define-public php-symfony-property-info
   (package
-    (name "php-symfony-css-selector")
-    (version "8.1.6")
+    (name "php-symfony-property-info")
+    (version "8.1.7")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/css-selector.git")
+             (url "https://github.com/symfony/property-info.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "12518bimsy7bk5hk65lvzx069xzkxfizdpf7bkh48fsm4ycvjqx6"))))
+        (base32 "1xkmnj5p3p3zsybb70dlj0b0y85pzj201vc0qq6p8qmqmgm35yls"))))
     (build-system composer-build-system)
+    (inputs (list php-symfony-type-info php-symfony-string))
     (synopsis "")
-    (description "Converts CSS selectors to XPath expressions")
+    (description
+     "Extracts information about PHP class' properties using metadata of popular sources")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-symfony-browser-kit
+(define-public php-symfony-type-info
   (package
-    (name "php-symfony-browser-kit")
+    (name "php-symfony-type-info")
     (version "8.1.5")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/symfony/browser-kit.git")
+             (url "https://github.com/symfony/type-info.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1i43x24wi6v5an0k4g41cb9p4ln09y5ydyj45amjbg06j2mhnij4"))))
+        (base32 "114d6kj96i6brnq0bppmz45gnh3zrd3wj9plqv52v5bpapayj6sy"))))
     (build-system composer-build-system)
-    (inputs (list php-symfony-dom-crawler))
-    (native-inputs (list php-symfony-process php-symfony-mime
-                         php-symfony-http-client php-symfony-css-selector))
+    (inputs (list php-psr-container))
+    
     (synopsis "")
-    (description
-     "Simulates the behavior of a web browser, allowing you to make requests, click on links and submit forms programmatically")
+    (description "Extracts PHP types information.")
     (home-page "https://symfony.com")
     (license license:expat)))
 
-(define-public php-phpstan-phpstan-symfony
+(define-public php-symfony-security-csrf
   (package
-    (name "php-phpstan-phpstan-symfony")
-    (version "2.0.20")
+    (name "php-symfony-security-csrf")
+    (version "8.1.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/phpstan/phpstan-symfony.git")
+             (url "https://github.com/symfony/security-csrf.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "01714xk045l0gai82k6xpps45j9pxkc1rk6irivm113cqxly3qgm"))))
+        (base32 "1708wy0lhv0lirvmkm7p69m0xbr4liyk2569d1zji331anby5xr3"))))
     (build-system composer-build-system)
-    (inputs (list php-phpstan-phpstan))
-    (native-inputs (list php-symfony-service-contracts
-                         php-symfony-serializer
-                         php-symfony-polyfill-php80
-                         php-symfony-messenger
-                         php-symfony-http-foundation
-                         php-symfony-framework-bundle
-                         php-symfony-form
-                         php-symfony-dependency-injection
-                         php-symfony-console
-                         php-symfony-config
-                         php-psr-container
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-parallel-lint-php-parallel-lint))
+    (inputs (list php-symfony-security-core php-symfony-deprecation-contracts))
     (synopsis "")
-    (description "Symfony Framework extensions and rules for PHPStan")
+    (description "Symfony Security Component - CSRF Library")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-clock
+  (package
+    (name "php-symfony-clock")
+    (version "8.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/clock.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1l9x8bypgkaf41lr142qm2k9306m24ia08y3r19xb70qja5w031w"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-clock))
+    (synopsis "")
+    (description "Decouples applications from the system clock")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-clock
+  (package
+    (name "php-psr-clock")
+    (version "1.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/clock.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1zry96f0vbbijrbqw9pc01gaj38kbbcw1bpcfg4kwhjsn4m7a5vx"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Common interface for reading the clock.")
+    (home-page "https://github.com/php-fig/clock")
+    (license license:expat)))
+
+(define-public php-friendsofphp-proxy-manager-lts
+  (package
+    (name "php-friendsofphp-proxy-manager-lts")
+    (version "1.0.19")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/FriendsOfPHP/proxy-manager-lts.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0pr7v0lnvz13jwldngni1pvjnfgfd5slb6pvdwjy0sdl9v55rv4n"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-filesystem php-laminas-laminas-code))
+    
+    (synopsis "")
+    (description
+     "Adding support for a wider range of PHP versions to ocramius/proxy-manager")
+    (home-page "https://github.com/FriendsOfPHP/proxy-manager-lts")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-php84
+  (package
+    (name "php-symfony-polyfill-php84")
+    (version "1.38.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-php84.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1a4cq1wqgr4yg4ac3jx20ybsdh52v03g94vk0w86lmhfg10waba2"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Symfony polyfill backporting some PHP 8.4+ features to lower PHP versions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-monolog-bridge
+  (package
+    (name "php-symfony-monolog-bridge")
+    (version "8.1.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/monolog-bridge.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "05zsmmf6pcc51bmv1ifghnr4pm5v4zd7kcqfr1da7qwwzapnbyfz"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-http-kernel php-symfony-service-contracts
+                  php-monolog-monolog))
+    (synopsis "")
+    (description
+     "Provides integration for Monolog with various Symfony components")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-monolog-monolog
+  (package
+    (name "php-monolog-monolog")
+    (version "3.12.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Seldaek/monolog.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0j92xc1as3y5693gx0xwff8g0r0pffpm6lphwjbc9bfggvp4wir6"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-log))
+    (synopsis "")
+    (description
+     "Sends your logs to files, sockets, inboxes, databases and various web services")
+    (home-page "https://github.com/Seldaek/monolog")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-intl-idn
+  (package
+    (name "php-symfony-polyfill-intl-idn")
+    (version "1.42.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-intl-idn.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "16h50z83ca2zwsnv56jljf7gyv2ymb14wqf9k88ypixnykf165sa"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-intl-normalizer))
+    (synopsis "")
+    (description
+     "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-intl-icu
+  (package
+    (name "php-symfony-polyfill-intl-icu")
+    (version "1.38.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-intl-icu.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ypibpjfa8gqgj2qhl663dqvkxzbjhs06kip0kzyim88fr0jcwr1"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Symfony polyfill for intl's ICU-related data and classes")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-doctrine-deprecations
+  (package
+    (name "php-doctrine-deprecations")
+    (version "1.1.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/doctrine/deprecations.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1xrrgcs5irx7wzzv4w0590dxp08yyqyfl6zlb9zfpsvvbpz65r9r"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.")
+    (home-page "https://www.doctrine-project.org/")
+    (license license:expat)))
+
+(define-public php-gedmo-doctrine-extensions
+  (package
+    (name "php-gedmo-doctrine-extensions")
+    (version "3.22.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url
+              "https://github.com/doctrine-extensions/DoctrineExtensions.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1i77qdmyyga4s2d2hdmbnq7rcsk3cl9whb7khq5nic0x4q274w2y"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-string
+                  php-symfony-cache
+                  php-psr-clock
+                  php-psr-cache
+                  php-doctrine-persistence
+                  php-doctrine-event-manager
+                  php-doctrine-deprecations
+                  php-doctrine-collections))
+    (synopsis "")
+    (description "Doctrine behavioral extensions")
+    (home-page "http://gediminasm.org/")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-php86
+  (package
+    (name "php-symfony-polyfill-php86")
+    (version "1.41.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-php86.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "16kr1vv60s4vvr2cabpvzi8zgb96nbpjigq6gqfwvgwg47dj9v2r"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Symfony polyfill backporting some PHP 8.6+ features to lower PHP versions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-yaml
+  (package
+    (name "php-symfony-yaml")
+    (version "8.1.6")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/yaml.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0x26mxqz8vmkw40k3fvln012qq3smnin7lxc41bgak49si1nwvqm"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-ctype))
+    
+    (synopsis "")
+    (description "Loads and dumps YAML files")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-psr-http-message-bridge
+  (package
+    (name "php-symfony-psr-http-message-bridge")
+    (version "8.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/psr-http-message-bridge.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "05xjqb4bx0607kmw3k2gcdyk295x7p0h7qhfrpk82z3zpv6r79m9"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-http-foundation php-psr-http-message))
+    (synopsis "")
+    (description "PSR HTTP message bridge")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-symfony-polyfill-php80
+  (package
+    (name "php-symfony-polyfill-php80")
+    (version "1.37.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/polyfill-php80.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1cmwg2p0r5gnc9s8xf35qd8824f2cmzfcbnfqmw2i16vqqvy0mi6"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-sentry-sentry
+  (package
+    (name "php-sentry-sentry")
+    (version "4.32.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/getsentry/sentry-php.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "06m67mg2902zdl0b03z3mfvibhv2rba72dv9jfxyq5l26hnx0245"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-options-resolver php-psr-log
+                  php-jean85-pretty-package-versions php-guzzlehttp-psr7))
+    (synopsis "")
+    (description "PHP SDK for Sentry (http://sentry.io)")
+    (home-page "http://sentry.io")
+    (license license:expat)))
+
+(define-public php-jean85-pretty-package-versions
+  (package
+    (name "php-jean85-pretty-package-versions")
+    (version "2.1.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Jean85/pretty-package-versions.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ls33x7q47xgff317q9xkbl34h86w4spi8fd4n5asycmw97gg7d6"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "A library to get pretty versions strings of installed dependencies")
     (home-page "")
     (license license:expat)))
 
-(define-public php-phpstan-phpstan-phpunit
+(define-public php-symfony-polyfill-php82
   (package
-    (name "php-phpstan-phpstan-phpunit")
-    (version "2.0.18")
+    (name "php-symfony-polyfill-php82")
+    (version "1.38.1")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/phpstan/phpstan-phpunit.git")
+             (url "https://github.com/symfony/polyfill-php82.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1qw41c32r9hkm29nyfspp1q6k777xx97ayf4minn02qkr36r5zsl"))))
+        (base32 "0k5656lzzyyn8h3l6lrbb021s96al1ddlpjpjg3hkr54xnl3lziy"))))
     (build-system composer-build-system)
-    (inputs (list php-phpstan-phpstan php-phar-io-version))
-    (native-inputs (list php-shipmonk-name-collision-detector
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-deprecation-rules
-                         php-parallel-lint-php-parallel-lint
-                         php-nikic-php-parser))
     (synopsis "")
-    (description "PHPUnit extensions and rules for PHPStan")
+    (description
+     "Symfony polyfill backporting some PHP 8.2+ features to lower PHP versions")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-http-factory
+  (package
+    (name "php-psr-http-factory")
+    (version "1.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/http-factory.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "00vwd2m7q7dzgywk47xsg0rw9pvlfb6vr1pzg6prbbwzb4z1cqvy"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-http-message))
+    (synopsis "")
+    (description "PSR-17: Common interfaces for PSR-7 HTTP message factories")
     (home-page "")
     (license license:expat)))
 
-(define-public php-phpstan-phpstan-doctrine
+(define-public php-doctrine-annotations
   (package
-    (name "php-phpstan-phpstan-doctrine")
-    (version "2.0.28")
+    (name "php-doctrine-annotations")
+    (version "2.0.2")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
-             (url "https://github.com/phpstan/phpstan-doctrine.git")
+             (url "https://github.com/doctrine/annotations.git")
              (commit #f)))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1bpi3kr791qxfzzg2j3pdz4vsy5hji34q65h8sbhbrjda977mnrg"))))
+        (base32 "08gbrm6s473ga7nm57s0032hl04zcha2gxryb30aih74wc6m3800"))))
     (build-system composer-build-system)
-    (inputs (list php-phpstan-phpstan))
-    (native-inputs (list php-symfony-uid
-                         php-symfony-cache
-                         php-shipmonk-name-collision-detector
-                         php-ramsey-uuid
-                         php-phpunit-phpunit
-                         php-phpstan-phpstan-strict-rules
-                         php-phpstan-phpstan-phpunit
-                         php-phpstan-phpstan-deprecation-rules
-                         php-parallel-lint-php-parallel-lint
-                         php-nesbot-carbon
-                         php-gedmo-doctrine-extensions
-                         php-doctrine-persistence
-                         php-doctrine-orm
-                         php-doctrine-mongodb-odm
-                         php-doctrine-lexer
-                         php-doctrine-dbal
-                         php-doctrine-common
-                         php-doctrine-collections
-                         php-doctrine-annotations
-                         php-cweagans-composer-patches
-                         php-composer-semver
-                         php-cache-array-adapter))
+    (inputs (list php-psr-cache php-doctrine-lexer))
     (synopsis "")
-    (description "Doctrine extensions for PHPStan")
+    (description "Docblock Annotations Parser")
+    (home-page "https://www.doctrine-project.org/projects/annotations.html")
+    (license license:expat)))
+
+(define-public php-lcobucci-clock
+  (package
+    (name "php-lcobucci-clock")
+    (version "3.6.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/lcobucci/clock.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "18qrmjwnd3kr87fszvn41nx2k24fvzpdwjy7f01y1bc1j9wcn73s"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-clock))
+    (synopsis "")
+    (description "Yet another clock abstraction")
     (home-page "")
+    (license license:expat)))
+
+(define-public php-endroid-qr-code
+  (package
+    (name "php-endroid-qr-code")
+    (version "6.1.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/endroid/qr-code.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0lw0lann9af7axlislfh5dxk8w5xrcahrmlq7vkykavnn3h47sjz"))))
+    (build-system composer-build-system)
+    (inputs (list php-bacon-bacon-qr-code))
+    (synopsis "")
+    (description "Endroid QR Code")
+    (home-page "https://github.com/endroid/qr-code")
+    (license license:expat)))
+
+(define-public php-bacon-bacon-qr-code
+  (package
+    (name "php-bacon-bacon-qr-code")
+    (version "3.1.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Bacon/BaconQrCode.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1bndf27yagdyjwxzj9iw05ry5p92zkac64ihl0cq6dlz3xaaijgp"))))
+    (build-system composer-build-system)
+    (inputs (list php-dasprid-enum))
+    (synopsis "")
+    (description "BaconQrCode is a QR code generator for PHP.")
+    (home-page "https://github.com/Bacon/BaconQrCode")
+    (license license:bsd-2)))
+
+(define-public php-dasprid-enum
+  (package
+    (name "php-dasprid-enum")
+    (version "1.0.7")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/DASPRiD/Enum.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "03sx5d10iyc3kih1sv5biimvmj4cmwrni81pja4mj8vqnm2g43xy"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "PHP 7.1 enum implementation")
+    (home-page "")
+    (license license:bsd-2)))
+
+(define-public php-spomky-labs-otphp
+  (package
+    (name "php-spomky-labs-otphp")
+    (version "11.5.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Spomky-Labs/otphp.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0mvxsf361fqc5ngn69wrq2g8pis4a0qc5wc481kl7xqmh4fasq0b"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-deprecation-contracts php-psr-clock
+                  php-paragonie-constant-time-encoding))
+    
+    (synopsis "")
+    (description
+     "A PHP library for generating one time passwords according to RFC 4226 (HOTP Algorithm) and the RFC 6238 (TOTP Algorithm) and compatible with Google Authenticator")
+    (home-page "https://github.com/Spomky-Labs/otphp")
+    (license license:expat)))
+
+(define-public php-paragonie-constant-time-encoding
+  (package
+    (name "php-paragonie-constant-time-encoding")
+    (version "3.1.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/paragonie/constant_time_encoding.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0hws824rik7inbvfwafs780mhb85ha3my5yrb93yvihs9jmfya9d"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Constant-time Implementations of RFC 4648 Encoding (Base-64, Base-32, Base-16)")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-pragmarx-random
+  (package
+    (name "php-pragmarx-random")
+    (version "0.2.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/antonioribeiro/random.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1qg50cn3i6v57ww9jnk96xd5sbp8x7fdd3xy198lglqzhp3d6r4p"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Create random chars, numbers, strings")
+    (home-page "https://github.com/antonioribeiro/random")
+    (license license:expat)))
+
+(define-public php-clue-stream-filter
+  (package
+    (name "php-clue-stream-filter")
+    (version "1.7.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/clue/stream-filter.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1qxyvl6w2f47gwdcxyckp8cgg6i45fy5aiz8a229c74nzl8zqfgk"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "A simple and modern approach to stream filtering in PHP")
+    (home-page "https://github.com/clue/stream-filter")
     (license license:expat)))
 

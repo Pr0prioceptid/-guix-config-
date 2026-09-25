@@ -1274,13 +1274,16 @@
                   php-symfony-dependency-injection
                   php-symfony-config
                   php-psr-http-message
-                  php-psr-http-factory-implementation
+                  ;;commented out packages are virtual 
+                  ;; packages, and are provided
+                  ;;  by php-http/discovery
+                  ;;php-psr-http-factory-implementation 
                   php-http-stopwatch-plugin
                   php-http-message
                   php-http-logger-plugin
                   php-http-httplug
                   php-http-discovery
-                  php-http-client-implementation
+                  ;;php-http-client-implementation
                   php-http-client-common))
     (synopsis "")
     (description "Symfony integration for HTTPlug")
@@ -3955,3 +3958,987 @@
     (home-page "https://github.com/clue/stream-filter")
     (license license:expat)))
 
+(define-public php-http-stopwatch-plugin
+  (package
+    (name "php-http-stopwatch-plugin")
+    (version "1.5.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-http/stopwatch-plugin.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1bw6dca4al0xpj5rfcn47hg1ap8jsakdiak37lrxdgz46hsf5h5r"))))
+    (build-system composer-build-system)
+    (inputs (list php-http-client-common php-symfony-stopwatch))
+    
+    (synopsis "")
+    (description "Symfony Stopwatch plugin for HTTPlug")
+    (home-page "http://httplug.io")
+    (license license:expat)))
+
+(define-public php-http-logger-plugin
+  (package
+    (name "php-http-logger-plugin")
+    (version "1.5.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-http/logger-plugin.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "13gp75xjd47z6w84vsd4pc47y98njq0wg66gmlw1i52v90038kn6"))))
+    (build-system composer-build-system)
+    (inputs (list php-http-message php-http-client-common php-psr-log))
+    
+    (synopsis "")
+    (description "PSR-3 Logger plugin for HTTPlug")
+    (home-page "http://httplug.io")
+    (license license:expat)))
+
+(define-public php-http-discovery
+  (package
+    (name "php-http-discovery")
+    (version "1.20.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-http/discovery.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ig4vpbwzb7a3dayd34bf63p23pbg1bl1zaa6nmx25p4qpg8rnyp"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations")
+    (home-page "http://php-http.org")
+    (license license:expat)))
+
+(define-public php-symfony-stopwatch
+  (package
+    (name "php-symfony-stopwatch")
+    (version "8.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/stopwatch.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "11db4qmv2hhpabaggnchkqvqw2grwpdy1khsfdxp9lc0k04d0l0b"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-service-contracts))
+    (synopsis "")
+    (description "Provides a way to profile code")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-psr-http-client
+  (package
+    (name "php-psr-http-client")
+    (version "1.0.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-fig/http-client.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ca0dcl72k2ra137fs7gx9n8n1hsmii3cxpd29cph14m7i7h3lf6"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-http-message))
+    (synopsis "")
+    (description "Common interface for HTTP clients")
+    (home-page "https://github.com/php-fig/http-client")
+    (license license:expat)))
+
+(define-public php-http-promise
+  (package
+    (name "php-http-promise")
+    (version "1.3.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/php-http/promise.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1cf3s0c7hhmmycv5wxi0fwh07zmcjw6lrm4a3q3f8p6dbhafdkh2"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Promise used for asynchronous HTTP requests")
+    (home-page "http://httplug.io")
+    (license license:expat)))
+
+(define-public php-guzzlehttp-promises
+  (package
+    (name "php-guzzlehttp-promises")
+    (version "3.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/guzzle/promises.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0s8cbnnzgcfp2n20wz0jy1x44y356ry2ksmlbxn2s3ry4gy9jj98"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "Guzzle promises library")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-phpseclib-phpseclib
+  (package
+    (name "php-phpseclib-phpseclib")
+    (version "4.0.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/phpseclib/phpseclib.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "10qxl2aijsa9v508m2kzaj1hlvh205w7x6m3zls7a38aqrmlhs7s"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-php82
+                  php-paragonie-constant-time-encoding))
+    (synopsis "")
+    (description
+     "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.")
+    (home-page "https://phpseclib.com/")
+    (license license:expat)))
+
+(define-public php-pagerfanta-core
+  (package
+    (name "php-pagerfanta-core")
+    (version "4.9.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/Pagerfanta/core.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0sd6cyx7745zxd3cb9n4bxjczbq72jg3hyf5r31qdpvpp34vpi6f"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "Core Pagerfanta API")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-doctrine-inflector
+  (package
+    (name "php-doctrine-inflector")
+    (version "2.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/doctrine/inflector.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ndj6ajl2pq97i9syasmbkysrn5h3g90giq3s6073r0llfw2qm9q"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.")
+    (home-page "https://www.doctrine-project.org/projects/inflector.html")
+    (license license:expat)))
+
+(define-public php-webimpress-safe-writer
+  (package
+    (name "php-webimpress-safe-writer")
+    (version "2.2.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/webimpress/safe-writer.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0wfk49dcyv3xijklrrqscjlikvc0j5hclfyjbxsxvycc4na12qgq"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "Tool to write files safely, to avoid race conditions")
+    (home-page "")
+    (license license:bsd-2)))
+
+(define-public php-zircote-swagger-php
+  (package
+    (name "php-zircote-swagger-php")
+    (version "6.10.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/zircote/swagger-php.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0jic4q83p0yc7rjbirl3wqlgbblaqdf8r9dy2n0mv51w3n8firkm"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-yaml
+                  php-symfony-finder
+                  php-symfony-deprecation-contracts
+                  php-symfony-console
+                  php-radebatz-type-info-extras
+                  php-psr-log
+                  php-phpstan-phpdoc-parser
+                  php-nikic-php-parser))
+    (synopsis "")
+    (description
+     "Generate interactive documentation for your RESTful API using PHP attributes (preferred) or PHPDoc annotations")
+    (home-page "https://github.com/zircote/swagger-php")
+    (license license:asl2.0)))
+
+(define-public php-phpdocumentor-type-resolver
+  (package
+    (name "php-phpdocumentor-type-resolver")
+    (version "2.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/phpDocumentor/TypeResolver.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "173x02x9h99jphjvpvsngwzqjkf0rja4jbsdc7wmrcvkr5khvp1c"))))
+    (build-system composer-build-system)
+    (inputs (list php-doctrine-deprecations php-phpstan-phpdoc-parser
+                  php-phpdocumentor-reflection-common))
+    (synopsis "")
+    (description
+     "A PSR-5 based resolver of Class names, Types and Structural Element Names")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-phpdocumentor-reflection-docblock
+  (package
+    (name "php-phpdocumentor-reflection-docblock")
+    (version "6.0.3")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/phpDocumentor/ReflectionDocBlock.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0r7r4y8928171cqvpm1g6a5mjkc54hvc4mc2vhgbi4b0s0m88lzb"))))
+    (build-system composer-build-system)
+    (inputs (list php-doctrine-deprecations php-phpstan-phpdoc-parser
+                  php-phpdocumentor-reflection-common php-webmozart-assert
+                  php-phpdocumentor-type-resolver))
+    (synopsis "")
+    (description
+     "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-radebatz-type-info-extras
+  (package
+    (name "php-radebatz-type-info-extras")
+    (version "1.0.8")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/DerManoMann/type-info-extras.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0vlp4d9myz7mw2m9dwi001kiidfxh64jl37vf2alqc2kh94cqpvs"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-type-info php-phpstan-phpdoc-parser))
+    (synopsis "")
+    (description "Extras for symfony/type-info")
+    (home-page "http://radebatz.net/mano/")
+    (license license:expat)))
+
+(define-public php-nikic-php-parser
+  (package
+    (name "php-nikic-php-parser")
+    (version "5.9.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/nikic/PHP-Parser.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1cih1smfimy2ykbsyrfmy9744mxvw28lszfjf2ryrw1biqz082pl"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "A PHP parser written in PHP")
+    (home-page "")
+    (license license:bsd-3)))
+
+(define-public php-phpdocumentor-reflection-common
+  (package
+    (name "php-phpdocumentor-reflection-common")
+    (version "2.2.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/phpDocumentor/ReflectionCommon.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1q685cpwbfxqy42iz61xxv6zbcc1qskn07nkipflj6c5s935l8jy"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Common reflection classes used by phpdocumentor to reflect the code structure")
+    (home-page "http://www.phpdoc.org")
+    (license license:expat)))
+
+(define-public php-webmozart-assert
+  (package
+    (name "php-webmozart-assert")
+    (version "2.4.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/webmozarts/assert.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1km35vayy4rfb7hd3cy55i4r4h92cpbqf0yxjp2xlbp0psgqj5dy"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description
+     "Assertions to validate method input/output with nice error messages.")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-kphoen-rulerz-bridge
+  (package
+    (name "php-kphoen-rulerz-bridge")
+    (version "1.1.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/K-Phoen/rulerz-bridge.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1v3vk3xcf81ca5kpfb1b58msn1g6ivfhnb4536c86l7jbzcv89cr"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-form php-symfony-validator php-kphoen-rulerz))
+    (synopsis "")
+    (description "Symfony RulerZ Bridge")
+    (home-page "https://github.com/K-Phoen/rulerz-bridge")
+    (license license:expat)))
+
+(define-public php-hoa-ruler
+  (package
+    (name "php-hoa-ruler")
+    (version "2.17.05.16")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Ruler.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0nc7y75djlgd1p3l67yd1jkz2a31553jzyw93mhwhims8mpxs4af"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-visitor
+                  php-hoa-protocol
+                  php-hoa-file
+                  php-hoa-exception
+                  php-hoa-consistency
+                  php-hoa-compiler))
+    
+    (synopsis "")
+    (description "The Hoa\\Ruler library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-visitor
+  (package
+    (name "php-hoa-visitor")
+    (version "2.17.01.16")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Visitor.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "16nf8d1mxga0fgx233nxgxmk22ms04iwvhjgkqzb22abj27254qb"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Visitor library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-protocol
+  (package
+    (name "php-hoa-protocol")
+    (version "1.17.01.14")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Protocol.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0kqzmnqwm9wz9d9x5qsa7r2d548iajkl72rm0ixyl592wxvhrw0b"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-exception php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Protocol library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-file
+  (package
+    (name "php-hoa-file")
+    (version "1.17.07.11")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/File.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0zh51sdbnysz1r7a8cfbvs86188djgczlxv8c8avd40kl6wgac0s"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-iterator php-hoa-stream php-hoa-exception
+                  php-hoa-event php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\File library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-exception
+  (package
+    (name "php-hoa-exception")
+    (version "2.17.08.30")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Exception.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
+    (build-system composer-build-system)
+    (inputs (list 
+              ;;circular dependency
+              ;;php-hoa-event
+              php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Exception library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-consistency
+  (package
+    (name "php-hoa-consistency")
+    (version "2.17.08.29")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Consistency.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0dmnxfgchh0bg5zds4flh0n7a6j79m06k701lk3x5l5x6x3lsmja"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "The Hoa\\Consistency library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-compiler
+  (package
+    (name "php-hoa-compiler")
+    (version "3.17.08.08")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Compiler.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0s7m8cizp806l1yjn2d8pifxq9v966g6ss347f5z3hia5g89frs7"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-visitor
+                  php-hoa-regex
+                  php-hoa-protocol
+                  php-hoa-math
+                  php-hoa-iterator
+                  php-hoa-file
+                  php-hoa-exception
+                  php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Compiler library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-event
+  (package
+    (name "php-hoa-event")
+    (version "2.17.08.30")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Event.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "15wl1vlkja2ip1ln2cxvb847xxkwfkl4phf7gszsbhhn2kc0bi84"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-exception php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Event library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-iterator
+  (package
+    (name "php-hoa-iterator")
+    (version "2.17.01.10")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Iterator.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "03an8xfmrrnfi0fbypavwhm94hgzv1cjb2f5r9b5067mz6g8yin3"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-exception php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Iterator library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-stream
+  (package
+    (name "php-hoa-stream")
+    (version "1.17.02.21")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Stream.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1g419pljx8fqs3354bf6bk1ck3s7wm7ax3mg5lsl7gi862kvi444"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-protocol php-hoa-exception php-hoa-event
+                  php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Stream library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-regex
+  (package
+    (name "php-hoa-regex")
+    (version "1.17.01.13")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Regex.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "00vhqfvchml0w2aw1khhg4vwbfjwzx0iqcpchmc6akw12zx69h1b"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-visitor
+                  php-hoa-ustring
+                  php-hoa-protocol
+                  php-hoa-math
+                  php-hoa-exception
+                  php-hoa-consistency))
+    (synopsis "")
+    (description "The Hoa\\Regex library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-math
+  (package
+    (name "php-hoa-math")
+    (version "1.17.05.16")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Math.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "19kmz07lvqr5dkn7smxamrfcqn74kwfdajs61qczck81b7z403y8"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-zformat
+                  php-hoa-protocol
+                  php-hoa-iterator
+                  php-hoa-exception
+                  php-hoa-consistency
+                  ;;circular dependency
+                  ;;php-hoa-compiler
+                  ))
+    
+    (synopsis "")
+    (description "The Hoa\\Math library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-ustring
+  (package
+    (name "php-hoa-ustring")
+    (version "4.17.01.16")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Ustring.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0z71hmsj1ry3h2n2pz9w04mdhpn5z6fwkk9l2n07r6sxzrmjcpb0"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-exception php-hoa-consistency))
+    
+    (synopsis "")
+    (description "The Hoa\\Ustring library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-hoa-zformat
+  (package
+    (name "php-hoa-zformat")
+    (version "1.17.01.10")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Zformat.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "07wi6wlcx7rxb8n7cl05qj92xmrg6awj21axrxvrz80qbw34xnpb"))))
+    (build-system composer-build-system)
+    (inputs (list php-hoa-exception php-hoa-consistency))
+    (synopsis "")
+    (description "The Hoa\\Zformat library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+(define-public php-smalot-pdfparser
+  (package
+    (name "php-smalot-pdfparser")
+    (version "v2.12.5")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/smalot/pdfparser.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0k9kb7rl9kil2qs1b5bykgk52m61s5g5wp77mq3mcxk5aiqp7vf2"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-mbstring))
+    (synopsis "")
+    (description "Pdf parser library. Can read and extract information from pdf file.")
+    (home-page "https://www.pdfparser.org")
+    (license license:lgpl3+)))
+
+(define-public php-simplepie-simplepie
+  (package
+    (name "php-simplepie-simplepie")
+    (version "1.9.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/simplepie/simplepie.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "05hrh8dymdijnvrx50947cijfsvnxzfp3lh46x6z4hd196j10r7x"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "A simple Atom/RSS parsing library for PHP")
+    (home-page "http://simplepie.org/")
+    (license license:bsd-3)))
+
+(define-public php-j0k3r-httplug-ssrf-plugin
+  (package
+    (name "php-j0k3r-httplug-ssrf-plugin")
+    (version "3.0.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/j0k3r/httplug-ssrf-plugin.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "00b0153ph4g6a9ng6g2rrc7z3ql81hl161h5bkzfbw66qq50x9wc"))))
+    (build-system composer-build-system)
+    (inputs (list php-psr-http-message php-psr-http-factory php-http-message
+                  php-http-discovery php-http-client-common))
+    (synopsis "")
+    (description
+     "Server-Side Request Forgery (SSRF) protection plugin for HTTPlug")
+    (home-page "https://github.com/j0k3r/httplug-ssrf-plugin")
+    (license license:expat)))
+
+(define-public php-j0k3r-graby-site-config
+  (package
+    (name "php-j0k3r-graby-site-config")
+    (version "1.0.215")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/j0k3r/graby-site-config.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "07akhdmscf1hcsiv52vwwjs5xl60clsi6pz1m7fg508d5k097w7q"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-finder))
+    
+    (synopsis "")
+    (description "Graby site config files")
+    (home-page "")
+    (license license:cc0)))
+
+(define-public php-http-interop-http-factory-guzzle
+  (package
+    (name "php-http-interop-http-factory-guzzle")
+    (version "1.2.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/http-interop/http-factory-guzzle.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1wwmjj9kgm7wffbxqhzyfz631fy12by0p2jwzhhhvyb7kjfizna7"))))
+    (build-system composer-build-system)
+    (inputs (list php-guzzlehttp-psr7 php-psr-http-factory))
+    (synopsis "")
+    (description "An HTTP Factory using Guzzle PSR7")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-fossar-htmlawed
+  (package
+    (name "php-fossar-htmlawed")
+    (version "1.3.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/fossar/HTMLawed.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0gqrkfdp17vysap1x63dnjb3kgm4cczd4a4qzk38m7fbi70cqanm"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description
+     "htmLawed - Process text with HTML markup to make it more compliant with HTML standards and administrative policies")
+    (home-page
+     "http://www.bioinformatics.org/phplabware/internal_utilities/htmLawed/")
+    (license (list license:gpl2+ license:lgpl3))))
+
+(define-public php-symfony-translation
+  (package
+    (name "php-symfony-translation")
+    (version "8.1.5")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/translation.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0syvs4rpmbk4hx2c6kxp9m9awprj8vg93y88lmhiss7kmjz9kyl9"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-translation-contracts
+                  php-symfony-polyfill-mbstring))
+    (synopsis "")
+    (description "Provides tools to internationalize your application")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-willdurand-negotiation
+  (package
+    (name "php-willdurand-negotiation")
+    (version "3.1.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/willdurand/Negotiation.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "10xj3g5b81riwxg06k931r1nln2qs0sbkddaygjmdlhc46p9nsas"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description
+     "Content Negotiation tools for PHP provided as a standalone library.")
+    (home-page "http://williamdurand.fr/Negotiation/")
+    (license license:expat)))
+
+(define-public php-willdurand-jsonp-callback-validator
+  (package
+    (name "php-willdurand-jsonp-callback-validator")
+    (version "2.0.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/willdurand/JsonpCallbackValidator.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0i2bmknclzi76iys5yrn658hgcxinsv4q3igv2zrd7g2jckraaaj"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description "JSONP callback validator.")
+    (home-page "")
+    (license license:expat)))
+
+(define-public php-friendsofsymfony-oauth2-php
+  (package
+    (name "php-friendsofsymfony-oauth2-php")
+    (version "1.3.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/FriendsOfSymfony/oauth2-php.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1bcvc1pqs5wm9l59c1am5c9v2mywys7x613jbxzzvnl5idkmn3bp"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-http-foundation))
+    
+    (synopsis "")
+    (description "OAuth2 library")
+    (home-page "https://github.com/FriendsOfSymfony/oauth2-php")
+    (license license:expat)))
+
+(define-public php-symfony-serializer
+  (package
+    (name "php-symfony-serializer")
+    (version "8.1.7")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/symfony/serializer.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "00n7jbyqwrdnibyfwfgihz1jfckmna4zahcxk741xzzk2d05b2xy"))))
+    (build-system composer-build-system)
+    (inputs (list php-symfony-polyfill-ctype php-symfony-deprecation-contracts))
+    (synopsis "")
+    (description
+     "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.")
+    (home-page "https://symfony.com")
+    (license license:expat)))
+
+(define-public php-doctrine-sql-formatter
+  (package
+    (name "php-doctrine-sql-formatter")
+    (version "1.5.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/doctrine/sql-formatter.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0cykgrwqq9dgb542izlyr1m0i9y081plk1ld7wii1z4rzsyzlngi"))))
+    (build-system composer-build-system)
+    (synopsis "")
+    (description "a PHP SQL highlighting library")
+    (home-page "https://github.com/doctrine/sql-formatter/")
+    (license license:expat)))
+
+(define-public php-paragonie-random-compat
+  (package
+    (name "php-paragonie-random-compat")
+    (version "9.99.100")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/paragonie/random_compat.git")
+             (commit #f)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "140s9kx5h6njm2qcf210kscb5vnw03hwd7hijamjka27yb2kqlwz"))))
+    (build-system composer-build-system)
+    
+    (synopsis "")
+    (description
+     "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7")
+    (home-page "")
+    (license license:expat)))
+
+php-wallabag-wallabag

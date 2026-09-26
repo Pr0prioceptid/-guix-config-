@@ -13,7 +13,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/wallabag/wallabag.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "075c3iz3cdrs0g3w4yzkqqdqc9mq2qplhkbnb2600nr8nm1a3a3f"))))
@@ -129,7 +129,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/willdurand/BazingaHateoasBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0a38k879h71aff5c3bknvh59nicr7yxai12c7i11pjah96fzwnik"))))
@@ -151,7 +151,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/willdurand/Hateoas.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0ggqkp3bpl2q1ghcmf327mjzhca3ssvg3698zrs80j08z64fzcbq"))))
@@ -173,7 +173,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/wallabag/PHPePub.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1zcf1ch4jifbrlxya10xz5x9r0c6s9vnyyhx2sipm55zydql8dqf"))))
@@ -195,7 +195,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/wallabag/php-mobi.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0jfm4wmkdv0fs3z3zj5wsa99yaip9q8rgdcdlcgiva37v4i4s95w"))))
@@ -209,13 +209,13 @@
 (define-public php-twig-twig
   (package
     (name "php-twig-twig")
-    (version "4.0.0-alpha1")
+    (version "3.29.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/twigphp/Twig.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "10vv333fksx52bgicv12g7n6c3wi6y1srkpaj41bkrn1n59ndbr5"))))
@@ -237,7 +237,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/twigphp/string-extra.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1r9knlsvg0kjsnxhqj581y7xc2na3flmyi6ajsza84cld9i5pcc5"))))
@@ -252,13 +252,13 @@
 (define-public php-twig-extra-bundle
   (package
     (name "php-twig-extra-bundle")
-    (version "4.0.0-alpha1")
+    (version "3.29.0")
     (source
      (origin
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/twigphp/twig-extra-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "12d4v3hy3in8a4sjnlak3r1y4vwiw2pxcrxwh653clyh0lp91qa1"))))
@@ -279,7 +279,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/TCPDF.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1w7dsbq4kbrdm3lqb2j6b0w4f6m459k7hl54n0nm7pws5kcgzqx2"))))
@@ -300,7 +300,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/validator.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0i2ln3p5n7bmqyd79v1hngpsznnjfjlvdfcs5y5gvjcb3ss89jiy"))))
@@ -322,7 +322,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/twig-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "11pbi3y1dll8lk0m403jxrcj3rv6y8l93m0h515xdfdl9m5673ws"))))
@@ -345,13 +345,12 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/templating.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "04iayrc9a95j3n173f338vq3rnriyafpmwbg5q1ryjm7khb9yh38"))))
     (build-system composer-build-system)
     (inputs (list php-symfony-polyfill-ctype php-symfony-deprecation-contracts))
-    
     (synopsis "")
     (description
      "Provides all the tools needed to build any kind of template system")
@@ -367,7 +366,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/security-http.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "12q1v3j50w4f81dgll5dvp2mdqmrz32mfzjqmnq3xbc91p5rn0lg"))))
@@ -393,7 +392,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/security-core.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1hq3g3cydxbyhhw71r42m45481pa7qd176kbqi1f1jfbpc2jpnm9"))))
@@ -414,7 +413,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/security-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1v8h3d569bw0fk8jm6p3cvjwkrvf8gj9g7i65ynsvidw79kgi0v4"))))
@@ -445,7 +444,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/routing.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "189sfmrp7ib6ylwgxwgj57cgnyajaf66as5q6i7ml5k1mfdln8rs"))))
@@ -465,7 +464,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/proxy-manager-bridge.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1fgw3xwrcy58j3karfn080h75fa7z3zxfrrr9hfpj8bjywr38azl"))))
@@ -489,7 +488,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/options-resolver.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "183hm163q70v64zl4yv30y8b7g42hvngb16aspx47k9ss3ahr6ms"))))
@@ -510,7 +509,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/monolog-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0m5rw7y3n8432hil4fd3pjj85g6q7rs8jjah3hwvqvpd2rqhrm9d"))))
@@ -535,7 +534,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/mime.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "082ad5gi7m9mcnsg8wik3yh1pf6r0jx3z4qi8864yxcm6mjvay3a"))))
@@ -555,7 +554,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/mailer.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0x17mpralddd0lfz0p6v8460zn0sqgkqhcrc7ia0l517dhc5fz7x"))))
@@ -580,7 +579,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/http-kernel.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0viaa6896bwv2azfs95a0f0a7pyn92z2kkq4ch20kcmd09pkp9hn"))))
@@ -606,7 +605,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/http-foundation.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "060ir9q91kaj5sk2aw8nqncz12r0ikx0qhgsrvxngs99gbrrz0vc"))))
@@ -627,7 +626,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/google-mailer.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bh3rqdbcl1wnkjsk4461zsibl42m46ncqpszdbid6s8qpf3zkcg"))))
@@ -648,7 +647,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/framework-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "17q009zv0bbqv43zy18igpw31xa5na3xw3fmqxwrxj6l1l6182pv"))))
@@ -683,7 +682,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/form.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1sji1xyc9jcq64391pck8az7x8gxsbgh9gdjpifj5qi27z5zrglx"))))
@@ -711,7 +710,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/finder.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "19p10mx11sgw7jq2s6kzink85m2b1hm8i9v9ybrprcaavw3w0hh3"))))
@@ -732,7 +731,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/event-dispatcher.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "14wjmflz374q7yzcwivax8q5vbf3isq7h53dsk2d4nmd0hrg6wr8"))))
@@ -754,7 +753,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/error-handler.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0gqb5lc45skwrbbg6qb347jgkgplq967x0lqwy4imbdlipizwh5r"))))
@@ -775,7 +774,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/dom-crawler.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1mabfafzvbw1kkrc60b6ax28s9n0lrzn9vkv7m0ngzf8xjypjnzh"))))
@@ -796,7 +795,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/doctrine-bridge.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0vfa7x6vwzigc7pwcqln7n7dr647r5vhn061zi4qdb7rsidlm5dl"))))
@@ -822,7 +821,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/dependency-injection.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "186a1qv74zzzi4fpkyd4gz96sdhq2yis222bbvyv1mgpnkxi00xp"))))
@@ -844,7 +843,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/debug.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0s7da2pr45q2i1fjsx0wn18y28qpr5pra2lw4014iimz741j4i86"))))
@@ -865,7 +864,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/console.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1pi5skq2vssc78wdcrdqp547r9apczlj6kc9qlwaljhpgy5kf5zn"))))
@@ -888,7 +887,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/config.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0aysx0wy1g8yychp7agrbh07ii3rmq6l43b76a1899acgf96z9rf"))))
@@ -910,7 +909,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/asset.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "131k3lspxrnkqzvfwp9zzbs1dw2zhffn67z542nv9kfxz9g66npl"))))
@@ -930,7 +929,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/stof/StofDoctrineExtensionsBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "15511ms990w1wjda640551cr1f3pi231cpmsvg0s3jdc3gl6b8mq"))))
@@ -956,7 +955,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/getsentry/sentry-symfony.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1347xzywx8f4dfay5riwnw7w8w1sqws0g25radc6dyv5dz1zrzz1"))))
@@ -988,7 +987,7 @@
        (uri (git-reference
              (url
               "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "114amlfppglwshipwy3c8g4mi2zdxyi66p7f4lcj61qf8l2i70zn"))))
@@ -1011,7 +1010,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-trusted-device.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "030mfj6r413jnbj1zvnwhnqy7l1l6iahdgsvw1vpjz78gfidc1bz"))))
@@ -1031,7 +1030,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-qr-code.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ssih5zl2zab2nxbp56x15il236733vc2dgyhm6lgnyf8vlalmnc"))))
@@ -1052,7 +1051,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-google-authenticator.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "15r3qyrdz34xllyz19yn1xdmlzc50hvvf1iz7cc25d75v2p0hba2"))))
@@ -1073,7 +1072,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-email.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0vr0kyqbhqvakdvb21xb8nadggkh6bziaja5nzqarhpcaashp464"))))
@@ -1094,7 +1093,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-bundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1lcvfzw7fcsczflbb78z2lc7vx7r0z82drjwdkgxhy8zjwjqxcjx"))))
@@ -1124,7 +1123,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/scheb/2fa-backup-code.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "18cbipv9mbdjymcicxbcx43vmab0dk3w8csgj4zkz021crcqwj48"))))
@@ -1144,7 +1143,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/log.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "10vsw0l2c4xmi46y5mp1q5cn8a7c04yki9av11w742nkvkinzkir"))))
@@ -1163,7 +1162,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/http-message.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0y0ryjzv6d38nhlmz6svq7s3xrnmw9hrcch2i2h4y3jpgpr851xc"))))
@@ -1182,7 +1181,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/predis/predis.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "155mm8fl60gg41m9az4li7p0w96d6vpn65xa01pc1qrnclrc5kmm"))))
@@ -1203,7 +1202,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/antonioribeiro/recovery.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1mn7fwlcv3ck3dr75i2gik7m68m8kjn528pbka2a4g4f7xxmr5lg"))))
@@ -1223,7 +1222,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/message-factory.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0gq6mhcb6nwqqn3i5c80m9z0vrxjvybiw4wygm25qrcsm91a25kj"))))
@@ -1243,7 +1242,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/message.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1jvsx6mrnqvpj2bnzdgshy0mg23r89df2hz9053whls5fsqwb7p7"))))
@@ -1263,7 +1262,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/HttplugBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0bxphw8h3gm4s3gqwr1836hkb6xgf8vhjx72n8n41npfs4kvkjhi"))))
@@ -1299,7 +1298,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/httplug.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0jjs4rpq8fxvmgwvsx7xig9cx5phpqz1c27ifwd1v0niirc9lwij"))))
@@ -1319,7 +1318,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/guzzle5-adapter.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0qz6ghqzfbwkff9rcy0xqd71spq0jpij9a7a6xfblwg8qnvybi9k"))))
@@ -1339,7 +1338,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/discovery.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ig4vpbwzb7a3dayd34bf63p23pbg1bl1zaa6nmx25p4qpg8rnyp"))))
@@ -1359,7 +1358,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/client-common.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0pryzb1mh83f4kbjv3hba9yw30i7idxyy31k4vk9s3kva42y3vzw"))))
@@ -1385,7 +1384,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-amqplib/RabbitMqBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0ybyxhfh2w3jcxvsmpa8yckbywpw3q08jsbsqpbjjaimx5ljk81z"))))
@@ -1414,7 +1413,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-amqplib/php-amqplib.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0hnwrsskqbilx70hqn31y8gjzy2m27cdnadrm2i83nkq336wvm6h"))))
@@ -1435,7 +1434,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Pagerfanta/twig.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "02yghp01rskn5ivwgyaykax6ldlmwm03fk005w49w64vlj0pslq0"))))
@@ -1456,7 +1455,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Pagerfanta/doctrine-orm-adapter.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "19vh8zr60f5j97h6bjn64hpkwfs32w7f4xa9ps25iacr6vfsw7qs"))))
@@ -1477,7 +1476,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Ocramius/ProxyManager.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bwh3xnys7cszb8s0mql8fyljapwfncm3kk9hh05gckzrcgr99c1"))))
@@ -1498,7 +1497,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/nelmio/NelmioCorsBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "07w7rb35j7x3kx5jhclhaqj21hwn4n1vqf7171m0w47cnwkx78j8"))))
@@ -1519,7 +1518,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/nelmio/NelmioApiDocBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0n59hrpp1486rwnv85krcbm9nvih2rjxb7wvvda7pdm2p3s46w6w"))))
@@ -1555,7 +1554,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/mnapoli/MatomoTwigExtension.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1rn0nzx8zy91mhb51g03ffwyn25ij97ylhhf44nwh9vk4g707hiy"))))
@@ -1575,7 +1574,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/matgargano/simplehtmldom.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0ss7ypcbffa35xjdp67yqz82x2n5xdvf47067p0bkrhbyz7axxgl"))))
@@ -1595,7 +1594,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/lexik/LexikFormFilterBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "12jr40lxiyn3ndj7falc1yxqgrzjpnc9csi8icgmiraw24yshijb"))))
@@ -1617,7 +1616,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/lcobucci/jwt.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1b0l68xaxldk1cn3r8nbykclvzjkpn0cr7f3mk4inpapra0bazqk"))))
@@ -1638,7 +1637,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/laminas/laminas-code.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "05gq28w8xl8my20d0gcnhwkh59sxnd42wvpyjj1mvpryfbpmbc1l"))))
@@ -1658,7 +1657,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/K-Phoen/RulerZBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0ny66ygj5ijn2x041zki0s3d9ibr2sdgn8frkipgjm0dgmj03r0i"))))
@@ -1679,7 +1678,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/K-Phoen/rulerz.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0g95s5727vg01lqh4f0zsm49apraf491fp4k7h7s6slbb32l38vz"))))
@@ -1699,7 +1698,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/schmittjoh/JMSSerializerBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1qra0wm1f799y0prn2n085fv5plm07kx83zqydxzihplslp2h2an"))))
@@ -1722,7 +1721,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/schmittjoh/serializer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "17v7afc57zvn1b576c9d4600015yyxyzw3mw0qj4n8bwm1w06pir"))))
@@ -1744,7 +1743,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/javibravo/simpleue.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1i021i4wvak0hailx5kz13nf5yy5jsr37kx2jfn6578xvy6ndpr8"))))
@@ -1764,7 +1763,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/j0k3r/php-readability.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0si0z4m79mjapqnv1h4dhz7a92dc36956rhbnqwnl0wifrxyk3pr"))))
@@ -1784,7 +1783,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/j0k3r/graby.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0gjqlb31idpa4n7nsbrfq1f008d9h6nxnh41v6apl0nrlkj66c43"))))
@@ -1818,7 +1817,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Incenteev/ParameterHandler.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1v09sb5j41fg7wpf0ld6ksk5in1cganc8nz0id65ly2frvijr1fk"))))
@@ -1838,7 +1837,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/mtibben/html2text.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0gabz5p0y5zxwwyvka7aw4gfdywxyc81jzqy91skr8h1q7wgr96a"))))
@@ -1858,7 +1857,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/guzzle/psr7.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0637lfwjfb1x0rijdypwvs00l9yi0ajxiwlysc9isib5gi0802f0"))))
@@ -1880,7 +1879,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/guzzle/guzzle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0yqxz1zhhawhml6374yvfcigq4jqlfixhrals7krm06alxwj6i0y"))))
@@ -1905,7 +1904,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/FriendsOfSymfony/FOSUserBundle.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0bna1hsd69icc4d76c4j5zdhkvp9dz2j54qybrixwnkgffhjv3d0"))))
@@ -1942,7 +1941,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/FriendsOfSymfony/FOSRestBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1y589xkhxw9r98rilvad1s4sybdhl0il3qdcnl2zx9lasscvyv78"))))
@@ -1974,7 +1973,7 @@
        (uri (git-reference
              (url
               "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1zhsqgirj4b946aqp6l9fzlh1xbw45fq76bzfd86z8x56wzz22r4"))))
@@ -1996,7 +1995,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ynggjras5z59vj1hq7hdcn24r9339qxm956p16952j8zazg4a9n"))))
@@ -2019,12 +2018,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/darylldoyle/svg-sanitizer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0pbmxpa8q6m77bfsy0ygwzgmz35gz6lbrmpc0859x3qglh772c92"))))
     (build-system composer-build-system)
-    
+    (arguments
+      (list
+        #:tests? #f))
     (synopsis "")
     (description "An SVG sanitizer for PHP")
     (home-page "")
@@ -2039,7 +2040,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/egulias/EmailValidator.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "181w6rwnpd0gd0f7va0mw0x3bivmi6aggpv1sfblkx7fbx0qs6r5"))))
@@ -2060,7 +2061,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/persistence.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "14382lpscb66rmqw8ha40pmzl9rhalkvs37v3csrb3nc3a572k2n"))))
@@ -2082,7 +2083,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/orm.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "03h9bccqjbfl57hl7yl7dwffn9rx05f5apk7vdw61a2a9i3za4da"))))
@@ -2113,7 +2114,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/migrations.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0nhi2cvqgj0swnz6gnlnipk12cqbss9lfnkjxc6bxw86cgr57j8c"))))
@@ -2140,11 +2141,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/event-manager.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1vxalbgw351i8qs5vhd646q94d6q7zcn2jyx85gdhdc8yjv40f8b"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description
      "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.")
@@ -2160,7 +2164,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/DoctrineMigrationsBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1sqrp36613siy45sq2wik8lb0ifjj20blc3fg1f75j6xm6fqjg5y"))))
@@ -2191,7 +2195,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/DoctrineBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0fqiw3dz8zms98l0nir7198lfap6par90p0hb7isw9ns2h9jkjy9"))))
@@ -2221,7 +2225,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/dbal.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "07fghg9690i6rim6b1dd0pilwhdhq2q01rdqb66msh2yi52phs94"))))
@@ -2242,7 +2246,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/common.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0mbr8n26nn4n49zqgaxlgbyxr7wdm63mbz87f873vf2cc0dr8g7z"))))
@@ -2263,7 +2267,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/collections.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "01s14rayx7c1zqzj45dkikhrfmri0q83qb3p146y1swca1wa3j9i"))))
@@ -2284,7 +2288,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/defuse/php-encryption.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "19bwfcasjc9ilqm8rc1ms5dm13h3xzzzcc7fbg5lh3hg8pxiky1a"))))
@@ -2305,7 +2309,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/craue/CraueConfigBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1n3xnbjhqrq73avsj9dcjmx010fb2z2ril668bb06jj2fiarhg02"))))
@@ -2336,7 +2340,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/wallabag/guzzle-site-authenticator.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1a715cr4xq9j3mxs91jf8851hzpnxcmg0bsvhj9wpmzpff5w0c7i"))))
@@ -2362,7 +2366,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/BabDev/PagerfantaBundle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "00v506j4ylnn41llb0xwpnsgk1ngl9dxc2kjva1nrfygp0fkjdnd"))))
@@ -2389,7 +2393,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/expression-language.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1cq1nkg39fmjjn24vz2f5n3zkhycb03ijf98aqw0a4dd9q1iab8w"))))
@@ -2410,7 +2414,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/schmittjoh/metadata.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0izj0x0f5iaz2p83mj8qz7nwia4ipb9r1whldckfc36p6816dc74"))))
@@ -2429,7 +2433,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/service-contracts.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "08j26cqx6hmsfsisx4yagjrs34h6rxy324anrnapq15sxdgqz2bv"))))
@@ -2449,7 +2453,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/cache.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1vgin041dd775grqw73qqb3c7y6mc2px239w7kaf7rh537hhqf8w"))))
@@ -2470,7 +2474,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/deprecation-contracts.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "15w8jpagzkg5fhz7lryr8g4bpamiha5b4rwn6zmsp3f5kxgi5jhc"))))
@@ -2490,7 +2494,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/container.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "02438i87fa344xm6iv2wsk5pmyjkacdiaa085a4zggw1ivwch8dc"))))
@@ -2509,7 +2513,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/var-exporter.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1gykdbdyjz56h8qsixw7xa8lbrxi1jnwg23cfv5vj95caakyfm0c"))))
@@ -2531,7 +2535,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/cache-contracts.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0bkbvcrfi0430z7wz789la6yma82a63k58p5ckb5nkak34vqd6v5"))))
@@ -2551,7 +2555,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/cache.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "17z58lcndi97s2lxivv9pcr9yqvrzvrhinwvr2xh4g310wc6pcal"))))
@@ -2570,7 +2574,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-deepclone.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0pyla8vi5rd57m1m76y8m22ymfgy2lr997p64qzyw2f1jfpp2cdl"))))
@@ -2589,7 +2593,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/phpstan/phpdoc-parser.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "058nij0795n2byf0g8wa1qnk427cfl070x7a8lb75nmmlf7b6p8z"))))
@@ -2609,11 +2613,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/lexer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0hnvzwz1k07f3pcax4inmsyykjh09gr0w81a8mggk691hdqlvl1h"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description
      "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.")
@@ -2629,11 +2636,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/instantiator.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0mznpgilqd7nlkd01ii6fp8s3qncq6anncji3k1qksbl5580nnz2"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description
      "A small, lightweight utility to instantiate objects in PHP without invoking their constructors")
@@ -2649,7 +2659,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-php85.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "015mlkxmvamzzx5yjflxggz6nxiggm4hgarr1mf4swrbg1575am3"))))
@@ -2669,7 +2679,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-mbstring.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "19bkjhnysqi1a72xay9dlaczafwnr4dxlixk033j7rlnqm4a3xr6"))))
@@ -2688,7 +2698,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/filesystem.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1yiw6crrp5agsdfg4xa0rdlh31m0sx0f3nn4s30dk78ixxihg8dw"))))
@@ -2710,7 +2720,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-ctype.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1xnpbmaclrfw984scs3sqs7mynma9v74b38zbwbb05vrr9c00v9v"))))
@@ -2729,7 +2739,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/event-dispatcher-contracts.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0rzzq3vl2pzy2gjn11py19ywh74rmb12dfsqg9q7gmsi45d4w4f1"))))
@@ -2749,7 +2759,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/event-dispatcher.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1rxjscznzihbpgngwci61ji8qy5c623qmpy9zpqbj0f5vv8l99kp"))))
@@ -2768,7 +2778,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/var-dumper.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bng7b3asayw2qvs3aq2wlxllnc8kqy60b7zq4j2qr8dlig8qkzn"))))
@@ -2789,7 +2799,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Masterminds/html5-php.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "139gc8y8fnwq6ki1j85725jrmh1q53qjmn15npvf9s9kqn88mswp"))))
@@ -2809,7 +2819,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Grandt/PHPRelativePath.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1486mydx22n4bank3bw1r883mfvnj946wi5ixldz27lg9g7hlmjj"))))
@@ -2829,7 +2839,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Grandt/PHPResizeGif.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1v9kcqsnncn32irx33khqlnhbn1h1nvnnifxvinzvjp4hnwh8c0y"))))
@@ -2850,7 +2860,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Grandt/PHPZip.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "09yn2xx83ca2qbgqi5r3vqg0panv5il8jk88iwzjkf0w79di31b7"))))
@@ -2872,7 +2882,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Grandt/PHPBinString.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0a5zkh2n80lwdg4bipinnpv9hyz9f7s9vf6nri84qlx4659y4jgh"))))
@@ -2892,7 +2902,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Grandt/PHPZipMerge.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1pyzv82fs8375pas4hjlrmh1ddczlidxbz4xw4ldz9g70i670la7"))))
@@ -2912,7 +2922,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/translation-contracts.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1zalpdvkxjnvh3w1knqda3agca7jhqc2a15cjng5x0g4n20rjk64"))))
@@ -2931,7 +2941,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/string.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1gy0sc2c0f16jx0d27czjk8vyd2pciyn56xlxhd0xzlqijhcsdsl"))))
@@ -2955,7 +2965,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-intl-normalizer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "12x4x8k80g66bl20n44xkxww76s6ggdpp63pm74fff76p4nv6fd0"))))
@@ -2975,7 +2985,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-intl-grapheme.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "11841cq9kcqhrl5i9y9z2ljz3cha66mp9zga2yw9n0xvybxdcwa3"))))
@@ -2994,7 +3004,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/twig-bridge.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1r70bvp2f3apcjyzgk246b5k4yzq2c7sximqnxhqfmfg2ac1afj0"))))
@@ -3015,7 +3025,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0yrhkn91k496dnfnzpgk2p5sfp9va8ka1ipj3ly514mbrghryzgn"))))
@@ -3046,7 +3056,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-parser.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "04lgsx1xz7vs5vwyhak2s11h809z6lgp531xbpzfcy5d0bkl64pv"))))
@@ -3066,7 +3076,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-graph.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0k9kb7rl9kil2qs1b5bykgk52m61s5g5wp77mq3mcxk5aiqp7vf2"))))
@@ -3087,7 +3097,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-page.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ria8i2yapyc748szm77c1sdfhymkyfg8zlvi09cwx4wfvsqgkji"))))
@@ -3108,7 +3118,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-unicode.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1x8pb1x1sg22s6yn9da5sj6fz10irvjars2006vid92ihsx6an3f"))))
@@ -3128,7 +3138,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-unicode-data.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1pv391wcpv922yqrmkwlsh4m96mb2g39364k1a7dn70m7fksk6hx"))))
@@ -3147,7 +3157,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-sign.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0krqh2hk9pf3jmk8vmzilg233a99zjdd1y4v2fd7bmb5mzim5h13"))))
@@ -3167,7 +3177,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-encrypt.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ndd71v6x78k967y1kqlpk2rvfil3xd88d15b114cr73wjjph7vl"))))
@@ -3186,7 +3196,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-file.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0rr5jv4ggzk20c4ww5zba58jh4nkf2lw76h88zr3ii29ynik7l4s"))))
@@ -3206,7 +3216,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-font.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1zilw842gphb78qh3bhzw7c8i282wl461hdj0lzyf0xl0lvmhzb8"))))
@@ -3228,7 +3238,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-image.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "17r0bsvkkxxidfrqjgqyzr30yw4lcq306pi0azhgi32nhja4ddf3"))))
@@ -3248,7 +3258,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-color.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0zc4swcmjswn3banqhhx8gj143pr0pvbl1lwdimgcjfqvc6n7szy"))))
@@ -3267,7 +3277,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-barcode.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0lrhaa2lp4f0jgpll99zljf60029yww25n7h8ri264jcl5m3i1yn"))))
@@ -3288,7 +3298,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/tecnickcom/tc-lib-pdf-filter.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1m1inrkmf8lf41fmbdbcw5bbdjnlxa8p245z0isb9ih1vz1rki0x"))))
@@ -3308,7 +3318,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/property-access.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "03nc9yvga5ylzczg2fwjbyv0f2fdxjwn3bh2xv9ki257yrda21ig"))))
@@ -3330,7 +3340,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/password-hasher.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "10pi5kzdxk16z5vgq3sn4f01v4yr6vmd76055b5ka8iad5gkywxn"))))
@@ -3350,7 +3360,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/property-info.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1xkmnj5p3p3zsybb70dlj0b0y85pzj201vc0qq6p8qmqmgm35yls"))))
@@ -3371,7 +3381,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/type-info.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "114d6kj96i6brnq0bppmz45gnh3zrd3wj9plqv52v5bpapayj6sy"))))
@@ -3392,7 +3402,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/security-csrf.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1708wy0lhv0lirvmkm7p69m0xbr4liyk2569d1zji331anby5xr3"))))
@@ -3412,7 +3422,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/clock.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1l9x8bypgkaf41lr142qm2k9306m24ia08y3r19xb70qja5w031w"))))
@@ -3432,7 +3442,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/clock.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1zry96f0vbbijrbqw9pc01gaj38kbbcw1bpcfg4kwhjsn4m7a5vx"))))
@@ -3451,7 +3461,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/FriendsOfPHP/proxy-manager-lts.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0pr7v0lnvz13jwldngni1pvjnfgfd5slb6pvdwjy0sdl9v55rv4n"))))
@@ -3473,7 +3483,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-php84.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1a4cq1wqgr4yg4ac3jx20ybsdh52v03g94vk0w86lmhfg10waba2"))))
@@ -3493,7 +3503,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/monolog-bridge.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "05zsmmf6pcc51bmv1ifghnr4pm5v4zd7kcqfr1da7qwwzapnbyfz"))))
@@ -3515,7 +3525,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Seldaek/monolog.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0j92xc1as3y5693gx0xwff8g0r0pffpm6lphwjbc9bfggvp4wir6"))))
@@ -3536,7 +3546,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-intl-idn.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "16h50z83ca2zwsnv56jljf7gyv2ymb14wqf9k88ypixnykf165sa"))))
@@ -3557,7 +3567,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-intl-icu.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ypibpjfa8gqgj2qhl663dqvkxzbjhs06kip0kzyim88fr0jcwr1"))))
@@ -3576,11 +3586,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/deprecations.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1xrrgcs5irx7wzzv4w0590dxp08yyqyfl6zlb9zfpsvvbpz65r9r"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description
      "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.")
@@ -3597,7 +3610,7 @@
        (uri (git-reference
              (url
               "https://github.com/doctrine-extensions/DoctrineExtensions.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1i77qdmyyga4s2d2hdmbnq7rcsk3cl9whb7khq5nic0x4q274w2y"))))
@@ -3624,7 +3637,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-php86.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "16kr1vv60s4vvr2cabpvzi8zgb96nbpjigq6gqfwvgwg47dj9v2r"))))
@@ -3644,7 +3657,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/yaml.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0x26mxqz8vmkw40k3fvln012qq3smnin7lxc41bgak49si1nwvqm"))))
@@ -3665,7 +3678,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/psr-http-message-bridge.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "05xjqb4bx0607kmw3k2gcdyk295x7p0h7qhfrpk82z3zpv6r79m9"))))
@@ -3685,7 +3698,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-php80.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1cmwg2p0r5gnc9s8xf35qd8824f2cmzfcbnfqmw2i16vqqvy0mi6"))))
@@ -3705,7 +3718,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/getsentry/sentry-php.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "06m67mg2902zdl0b03z3mfvibhv2rba72dv9jfxyq5l26hnx0245"))))
@@ -3726,7 +3739,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Jean85/pretty-package-versions.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ls33x7q47xgff317q9xkbl34h86w4spi8fd4n5asycmw97gg7d6"))))
@@ -3746,7 +3759,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/polyfill-php82.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0k5656lzzyyn8h3l6lrbb021s96al1ddlpjpjg3hkr54xnl3lziy"))))
@@ -3766,7 +3779,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/http-factory.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "00vwd2m7q7dzgywk47xsg0rw9pvlfb6vr1pzg6prbbwzb4z1cqvy"))))
@@ -3786,7 +3799,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/annotations.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "08gbrm6s473ga7nm57s0032hl04zcha2gxryb30aih74wc6m3800"))))
@@ -3806,7 +3819,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/lcobucci/clock.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "18qrmjwnd3kr87fszvn41nx2k24fvzpdwjy7f01y1bc1j9wcn73s"))))
@@ -3826,7 +3839,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/endroid/qr-code.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0lw0lann9af7axlislfh5dxk8w5xrcahrmlq7vkykavnn3h47sjz"))))
@@ -3846,11 +3859,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Bacon/BaconQrCode.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bndf27yagdyjwxzj9iw05ry5p92zkac64ihl0cq6dlz3xaaijgp"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (inputs (list php-dasprid-enum))
     (synopsis "")
     (description "BaconQrCode is a QR code generator for PHP.")
@@ -3866,12 +3882,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/DASPRiD/Enum.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "03sx5d10iyc3kih1sv5biimvmj4cmwrni81pja4mj8vqnm2g43xy"))))
     (build-system composer-build-system)
-    
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description "PHP 7.1 enum implementation")
     (home-page "")
@@ -3886,7 +3904,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Spomky-Labs/otphp.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0mvxsf361fqc5ngn69wrq2g8pis4a0qc5wc481kl7xqmh4fasq0b"))))
@@ -3909,7 +3927,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/paragonie/constant_time_encoding.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0hws824rik7inbvfwafs780mhb85ha3my5yrb93yvihs9jmfya9d"))))
@@ -3929,7 +3947,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/antonioribeiro/random.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1qg50cn3i6v57ww9jnk96xd5sbp8x7fdd3xy198lglqzhp3d6r4p"))))
@@ -3948,11 +3966,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/clue/stream-filter.git")
-             (commit #f)))
+             (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1qxyvl6w2f47gwdcxyckp8cgg6i45fy5aiz8a229c74nzl8zqfgk"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description "A simple and modern approach to stream filtering in PHP")
     (home-page "https://github.com/clue/stream-filter")
@@ -3967,7 +3988,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/stopwatch-plugin.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bw6dca4al0xpj5rfcn47hg1ap8jsakdiak37lrxdgz46hsf5h5r"))))
@@ -3988,7 +4009,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/logger-plugin.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "13gp75xjd47z6w84vsd4pc47y98njq0wg66gmlw1i52v90038kn6"))))
@@ -4000,26 +4021,6 @@
     (home-page "http://httplug.io")
     (license license:expat)))
 
-(define-public php-http-discovery
-  (package
-    (name "php-http-discovery")
-    (version "1.20.0")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/php-http/discovery.git")
-             (commit #f)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "1ig4vpbwzb7a3dayd34bf63p23pbg1bl1zaa6nmx25p4qpg8rnyp"))))
-    (build-system composer-build-system)
-    (synopsis "")
-    (description
-     "Finds and installs PSR-7, PSR-17, PSR-18 and HTTPlug implementations")
-    (home-page "http://php-http.org")
-    (license license:expat)))
-
 (define-public php-symfony-stopwatch
   (package
     (name "php-symfony-stopwatch")
@@ -4029,7 +4030,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/stopwatch.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "11db4qmv2hhpabaggnchkqvqw2grwpdy1khsfdxp9lc0k04d0l0b"))))
@@ -4049,7 +4050,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-fig/http-client.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ca0dcl72k2ra137fs7gx9n8n1hsmii3cxpd29cph14m7i7h3lf6"))))
@@ -4069,7 +4070,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/php-http/promise.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1cf3s0c7hhmmycv5wxi0fwh07zmcjw6lrm4a3q3f8p6dbhafdkh2"))))
@@ -4088,12 +4089,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/guzzle/promises.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0s8cbnnzgcfp2n20wz0jy1x44y356ry2ksmlbxn2s3ry4gy9jj98"))))
     (build-system composer-build-system)
-    
+    (arguments
+      (list
+        #:tests? #f))
     (synopsis "")
     (description "Guzzle promises library")
     (home-page "")
@@ -4108,7 +4111,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/phpseclib/phpseclib.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "10qxl2aijsa9v508m2kzaj1hlvh205w7x6m3zls7a38aqrmlhs7s"))))
@@ -4130,7 +4133,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/Pagerfanta/core.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0sd6cyx7745zxd3cb9n4bxjczbq72jg3hyf5r31qdpvpp34vpi6f"))))
@@ -4150,11 +4153,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/inflector.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1ndj6ajl2pq97i9syasmbkysrn5h3g90giq3s6073r0llfw2qm9q"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description
      "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.")
@@ -4170,7 +4176,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/webimpress/safe-writer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0wfk49dcyv3xijklrrqscjlikvc0j5hclfyjbxsxvycc4na12qgq"))))
@@ -4189,7 +4195,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/zircote/swagger-php.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0jic4q83p0yc7rjbirl3wqlgbblaqdf8r9dy2n0mv51w3n8firkm"))))
@@ -4217,7 +4223,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/phpDocumentor/TypeResolver.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "173x02x9h99jphjvpvsngwzqjkf0rja4jbsdc7wmrcvkr5khvp1c"))))
@@ -4239,7 +4245,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/phpDocumentor/ReflectionDocBlock.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0r7r4y8928171cqvpm1g6a5mjkc54hvc4mc2vhgbi4b0s0m88lzb"))))
@@ -4262,7 +4268,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/DerManoMann/type-info-extras.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0vlp4d9myz7mw2m9dwi001kiidfxh64jl37vf2alqc2kh94cqpvs"))))
@@ -4282,7 +4288,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/nikic/PHP-Parser.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1cih1smfimy2ykbsyrfmy9744mxvw28lszfjf2ryrw1biqz082pl"))))
@@ -4302,7 +4308,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/phpDocumentor/ReflectionCommon.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1q685cpwbfxqy42iz61xxv6zbcc1qskn07nkipflj6c5s935l8jy"))))
@@ -4322,7 +4328,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/webmozarts/assert.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1km35vayy4rfb7hd3cy55i4r4h92cpbqf0yxjp2xlbp0psgqj5dy"))))
@@ -4342,7 +4348,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/K-Phoen/rulerz-bridge.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1v3vk3xcf81ca5kpfb1b58msn1g6ivfhnb4536c86l7jbzcv89cr"))))
@@ -4362,7 +4368,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Ruler.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0nc7y75djlgd1p3l67yd1jkz2a31553jzyw93mhwhims8mpxs4af"))))
@@ -4388,7 +4394,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Visitor.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "16nf8d1mxga0fgx233nxgxmk22ms04iwvhjgkqzb22abj27254qb"))))
@@ -4409,7 +4415,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Protocol.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0kqzmnqwm9wz9d9x5qsa7r2d548iajkl72rm0ixyl592wxvhrw0b"))))
@@ -4430,7 +4436,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/File.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0zh51sdbnysz1r7a8cfbvs86188djgczlxv8c8avd40kl6wgac0s"))))
@@ -4452,14 +4458,13 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Exception.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
     (build-system composer-build-system)
     (inputs (list 
-              ;;circular dependency
-              ;;php-hoa-event
+              php-hoa-event
               php-hoa-consistency))
     
     (synopsis "")
@@ -4476,7 +4481,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Consistency.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0dmnxfgchh0bg5zds4flh0n7a6j79m06k701lk3x5l5x6x3lsmja"))))
@@ -4496,7 +4501,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Compiler.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0s7m8cizp806l1yjn2d8pifxq9v966g6ss347f5z3hia5g89frs7"))))
@@ -4524,12 +4529,15 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Event.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "15wl1vlkja2ip1ln2cxvb847xxkwfkl4phf7gszsbhhn2kc0bi84"))))
     (build-system composer-build-system)
-    (inputs (list php-hoa-exception php-hoa-consistency))
+    (inputs (list 
+              ;;circ. dependency
+              ;;php-hoa-exception 
+              php-hoa-consistency))
     
     (synopsis "")
     (description "The Hoa\\Event library.")
@@ -4545,7 +4553,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Iterator.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "03an8xfmrrnfi0fbypavwhm94hgzv1cjb2f5r9b5067mz6g8yin3"))))
@@ -4566,7 +4574,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Stream.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1g419pljx8fqs3354bf6bk1ck3s7wm7ax3mg5lsl7gi862kvi444"))))
@@ -4588,7 +4596,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Regex.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "00vhqfvchml0w2aw1khhg4vwbfjwzx0iqcpchmc6akw12zx69h1b"))))
@@ -4613,7 +4621,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Math.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "19kmz07lvqr5dkn7smxamrfcqn74kwfdajs61qczck81b7z403y8"))))
@@ -4641,7 +4649,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Ustring.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0z71hmsj1ry3h2n2pz9w04mdhpn5z6fwkk9l2n07r6sxzrmjcpb0"))))
@@ -4662,7 +4670,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/hoaproject/Zformat.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "07wi6wlcx7rxb8n7cl05qj92xmrg6awj21axrxvrz80qbw34xnpb"))))
@@ -4682,7 +4690,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/smalot/pdfparser.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0k9kb7rl9kil2qs1b5bykgk52m61s5g5wp77mq3mcxk5aiqp7vf2"))))
@@ -4702,7 +4710,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/simplepie/simplepie.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "05hrh8dymdijnvrx50947cijfsvnxzfp3lh46x6z4hd196j10r7x"))))
@@ -4721,7 +4729,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/j0k3r/httplug-ssrf-plugin.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "00b0153ph4g6a9ng6g2rrc7z3ql81hl161h5bkzfbw66qq50x9wc"))))
@@ -4743,7 +4751,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/j0k3r/graby-site-config.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "07akhdmscf1hcsiv52vwwjs5xl60clsi6pz1m7fg508d5k097w7q"))))
@@ -4764,7 +4772,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/http-interop/http-factory-guzzle.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1wwmjj9kgm7wffbxqhzyfz631fy12by0p2jwzhhhvyb7kjfizna7"))))
@@ -4784,7 +4792,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/fossar/HTMLawed.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0gqrkfdp17vysap1x63dnjb3kgm4cczd4a4qzk38m7fbi70cqanm"))))
@@ -4806,7 +4814,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/translation.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0syvs4rpmbk4hx2c6kxp9m9awprj8vg93y88lmhiss7kmjz9kyl9"))))
@@ -4827,7 +4835,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/willdurand/Negotiation.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "10xj3g5b81riwxg06k931r1nln2qs0sbkddaygjmdlhc46p9nsas"))))
@@ -4848,7 +4856,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/willdurand/JsonpCallbackValidator.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0i2bmknclzi76iys5yrn658hgcxinsv4q3igv2zrd7g2jckraaaj"))))
@@ -4868,7 +4876,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/FriendsOfSymfony/oauth2-php.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "1bcvc1pqs5wm9l59c1am5c9v2mywys7x613jbxzzvnl5idkmn3bp"))))
@@ -4889,7 +4897,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/symfony/serializer.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "00n7jbyqwrdnibyfwfgihz1jfckmna4zahcxk741xzzk2d05b2xy"))))
@@ -4910,11 +4918,14 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/doctrine/sql-formatter.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "0cykgrwqq9dgb542izlyr1m0i9y081plk1ld7wii1z4rzsyzlngi"))))
     (build-system composer-build-system)
+    (arguments
+     (list
+      #:tests? #f))
     (synopsis "")
     (description "a PHP SQL highlighting library")
     (home-page "https://github.com/doctrine/sql-formatter/")
@@ -4929,7 +4940,7 @@
        (method git-fetch)
        (uri (git-reference
              (url "https://github.com/paragonie/random_compat.git")
-             (commit #f)))
+             (commit version)))
        (file-name (git-file-name name version))
        (sha256
         (base32 "140s9kx5h6njm2qcf210kscb5vnw03hwd7hijamjka27yb2kqlwz"))))

@@ -116,7 +116,13 @@
                  (service php-fpm-service-type 
                           (php-fpm-configuration 
                             (process-manager 
-                              (php-fpm-static-process-manager-configuration (max-children 10)))))
+                              (php-fpm-static-process-manager-configuration (max-children 10)))
+                            (php-ini-file
+                              (plain-file "rss-bridge-php.ini"
+                                          (string-append
+                                            "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n"
+                                            "openssl.cafile = /etc/ssl/certs/ca-certificates.crt\n"
+                                            "openssl.capath = /etc/ssl/certs\n")))))
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service

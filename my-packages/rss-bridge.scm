@@ -43,7 +43,7 @@
                                           "curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);")))
                                      (substitute* 
                                        "lib/bootstrap.php" 
-                                       (("const PATH_CACHE = __DIR__ . '/../cache/';") 
+                                       (("const PATH_CACHE = __DIR__ \\. '/\\.\\./cache/';") 
                                         "const PATH_CACHE = '/var/cache/rss-bridge/';"))
                                      (substitute* 
                                        "lib/RssBridge.php"

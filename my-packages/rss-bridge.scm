@@ -31,7 +31,7 @@
                                    (lambda _ 
                                      (substitute* 
                                        "lib/bootstrap.php" 
-                                       (("const PATH_CACHE = __DIR__ . '/../cache/';") 
+                                       (("const PATH_CACHE = __DIR__ \\. '/\\.\\./cache/';") 
                                         "const PATH_CACHE = '/var/cache/rss-bridge/';"))
                                      (substitute* 
                                        "lib/RssBridge.php"

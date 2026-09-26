@@ -117,6 +117,9 @@
                           (php-fpm-configuration 
                             (process-manager 
                               (php-fpm-static-process-manager-configuration (max-children 10)))
+                            ;;ca certs so rss-bridge can read https webpages, using environment-variables
+                            ;; would've been preferable to php-ini-file, but this isn't implemented
+                            ;;  as of writing this comment.
                             (php-ini-file
                               (plain-file "rss-bridge-php.ini"
                                           (string-append

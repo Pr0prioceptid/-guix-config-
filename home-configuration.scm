@@ -28,7 +28,7 @@
 			   (aliases '((".." . "cd ..")
 				      ("ls" . "ls --color=auto")
 				      ("grep" . "grep --color=auto")
-				      ("ll" . "ls -l --color=auto")
+				      ("ll" . "ls -lh --color=auto")
                                       ("update" . "guix pull -C ~/my-config/ch/channels.scm")
                                       ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")
                                       ("sysupgrade" . "sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm")

@@ -32,8 +32,6 @@
                                      ;;Below adds a few options into http.php which turns off
                                      ;; cert checking for https, which is apparently a 
                                      ;;  security issue, but I don't think it'd be a big deal.
-                                     ;;Additionally, the AO3 bridge in version f4aa9e0 returns 
-                                     ;; errors intermittently regarding SSL cert verification.
                                      (substitute*
                                        "lib/http.php"
                                        (("curl_setopt\\(\\$ch, CURLOPT_RETURNTRANSFER, true\\);")

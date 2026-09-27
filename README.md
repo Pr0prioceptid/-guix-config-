@@ -10,8 +10,11 @@ Update packages & channels:
 # Update Guix
 guix pull
 
+# Update Guix & Nonguix
+guix pull -C ~/my-config/ch/channels.scm
+
 # Update from pinned channel
-guix pull -C ~/dotfiles/channels.scm
+guix pull -C ~/my-config/ch/lock.scm
 ```
 
 ## System Reconfiguration
@@ -20,16 +23,16 @@ Apply configuration changes:
 
 ```bash
 # Reconfigure system
-sudo guix system reconfigure -L ~/dotfiles ~/dotfiles/system/...
+sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm
 
 # Reconfigure home
-guix home reconfigure -L ~/dotfiles ~/dotfiles/home/...
+guix home reconfigure -L ~/my-config ~/my-config/home-configuration.scm
 
 # Save channel versions for reproducibility
-guix describe -f channels > ~/dotfiles/channels.scm
+guix describe -f channels > ~/my-config/ch/lock.scm
 
 # Commit changes
-git add ~/dotfiles
+git add ~/my-config
 git commit
 ```
 
@@ -67,7 +70,10 @@ guix show ...
 guix edit ...
 
 # Test building a package
-guix system build -L ~/dotfiles ...
+guix build -L ~/my-config -f ...
+
+# Test building a system configuration
+guix system build -L ~/my-config ~/my-config/config.scm
 ```
 
 ## Testing and Development
@@ -76,8 +82,8 @@ Test configurations before deployment:
 
 ```bash
 # Test home configuration in container
-guix home container -L ~/dotfiles ...
+guix home container -L ~/my-config ...
 
 # Test configuration in REPL
-guix repl -L ~/dotfiles ...
+guix repl -L ~/my-config ...
 ```

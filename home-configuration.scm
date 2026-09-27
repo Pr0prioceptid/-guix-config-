@@ -9,7 +9,7 @@
              (gnu services)
              (guix gexp)
              (gnu home services shells)
-	     (gnu home services dotfiles))
+             (gnu home services dotfiles))
 
 (home-environment
   ;; Below is the list of packages that will show up in your
@@ -19,30 +19,31 @@
   ;; Below is the list of Home services.  To search for available
   ;; services, run 'guix home search KEYWORD' in a terminal.
   (services
-   (append (list (service home-bash-service-type
-                          (home-bash-configuration
-                           (bash-profile (list (local-file
-                                                "./.bash_profile"
-                                                "bash_profile")))
-			   (environment-variables '(("EDITOR" . "vim")))
-			   (aliases '((".." . "cd ..")
-				      ("ls" . "ls --color=auto")
-				      ("grep" . "grep --color=auto")
-				      ("ll" . "ls -lh --color=auto")
-                                      ("update" . "guix pull -C ~/my-config/ch/channels.scm")
-                                      ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")
-                                      ("sysupgrade" . "sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm")
-                                      ("homeupgrade" . "guix home reconfigure -L ~/my-config ~/my-config/home-configuration.scm")
-                                      ("fullupgrade" . "sysupgrade && homeupgrade")
-                                      ("checkpoint" . "guix describe -f channels > ~/my-config/ch/lock.scm")))))
-		 (service home-dotfiles-service-type
-			  (home-dotfiles-configuration (directories '("./dotfiles"))))
-		 (service home-inputrc-service-type
-		 	  (home-inputrc-configuration
-			   (key-bindings
-			    `(("Control-l" . "clear-screen")))
-			   (variables
-			    `(("editing-mode" . "vi")
-			      ("show-mode-in-prompt" . #t)
-			      ("colored-stats" . #t))))))
-           %base-home-services)))
+    (append (list (service home-bash-service-type
+                           (home-bash-configuration
+                             (bash-profile (list (local-file
+                                                   "./.bash_profile"
+                                                   "bash_profile")))
+                             (environment-variables '(("EDITOR" . "vim")))
+                             (aliases '((".." . "cd ..")
+                                        ("ls" . "ls --color=auto")
+                                        ("grep" . "grep --color=auto")
+                                        ("ll" . "ls -lh --color=auto")
+                                        ("la" . "ls -a --color=auto")
+                                        ("update" . "guix pull -C ~/my-config/ch/channels.scm")
+                                        ("refresh" . "guix pull -C ~/my-config/ch/lock.scm")
+                                        ("sysupgrade" . "sudo guix system reconfigure -L ~/my-config ~/my-config/config.scm")
+                                        ("homeupgrade" . "guix home reconfigure -L ~/my-config ~/my-config/home-configuration.scm")
+                                        ("fullupgrade" . "sysupgrade && homeupgrade")
+                                        ("checkpoint" . "guix describe -f channels > ~/my-config/ch/lock.scm")))))
+                  (service home-dotfiles-service-type
+                           (home-dotfiles-configuration (directories '("./dotfiles"))))
+                  (service home-inputrc-service-type
+                           (home-inputrc-configuration
+                             (key-bindings
+                               `(("Control-l" . "clear-screen")))
+                             (variables
+                               `(("editing-mode" . "vi")
+                                 ("show-mode-in-prompt" . #t)
+                                 ("colored-stats" . #t))))))
+            %base-home-services)))

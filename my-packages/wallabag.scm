@@ -2,7 +2,8 @@
                #:use-module (guix packages)
                #:use-module (guix git-download)
                #:use-module (guix build-system composer)
-               #:use-module ((guix licenses) #:prefix license:))
+               #:use-module ((guix licenses) #:prefix license:)
+               #:use-module (guix utils))
 
 (define-public php-wallabag-wallabag
   (package
@@ -4464,7 +4465,7 @@
         (base32 "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
     (build-system composer-build-system)
     (inputs (list 
-              php-hoa-event
+              php-hoa-event-bootstrap
               php-hoa-consistency))
     
     (synopsis "")
@@ -4535,14 +4536,77 @@
         (base32 "15wl1vlkja2ip1ln2cxvb847xxkwfkl4phf7gszsbhhn2kc0bi84"))))
     (build-system composer-build-system)
     (inputs (list 
-              ;;circ. dependency
-              ;;php-hoa-exception 
+              php-hoa-exception 
               php-hoa-consistency))
     
     (synopsis "")
     (description "The Hoa\\Event library.")
     (home-page "https://hoa-project.net/")
     (license license:bsd-3)))
+
+(define-public php-hoa-event-bootstrap
+  (package
+    (name "php-hoa-event-bootstrap")
+    (version "2.17.08.30")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Event.git")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32
+         "15wl1vlkja2ip1ln2cxvb847xxkwfkl4phf7gszsbhhn2kc0bi84"))))
+    (build-system copy-build-system)
+    (arguments
+     (list
+      #:install-plan
+      #~'(("Source" "share/web/hoa/event"))))
+    (inputs
+     (list php-hoa-consistency))))
+
+;;wrote this package definition to get around circular dependency issue between
+;; hoa-event and hoa-exception.
+(define-public php-hoa-event-bootstrap
+  (package
+    (inherit php-hoa-event)
+    (name "php-hoa-event-bootstrap")
+    (arguments
+     (substitute-keyword-arguments (package-arguments php-hoa-event)
+                                   ((#:tests? _ #f) #f)
+       ((#:phases phases)
+        `(modify-phases ,phases
+           (add-before 'configure 'remove-circular-dependency
+             (lambda _
+               (let ((composer-file "composer.json"))
+                 (substitute* composer-file
+                   (("\"hoa/exception\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
+                    "")))))))))
+    ;; The bootstrap version deliberately does not depend on
+    ;; php-hoa-exception.
+    (inputs
+     (list php-hoa-consistency))))
+
+;;wrote this package definition to get around circular dependency issue between
+;; hoa-event and hoa-exception.
+(define-public php-hoa-exception-bootstrap
+  (package
+    (inherit php-hoa-exception)
+    (name "php-hoa-exception-bootstrap")
+    (arguments
+     (substitute-keyword-arguments (package-arguments php-hoa-exception)
+       ;;((#:tests? _ #f) #f)
+       ((#:phases phases)
+        `(modify-phases ,phases
+           (add-after 'unpack 'remove-event-dependency
+             (lambda _
+               (substitute* "composer.json"
+                 (("\"hoa/event\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
+                  ""))))))))
+
+    (inputs
+     (list php-hoa-consistency))))
 
 (define-public php-hoa-iterator
   (package
@@ -4952,4 +5016,4 @@
     (home-page "")
     (license license:expat)))
 
-php-wallabag-wallabag
+php-hoa-exception-bootstrap

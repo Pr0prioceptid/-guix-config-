@@ -117,12 +117,11 @@
                           (php-fpm-configuration 
                             (process-manager 
                               (php-fpm-static-process-manager-configuration (max-children 10)))
+                            ;;ca certs so rss-bridge can read https webpages, using environment-variables
+                            ;; would've been preferable to php-ini-file, but this isn't implemented
+                            ;;  as of writing this comment.
                             (php-ini-file
                               (plain-file "rss-bridge-php.ini"
-                                          ;;php-fpm requires certs to rip from websites itself
-                                          ;;I've seen some mentions of using an environment-variables
-                                          ;; field instead of php-ini-file, which would be preferable,
-                                          ;;  but this isn't implemented in my version of guix (yet?).
                                           (string-append
                                             "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n"
                                             "openssl.cafile = /etc/ssl/certs/ca-certificates.crt\n"

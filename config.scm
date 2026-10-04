@@ -16,7 +16,8 @@
                      ssh 
                      desktop
                      databases
-                     web)
+                     web
+                     containers)
 
 (use-package-modules vim
                      screen
@@ -133,4 +134,7 @@
                  my-i2pd-service
                  my-xd-service
                  my-vsftpd-service
-                 my-rsync-ebooks-timer) %base-services)))
+                 my-rsync-ebooks-timer
+                 (service rootless-podman-service-type)
+                 ;;podman requires iptables to function
+                 (service iptables-service-type)) %base-services)))

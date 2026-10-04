@@ -3,7 +3,9 @@
                #:use-module (guix git-download)
                #:use-module (guix build-system composer)
                #:use-module ((guix licenses) #:prefix license:)
-               #:use-module (guix utils))
+               #:use-module (guix utils)
+               #:use-module (guix build-system copy)
+               #:use-module (guix gexp))
 
 (define-public php-wallabag-wallabag
   (package
@@ -4450,29 +4452,6 @@
     (home-page "https://hoa-project.net/")
     (license license:bsd-3)))
 
-(define-public php-hoa-exception
-  (package
-    (name "php-hoa-exception")
-    (version "2.17.08.30")
-    (source
-     (origin
-       (method git-fetch)
-       (uri (git-reference
-             (url "https://github.com/hoaproject/Exception.git")
-             (commit version)))
-       (file-name (git-file-name name version))
-       (sha256
-        (base32 "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
-    (build-system composer-build-system)
-    (inputs (list 
-              php-hoa-event-bootstrap
-              php-hoa-consistency))
-    
-    (synopsis "")
-    (description "The Hoa\\Exception library.")
-    (home-page "https://hoa-project.net/")
-    (license license:bsd-3)))
-
 (define-public php-hoa-consistency
   (package
     (name "php-hoa-consistency")
@@ -4521,6 +4500,123 @@
     (home-page "https://hoa-project.net/")
     (license license:bsd-3)))
 
+(define-public php-hoa-exception
+  (package
+    (name "php-hoa-exception")
+    (version "2.17.08.30")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/hoaproject/Exception.git")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32
+         "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
+    (build-system copy-build-system)
+    (arguments
+     (list
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'unpack 'create-autoloader
+            (lambda _
+              (mkdir-p "vendor")
+              (call-with-output-file "vendor/autoload.php"
+                (lambda (port)
+                  (display
+                   "<?php
+spl_autoload_register(function ($class) {
+    if (strncmp($class, 'Hoa\\\\Exception\\\\', 15) === 0) {
+        $file = __DIR__ . '/../Source/' .
+                str_replace('\\\\', '/', substr($class, 15)) .
+                '.php';
+        if (is_file($file))
+            require $file;
+    }
+
+    if (strncmp($class, 'Hoa\\\\Event\\\\', 12) === 0) {
+        $file = __DIR__ .
+                '/../../event/' .
+                str_replace('\\\\', '/', substr($class, 12)) .
+                '.php';
+        if (is_file($file))
+            require $file;
+    }
+}); "
+                   port)))))
+      #:install-plan
+      #~'(("Source/" "share/web/hoa/exception/Source/")
+          ("vendor/autoload.php"
+           "share/web/hoa/exception/vendor/autoload.php"))))
+    (inputs
+     (list php-hoa-event-bootstrap
+           php-hoa-consistency))
+    (synopsis "Hoa Exception library")
+    (description
+     "The Hoa\\Exception library.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
+
+;;(define-public php-hoa-exception
+;;  (package
+;;    (name "php-hoa-exception")
+;;    (version "2.17.08.30")
+;;    (source
+;;     (origin
+;;       (method git-fetch)
+;;       (uri (git-reference
+;;             (url "https://github.com/hoaproject/Exception.git")
+;;             (commit version)))
+;;       (file-name (git-file-name name version))
+;;       (sha256
+;;        (base32 "1906smi9jqb70qzh5wp2gg16bznwrldvbx3r3nrvfiyrxkv68a64"))))
+;;    (build-system composer-build-system)
+;;    (arguments
+;;     (list
+;;      #:tests? #f
+;;      #:phases
+;;      #~(modify-phases %standard-phases
+;;          (add-before 'install 'remove-bootstrap-dependency
+;;            (lambda _
+;;              ;; Hoa Exception normally requires hoa/event, but Event
+;;              ;; depends on Exception.  During this bootstrap build,
+;;              ;; provide Event's source through php-hoa-event-bootstrap
+;;              ;; instead of asking composer-build-system to install it
+;;              ;; as a normal Composer dependency.
+;;              (substitute* "composer.json"
+;;                (("\"hoa/event\"[[:space:]]*:[[:space:]]*\"dev-master\"[[:space:]]*,?"
+;;                  "")
+;;                 (("\"hoa/consistency\"[[:space:]]*:[[:space:]]*\"dev-master\",")
+;;                  "\"hoa/consistency\":\"dev-master\"")))))
+;;
+;;          (add-after 'install 'install-event-bootstrap
+;;            (lambda* (#:key inputs outputs #:allow-other-keys)
+;;              (let* ((out (assoc-ref outputs "out"))
+;;                     (event
+;;                      (assoc-ref inputs
+;;                                 "php-hoa-event-bootstrap"))
+;;                     (event-source
+;;                      (string-append
+;;                       event
+;;                       "/share/web/hoa/event")))
+;;                ;; The Composer classloader generated by the build system
+;;                ;; needs to be able to find Hoa\\Event while building/
+;;                ;; using Hoa\\Exception.
+;;                (mkdir-p
+;;                 (string-append out "/share/web/hoa/event"))
+;;                (copy-recursively
+;;                 event-source
+;;                 (string-append
+;;                  out "/share/web/hoa/event"))))))))
+;;    (inputs (list 
+;;              php-hoa-event-bootstrap
+;;              php-hoa-consistency))
+;;    (synopsis "")
+;;    (description "The Hoa\\Exception library.")
+;;    (home-page "https://hoa-project.net/")
+;;    (license license:bsd-3)))
+
 (define-public php-hoa-event
   (package
     (name "php-hoa-event")
@@ -4562,51 +4658,55 @@
     (arguments
      (list
       #:install-plan
-      #~'(("Source" "share/web/hoa/event"))))
-    (inputs
-     (list php-hoa-consistency))))
+      #~'(("Source/" "share/web/hoa/event/Source/"))))
+    (synopsis "Bootstrap source for Hoa Event")
+    (description "Bootstrap copy of the Hoa Event library's source files.  This package
+exists solely to break the circular dependency between Hoa Event and Hoa
+Exception during bootstrapping.")
+    (home-page "https://hoa-project.net/")
+    (license license:bsd-3)))
 
 ;;wrote this package definition to get around circular dependency issue between
 ;; hoa-event and hoa-exception.
-(define-public php-hoa-event-bootstrap
-  (package
-    (inherit php-hoa-event)
-    (name "php-hoa-event-bootstrap")
-    (arguments
-     (substitute-keyword-arguments (package-arguments php-hoa-event)
-                                   ((#:tests? _ #f) #f)
-       ((#:phases phases)
-        `(modify-phases ,phases
-           (add-before 'configure 'remove-circular-dependency
-             (lambda _
-               (let ((composer-file "composer.json"))
-                 (substitute* composer-file
-                   (("\"hoa/exception\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
-                    "")))))))))
-    ;; The bootstrap version deliberately does not depend on
-    ;; php-hoa-exception.
-    (inputs
-     (list php-hoa-consistency))))
+;;(define-public php-hoa-event-bootstrap
+;;  (package
+;;    (inherit php-hoa-event)
+;;    (name "php-hoa-event-bootstrap")
+;;    (arguments
+;;     (substitute-keyword-arguments (package-arguments php-hoa-event)
+;;                                   ((#:tests? _ #f) #f)
+;;       ((#:phases phases)
+;;        `(modify-phases ,phases
+;;           (add-before 'configure 'remove-circular-dependency
+;;             (lambda _
+;;               (let ((composer-file "composer.json"))
+;;                 (substitute* composer-file
+;;                   (("\"hoa/exception\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
+;;                    "")))))))))
+;;    ;; The bootstrap version deliberately does not depend on
+;;    ;; php-hoa-exception.
+;;    (inputs
+;;     (list php-hoa-consistency))))
 
 ;;wrote this package definition to get around circular dependency issue between
 ;; hoa-event and hoa-exception.
-(define-public php-hoa-exception-bootstrap
-  (package
-    (inherit php-hoa-exception)
-    (name "php-hoa-exception-bootstrap")
-    (arguments
-     (substitute-keyword-arguments (package-arguments php-hoa-exception)
-       ;;((#:tests? _ #f) #f)
-       ((#:phases phases)
-        `(modify-phases ,phases
-           (add-after 'unpack 'remove-event-dependency
-             (lambda _
-               (substitute* "composer.json"
-                 (("\"hoa/event\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
-                  ""))))))))
-
-    (inputs
-     (list php-hoa-consistency))))
+;;(define-public php-hoa-exception-bootstrap
+;;  (package
+;;    (inherit php-hoa-exception)
+;;    (name "php-hoa-exception-bootstrap")
+;;    (arguments
+;;     (substitute-keyword-arguments (package-arguments php-hoa-exception)
+;;       ;;((#:tests? _ #f) #f)
+;;       ((#:phases phases)
+;;        `(modify-phases ,phases
+;;           (add-after 'unpack 'remove-event-dependency
+;;             (lambda _
+;;               (substitute* "composer.json"
+;;                 (("\"hoa/event\"[[:space:]]*:[[:space:]]*\"[^\"]+\",?")
+;;                  ""))))))))
+;;
+;;    (inputs
+;;     (list php-hoa-consistency))))
 
 (define-public php-hoa-iterator
   (package
@@ -5016,4 +5116,5 @@
     (home-page "")
     (license license:expat)))
 
-php-hoa-exception-bootstrap
+;;php-hoa-event-bootstrap
+php-hoa-exception

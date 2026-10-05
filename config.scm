@@ -111,8 +111,11 @@
                                                                        "yk_ssh"
                                                                        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIG5jna56bj0YTJNH3dvB9FjUvG+AWXEJ9fQOiPVWcyxuAAAABHNzaDo= archaea sshkey"))))
                                                  (port-number 2222))) 
+                 ;;guix home manager requires elogind
                  (service elogind-service-type) 
+                 ;;miniflux requires postgresql
                  (service postgresql-service-type (postgresql-configuration (postgresql postgresql))) 
+                 ;;rss-bridge requires php-fpm/fastcgi
                  (service php-fpm-service-type 
                           (php-fpm-configuration 
                             (process-manager 
@@ -133,4 +136,5 @@
                  my-i2pd-service
                  my-xd-service
                  my-vsftpd-service
-                 my-rsync-ebooks-timer) %base-services)))
+                 my-rsync-ebooks-timer
+                 ) %base-services)))

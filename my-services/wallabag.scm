@@ -15,8 +15,8 @@
                               (list 
                                 '("SYMFONY__ENV__DATABASE_DRIVER" . "pdo_pgsql")
                                 ;;supposedly a host of 127.0.0.1 would also work, but be less secure?
-                                ;; host.containers.internal is a built in feature of podman
-                                '("SYMFONY__ENV__DATABASE_HOST" . "host.containers.internal")
+                                ;; host.docker.internal is a built in feature of docker
+                                '("SYMFONY__ENV__DATABASE_HOST" . "host.docker.internal")
                                 ;;postgresql listens on this port
                                 '("SYMFONY__ENV__DATABASE_PORT"     . "5432")
                                 '("SYMFONY__ENV__DATABASE_NAME"     . "wallabag")

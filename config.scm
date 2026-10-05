@@ -135,10 +135,7 @@
                  my-xd-service
                  my-vsftpd-service
                  my-rsync-ebooks-timer
-                 (service rootless-podman-service-type)
-                 ;;podman requires iptables to function
-                 (service iptables-service-type)
-                 ;;runtime for open-container-initiative s.t. defaults to docker
-                 ;; and cannot be changed within an extension definition.
-                 (service oci-service-type (oci-configuration (runtime 'podman)))) 
+                 (service docker-service-type)
+                 ;;docker requires containerd to run
+                 (service containerd-service-type)
            %base-services)))

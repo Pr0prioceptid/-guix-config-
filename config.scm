@@ -127,6 +127,12 @@
                                             "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n"
                                             "openssl.cafile = /etc/ssl/certs/ca-certificates.crt\n"
                                             "openssl.capath = /etc/ssl/certs\n")))))
+                 (service rootless-podman-service-type)
+                 ;;podman requires iptables to function
+                 (service iptables-service-type)
+                 ;;runtime for open-container-initiative s.t. defaults to docker
+                 ;; and cannot be changed within an extension definition.
+                 (service oci-service-type (oci-configuration (runtime 'podman)))
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service
@@ -135,10 +141,4 @@
                  my-xd-service
                  my-vsftpd-service
                  my-rsync-ebooks-timer
-                 (service rootless-podman-service-type)
-                 ;;podman requires iptables to function
-                 (service iptables-service-type)
-                 ;;runtime for open-container-initiative s.t. defaults to docker
-                 ;; and cannot be changed within an extension definition.
-                 (service oci-service-type (oci-configuration (runtime 'podman)))) 
-           %base-services)))
+                 ) %base-services)))

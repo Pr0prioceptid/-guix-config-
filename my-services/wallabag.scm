@@ -18,11 +18,14 @@
                                 ;; host.containers.internal is a built in feature of podman
                                 '("SYMFONY__ENV__DATABASE_HOST" . "host.containers.internal")
                                 ;;postgresql listens on this port
-                                '("SYMFONY__ENV__DATABASE_PORT" . "5432")
-                                '("SYMFONY__ENV__DATABASE_NAME" . "wallabag")
-                                '("SYMFONY__ENV__DATABASE_USER" . "wallabag" )
+                                '("SYMFONY__ENV__DATABASE_PORT"     . "5432")
+                                '("SYMFONY__ENV__DATABASE_NAME"     . "wallabag")
+                                '("SYMFONY__ENV__DATABASE_USER"     . "wallabag" )
                                 '("SYMFONY__ENV__DATABASE_PASSWORD" . "monkeytroubador")
-                                '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
+                                '("SYMFONY__ENV__DOMAIN_NAME"       . "http://localhost:8082")
+                                ;;apparently this extra option is required since I've created
+                                ;; the database already with create-database #t
+                                '("POPULATE_DATABASE"               . "false")))
                             (ports (list "8082"))
                             (image "wallabag/wallabag:2.6.14")
                             (network "host"))))))

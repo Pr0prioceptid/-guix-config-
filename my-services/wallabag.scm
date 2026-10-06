@@ -1,4 +1,8 @@
-(define-module (my-services wallabag))
+(define-module (my-services wallabag)
+               #:use-module (gnu services)
+               #:use-module (gnu services containers)
+               #:use-module (gnu services databases)
+               #:use-module (guix gexp))
 
 (define-public
   my-wallabag-service
@@ -34,9 +38,11 @@
                 (const 
                   (list (postgresql-role
                           (name "wallabag")
-                          (create-database #t)
+                          (create-database? #t)
                           (password-file
-                            (plain-file "wallabag_db_pass" "monkeytroubador")))))))))))
+                            (plain-file "wallabag_db_pass" "monkeytroubador"))))))))
+      (description "wallabag container with role creation for uncontained postgresql installation")
+      (default-value #f))))
 
 ;;(simple-service 'wallabag-oci
 ;;                oci-service-type

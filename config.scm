@@ -10,7 +10,8 @@
              (my-services vsftpd)
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
-             (my-services rss-bridge))
+             (my-services rss-bridge)
+             (my-services wallabag))
 
 (use-service-modules networking 
                      ssh 
@@ -127,6 +128,9 @@
                                             "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n"
                                             "openssl.cafile = /etc/ssl/certs/ca-certificates.crt\n"
                                             "openssl.capath = /etc/ssl/certs\n")))))
+                 (service docker-service-type)
+                 ;;docker requires containerd to run
+                 (service containerd-service-type)
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service
@@ -135,7 +139,5 @@
                  my-xd-service
                  my-vsftpd-service
                  my-rsync-ebooks-timer
-                 (service docker-service-type)
-                 ;;docker requires containerd to run
-                 (service containerd-service-type)
-           %base-services)))
+                 my-wallabag-service
+                 ) %base-services)))

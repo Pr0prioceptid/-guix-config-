@@ -18,7 +18,7 @@
                      desktop
                      databases
                      web
-                     containers)
+                     docker)
 
 (use-package-modules vim
                      screen

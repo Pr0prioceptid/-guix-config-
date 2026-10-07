@@ -21,7 +21,7 @@
                                        '("SYMFONY__ENV__DATABASE_DRIVER" . "pdo_pgsql")
                                        ;;supposedly a host of 127.0.0.1 would also work, but be less secure?
                                        ;; host.docker.internal is a built in feature of docker
-                                       '("SYMFONY__ENV__DATABASE_HOST" . "127.0.0.1")
+                                       '("SYMFONY__ENV__DATABASE_HOST" . "host.docker.internal")
                                        ;;postgresql listens on this port
                                        '("SYMFONY__ENV__DATABASE_PORT"     . "5432")
                                        '("SYMFONY__ENV__DATABASE_NAME"     . "wallabag")
@@ -31,9 +31,8 @@
                                        ;;apparently this extra option is required since I've created
                                        ;; the database already with create-database #t
                                        '("POPULATE_DATABASE"               . "false")))
-                                   (ports (list "8082"))
-                                   (image "wallabag/wallabag:2.6.14")
-                                   (network "host")))))))
+                                   (ports (list "8082:80"))
+                                   (image "wallabag/wallabag:2.6.14")))))))
               (service-extension
                 postgresql-role-service-type
                 (const 

@@ -21,7 +21,7 @@
                            (list (oci-container-configuration
                                    (environment 
                                      (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
-                                   (ports (list "8082:80"))
+                                   (ports (list "127.0.0.1:8082:80"))
                                    (image "wallabag/wallabag:2.6.14")
                                    (volumes (list 
                                               '("wallabag-data"     .   "/var/www/wallabag/data")

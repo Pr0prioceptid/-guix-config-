@@ -32,7 +32,8 @@
                                        ;; the database already with create-database #t
                                        '("POPULATE_DATABASE"               . "false")))
                                    (ports (list "8082:80"))
-                                   (image "wallabag/wallabag:2.6.14")))))))
+                                   (image "wallabag/wallabag:2.6.14")
+                                   (extra-arguments '("--add-host=host.docker.internal:host-gateway"))))))))
               (service-extension
                 postgresql-role-service-type
                 (const 

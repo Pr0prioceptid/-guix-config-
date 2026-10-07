@@ -1,7 +1,6 @@
 (define-module (my-services wallabag)
                #:use-module (gnu services)
                #:use-module (gnu services containers)
-               #:use-module (gnu services databases)
                #:use-module (guix gexp))
 
 (define-public
@@ -13,36 +12,23 @@
         (list (service-extension
                 oci-service-type
                 (const (oci-extension
+                         (volumes
+                           (list (oci-volume-configuration
+                                   (name "wallabag-data"))
+                                 (oci-volume-configuration
+                                   (name "wallabag-images"))))
                          (containers
                            (list (oci-container-configuration
-                                   (requirement '(postgres-roles))
                                    (environment 
-                                     (list 
-                                       '("SYMFONY__ENV__DATABASE_DRIVER" . "pdo_pgsql")
-                                       ;;supposedly a host of 127.0.0.1 would also work, but be less secure?
-                                       ;; host.containers.internal is a built in feature of podman
-                                       '("SYMFONY__ENV__DATABASE_HOST" . "127.0.0.1")
-                                       ;;postgresql listens on this port
-                                       '("SYMFONY__ENV__DATABASE_PORT"     . "5432")
-                                       '("SYMFONY__ENV__DATABASE_NAME"     . "wallabag")
-                                       '("SYMFONY__ENV__DATABASE_USER"     . "wallabag" )
-                                       '("SYMFONY__ENV__DATABASE_PASSWORD" . "kierkegaarde")
-                                       '("SYMFONY__ENV__DOMAIN_NAME"       . "http://localhost:8082")
-                                       ;;apparently this extra option is required since I've created
-                                       ;; the database already with create-database #t
-                                       '("POPULATE_DATABASE"               . "false")))
-                                   (ports (list "8082"))
+                                     (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
+                                   (ports (list "8082:80"))
                                    (image "wallabag/wallabag:2.6.14")
-                                   (network "host")))))))
-              (service-extension
-                postgresql-role-service-type
-                (const 
-                  (list (postgresql-role
-                          (name "wallabag")
-                          (create-database? #t)
-                          (password-file
-                            (plain-file "wallabag_db_pass" "kierkegaarde\n"))))))))
-      (description "wallabag container with role creation for uncontained postgresql installation")
+                                   (volumes (list 
+                                              '("wallabag-data"     .   "/var/www/wallabag/data")
+                                              '("wallabag-images"   .   "/var/www/wallabag/web/assets/images")
+                                              ))))))))
+              ))
+      (description "persistant wallabag container using sqlite in created volumes")
       (default-value #f))))
 
 ;;(simple-service 'wallabag-oci

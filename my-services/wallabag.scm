@@ -15,17 +15,18 @@
                 (const (oci-extension
                          (containers
                            (list (oci-container-configuration
+                                   (requirement '(postgres-roles))
                                    (environment 
                                      (list 
                                        '("SYMFONY__ENV__DATABASE_DRIVER" . "pdo_pgsql")
                                        ;;supposedly a host of 127.0.0.1 would also work, but be less secure?
                                        ;; host.containers.internal is a built in feature of podman
-                                       '("SYMFONY__ENV__DATABASE_HOST" . "host.containers.internal")
+                                       '("SYMFONY__ENV__DATABASE_HOST" . "127.0.0.1")
                                        ;;postgresql listens on this port
                                        '("SYMFONY__ENV__DATABASE_PORT"     . "5432")
                                        '("SYMFONY__ENV__DATABASE_NAME"     . "wallabag")
                                        '("SYMFONY__ENV__DATABASE_USER"     . "wallabag" )
-                                       '("SYMFONY__ENV__DATABASE_PASSWORD" . "monkeytroubador")
+                                       '("SYMFONY__ENV__DATABASE_PASSWORD" . "kierkegaarde")
                                        '("SYMFONY__ENV__DOMAIN_NAME"       . "http://localhost:8082")
                                        ;;apparently this extra option is required since I've created
                                        ;; the database already with create-database #t
@@ -40,7 +41,7 @@
                           (name "wallabag")
                           (create-database? #t)
                           (password-file
-                            (plain-file "wallabag_db_pass" "monkeytroubador"))))))))
+                            (plain-file "wallabag_db_pass" "kierkegaarde\n"))))))))
       (description "wallabag container with role creation for uncontained postgresql installation")
       (default-value #f))))
 

@@ -20,7 +20,7 @@
                          (containers
                            (list (oci-container-configuration
                                    (environment 
-                                     (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
+                                     (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://192.168.0.121:8082")))
                                    ;;prepend ports with 127.0.0.1 to host only on
                                    ;; local machine. 
                                    (ports (list "8082:80"))

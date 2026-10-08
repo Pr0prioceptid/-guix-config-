@@ -36,7 +36,8 @@
                      ftp
                      rsync
                      php
-                     curl)
+                     curl
+                     codex)
 
 (operating-system 
   (kernel linux-lts)
@@ -94,7 +95,9 @@
                           ;; subdirectories on http with nginx to.
                           nginx
                           php
-                          curl) %base-packages))
+                          curl
+                          codex
+                          ) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

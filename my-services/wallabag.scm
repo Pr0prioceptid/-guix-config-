@@ -21,12 +21,15 @@
                            (list (oci-container-configuration
                                    (environment 
                                      (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
-                                   (ports (list "127.0.0.1:8082:80"))
+                                   ;;prepend ports with 127.0.0.1 to host only on
+                                   ;; local machine. 
+                                   (ports (list "8082:80"))
                                    (image "wallabag/wallabag:2.6.14")
                                    (volumes (list 
                                               '("wallabag-data"     .   "/var/www/wallabag/data")
                                               '("wallabag-images"   .   "/var/www/wallabag/web/assets/images")
                                               ))))))))
+              ;;place nginx extension below.
               ))
       (description "persistant wallabag container using sqlite in created volumes")
       (default-value #f))))

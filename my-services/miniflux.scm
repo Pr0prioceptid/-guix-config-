@@ -10,4 +10,10 @@
                           (administrator-account-password "filigreemanifest")
                           (listen-address "0.0.0.0:8080")
                           (extra-settings
-                            (list "FETCHER_ALLOW_PRIVATE_NETWORKS=1")))))
+                            (list 
+                              ;;this is to allow my to fetch articles from my
+                              ;;rss-bridge server on my local network
+                              "FETCHER_ALLOW_PRIVATE_NETWORKS=1"
+                              ;;this is to allow a connection to a wallabag server
+                              ;; on my private network
+                              "INTEGRATION_ALLOW_PRIVATE_NETWORKS=1")))))

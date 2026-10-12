@@ -11,9 +11,7 @@
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
              (my-services rss-bridge)
-             (my-services wallabag)
-             (sops secrets)
-             (sops services sops))
+             (my-services wallabag))
 
 (use-service-modules networking 
                      ssh 

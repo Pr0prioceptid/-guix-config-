@@ -12,5 +12,11 @@
              (secrets
                (list (sops-secret
                        (key '("miniflux" "password"))
+                       (file secrets.yaml))
+                     (sops-secret
+                       (key '("syncthing" "ids"))
+                       (file secrets.yaml))
+                     (sops-secret
+                       (key '("transmission" "rpc-hash"))
                        (file secrets.yaml)))))))
 

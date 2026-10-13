@@ -6,5 +6,8 @@
   my-sops-service
   (service sops-secrets-service-type
            (sops-service-configuration
-             (secrets))))
+             ;;The absolute path of the file containing the corresponding @code{age} identities where SOPS should look for when decrypting a secret.
+             (age-key-file "/root/.config/sops/age/keys.txt")
+             (secrets
+               (list)))))
 

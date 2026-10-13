@@ -95,7 +95,8 @@
                           ;; subdirectories on http with nginx to.
                           nginx
                           php
-                          curl) %base-packages))
+                          curl
+                          sops) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

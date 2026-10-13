@@ -7,7 +7,10 @@
   (service sops-secrets-service-type
            (sops-service-configuration
              ;;The absolute path of the file containing the corresponding @code{age} identities where SOPS should look for when decrypting a secret.
+             ;; I would also put a config field declaring the location of .sops.yaml here, but apparently this is slated for deprecation.
              (age-key-file "/root/.config/sops/age/keys.txt")
              (secrets
-               (list)))))
+               (list (sops-secret
+                       (key '("miniflux" "password"))
+                       (file secrets.yaml)))))))
 

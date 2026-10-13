@@ -36,7 +36,8 @@
                      ftp
                      rsync
                      php
-                     curl)
+                     curl
+                     password-utils)
 
 (operating-system 
   (kernel linux-lts)

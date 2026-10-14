@@ -94,7 +94,8 @@
                           ;; subdirectories on http with nginx to.
                           nginx
                           php
-                          curl) %base-packages))
+                          curl
+                          github-cli) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

@@ -8,6 +8,11 @@
                           (create-administrator-account? #t)
                           (administrator-account-name "admin")
                           (administrator-account-password "filigreemanifest")
+                          ;;to enable certain functions (the bookmarklet),
+                          ;; this should be set to an address which can be
+                          ;;  accessed by other machines on the network
+                          ;;   (miniflux.cthethe.com, for example).
+                          ;;    This may require a DNS
                           (listen-address "127.0.0.1:8180")
                           (extra-settings
                             (list 

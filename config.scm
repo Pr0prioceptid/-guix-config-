@@ -89,9 +89,6 @@
                           rsync
                           my-rss-bridge
                           ;; rss-bridge needs nginx & php-fpm to function,
-                          ;; might be a future task to reverse-proxy all the
-                          ;; web-pages hosted on various ports to
-                          ;; subdirectories on http with nginx to.
                           nginx
                           php
                           curl

@@ -2,6 +2,9 @@
                #use-module (sops secrets)
                #use-module (sops services sops))
 
+(define secrets
+  (local-file "/home/user/my-config/secrets.yaml" "secrets.yaml"))
+
 (define-public
   my-sops-service
   (service sops-secrets-service-type
@@ -12,11 +15,17 @@
              (secrets
                (list (sops-secret
                        (key '("miniflux" "password"))
-                       (file secrets.yaml))
+                       (file secrets))
                      (sops-secret
-                       (key '("syncthing" "ids"))
-                       (file secrets.yaml))
-                     (sops-secret
-                       (key '("transmission" "rpc-hash"))
-                       (file secrets.yaml)))))))
+                       (key '("syncthing" "ids" "X555LA"))
+                       (file secrets))
+		     (sops-secret
+                       (key '("syncthing" "ids" "HCPC"))
+                       (file secrets))
+		     (sops-secret
+                       (key '("syncthing" "ids" "pixel6"))
+                       (file secrets))
+		     (sops-secret
+                       (key '("syncthing" "ids" "lockdown"))
+                       (file secrets)))))))
 

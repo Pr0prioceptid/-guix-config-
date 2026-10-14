@@ -44,29 +44,6 @@
                                         "proxy_set_header X-Forwarded-Host $http_host;"
                                         "proxy_set_header X-Forwarded-Proto $scheme;"
                                         "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;"
-                                        "proxy_set_header X-Real-IP $remote_addr;"
-
-)))))))))))
+                                        "proxy_set_header X-Real-IP $remote_addr;")))))))))))
       (description "persistant wallabag container using sqlite in created volumes")
       (default-value #f))))
-
-;;(define-public my-wallabag-service 
-;;               (simple-service 
-;;                 'my-wallabag-service
-;;                 oci-service-type
-;;                 (oci-extension
-;;                   (volumes
-;;                     (list (oci-volume-configuration
-;;                             (name "wallabag-data"))
-;;                           (oci-volume-configuration
-;;                             (name "wallabag-images"))))
-;;                   (containers
-;;                     (list (oci-container-configuration
-;;                             (environment 
-;;                               (list '("SYMFONY__ENV__DOMAIN_NAME" . "http://localhost:8082")))
-;;                             (ports (list "127.0.0.1:8082:80"))
-;;                             (image "wallabag/wallabag:2.6.14")
-;;                             (volumes (list 
-;;                                        '("wallabag-data"     .   "/var/www/wallabag/data")
-;;                                        '("wallabag-images"   .   "/var/www/wallabag/web/assets/images")
-;;                                        ))))))))

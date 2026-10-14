@@ -142,6 +142,8 @@
                  my-rss-bridge-service
                  my-transmission-service
                  my-miniflux-service
+                 ;;nginx wrapper for miniflux
+                 my-miniflux-wrapper-service
                  my-i2pd-service
                  my-xd-service
                  my-vsftpd-service

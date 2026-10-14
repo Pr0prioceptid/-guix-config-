@@ -87,3 +87,7 @@ guix home container -L ~/my-config ...
 # Test configuration in REPL
 guix repl -L ~/my-config ...
 ```
+
+## Extra requirements
+
+private key for age1qzj... must be available at `/root/.config/sops/keys.txt'

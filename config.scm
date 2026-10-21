@@ -36,7 +36,8 @@
                      ftp
                      rsync
                      php
-                     curl)
+                     curl
+                     ebook)
 
 (operating-system 
   (kernel linux-lts)
@@ -92,7 +93,8 @@
                           nginx
                           php
                           curl
-                          github-cli) %base-packages))
+                          github-cli
+                          calibre) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

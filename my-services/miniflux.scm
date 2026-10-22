@@ -11,7 +11,7 @@
                           ;;to enable certain functions (the bookmarklet),
                           ;; this should be set to an address which can be
                           ;;  accessed by other machines on the network
-                          ;;   (miniflux.cthethe.com, for example).
+                          ;;   (miniflux.placeholder.com, for example).
                           ;;    This may require a DNS
                           (listen-address "127.0.0.1:8180")
                           (extra-settings
@@ -29,7 +29,7 @@
                  nginx-service-type
                  (list (nginx-server-configuration
                          (listen '("8080"))
-                         (server-name '("miniflux.cthethe.com"))
+                         (server-name '("miniflux.placeholder.com"))
                          (locations
                            (list (nginx-location-configuration
                                    (uri "/")

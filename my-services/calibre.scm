@@ -1,3 +1,11 @@
+(define-module (my-services calibre)
+               #:use-module (gnu services)
+               #:use-module (gnu system shadow)
+               #:use-module (gnu services shepherd)
+               #:use-module (guix gexp)
+               #:use-module (gnu packages ebook)
+               #:use-module (gnu services web))
+
 (define-public 
   my-calibre-service
   (service
@@ -40,7 +48,7 @@
                 nginx-service-type
                 (const
                   (list (nginx-server-configuration
-                          (listen '(8083))
+                          (listen '("8083"))
                           (server-name '("calibre.placeholder.com"))
                           (locations
                             (list (nginx-location-configuration

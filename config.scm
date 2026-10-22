@@ -11,7 +11,8 @@
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
              (my-services rss-bridge)
-             (my-services wallabag))
+             (my-services wallabag)
+             (my-services calibre))
 
 (use-service-modules networking 
                      ssh 
@@ -148,4 +149,5 @@
                  my-vsftpd-service
                  my-rsync-ebooks-timer
                  my-wallabag-service
+                 my-calibre-service
                  ) %base-services)))

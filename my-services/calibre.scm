@@ -27,13 +27,21 @@
                             #~(make-forkexec-constructor
                                 (list #$(file-append calibre "/bin/calibre-server")
                                       "--port=8183"
+                                      "--listen-on=127.0.0.1"
                                       "--enable-local-write"
-                                      )
+                                      "/var/lib/calibre")
                                 #:user "calibre"
                                 #:group "calibre"
                                 #:directory "/var/lib/calibre"
                                 #:environment-variables '("HOME=/var/lib/calibre")))
                           (stop
-                            #~(make-kill-destructor))))))))
+                            #~(make-kill-destructor))))))
+              (service-extension
+                nginx-service-type
+                (const
+                  (list (nginx-server-configuration
+                          (listen '(8083))
+                          (server-name '("calibre.cthethe.com"))
+                          ))))))
       (default-value #f)
       (description "runs calibre server for books"))))

@@ -25,4 +25,15 @@
                           (documentation "Run calibre server")
                           (start
                             #~(make-forkexec-constructor
-                                (list #$(file-append calibre)))))))))))))
+                                (list #$(file-append calibre "/bin/calibre-server")
+                                      "--port=8183"
+                                      "--enable-local-write"
+                                      )
+                                #:user "calibre"
+                                #:group "calibre"
+                                #:directory "/var/lib/calibre"
+                                #:environment-variables '("HOME=/var/lib/calibre")))
+                          (stop
+                            #~(make-kill-destructor))))))))
+      (default-value #f)
+      (description "runs calibre server for books"))))

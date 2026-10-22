@@ -41,7 +41,12 @@
                 (const
                   (list (nginx-server-configuration
                           (listen '(8083))
-                          (server-name '("calibre.cthethe.com"))
-                          ))))))
+                          (server-name '("calibre.placeholder.com"))
+                          (locations
+                            (list (nginx-location-configuration
+                                    (uri "/")
+                                    (body
+                                      (list
+                                        "proxy_pass http://127.0.0.1:8183;")))))))))))
       (default-value #f)
       (description "runs calibre server for books"))))

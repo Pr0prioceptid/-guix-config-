@@ -75,8 +75,7 @@
 
 (define-configuration tunnels-list-configuration
                       (tunnels (list-of-tunnel-configurations '())
-                               "A list of @code{tunnel-configuration} records which contain
-                               information about all your tunnels."))
+                               "A list of @code{tunnel-configuration} records which contain information about all your tunnels."))
 
 ;;need to have config applied in all three cases, even when we don't use it.
 (define (i2pd-account config)

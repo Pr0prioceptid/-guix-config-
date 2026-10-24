@@ -33,7 +33,7 @@
                 (const
                   (list (nginx-server-configuration
                           (listen '("8082"))
-                          (server-name '("wallabag.cthethe.com"))
+                          (server-name '("wallabag.placeholder.com"))
                           (locations
                             (list (nginx-location-configuration
                                     (uri "/")

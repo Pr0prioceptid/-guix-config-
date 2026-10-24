@@ -11,7 +11,8 @@
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
              (my-services rss-bridge)
-             (my-services wallabag))
+             (my-services wallabag)
+             (btv tailscale))
 
 (use-service-modules networking 
                      ssh 
@@ -135,6 +136,7 @@
                  ;;runtime for open-container-initiative s.t. defaults to docker
                  ;; and cannot be changed within an extension definition.
                  (service oci-service-type (oci-configuration (runtime 'podman)))
+                 (service tailscale-service-type)
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service

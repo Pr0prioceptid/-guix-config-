@@ -93,7 +93,9 @@
                           nginx
                           php
                           curl
-                          github-cli) %base-packages))
+                          github-cli
+                          ;; run 'sudo tailscale up' for first connection
+                          tailscale) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

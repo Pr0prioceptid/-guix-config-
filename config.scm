@@ -95,7 +95,8 @@
                           curl
                           github-cli
                           ;; run 'sudo tailscale up' for first connection
-                          tailscale) %base-packages))
+                          tailscale
+                          smartmontools) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

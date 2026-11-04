@@ -37,7 +37,8 @@
                      ftp
                      rsync
                      php
-                     curl)
+                     curl
+                     haskell-apps)
 
 (operating-system 
   (kernel linux-lts)
@@ -96,7 +97,8 @@
                           github-cli
                           ;; run 'sudo tailscale up' for first connection
                           tailscale
-                          smartmontools) %base-packages))
+                          smartmontools
+                          git-annex) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

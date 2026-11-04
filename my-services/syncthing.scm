@@ -8,7 +8,7 @@
                         (let ((x555la 
                                 (syncthing-device 
                                   (name "X555LA") 
-                                  (id "LOMLF7X-6YSPVBH-CPV6UIX-2ANGAFZ-TYTX3EX-RAOHD3Z-XWZ34B2-P2OXOQ5"))) 
+                                  (id "KVXN43T-NOF3E2F-6TOZMHI-FRBA37F-IF6AQ53-NIIB4HX-B267HEK-PV5FWQE"))) 
                               (hcpc 
                                 (syncthing-device 
                                   (name "HCPC") 
@@ -35,7 +35,7 @@
                                           (label "main") 
                                           (id "default") 
                                           (path "~/Sync") 
-                                          (devices (list pixel6 x555la lockdown hcpc))) 
+                                          (devices (list pixel6 lockdown hcpc))) 
                                         (syncthing-folder 
                                           (label "notebook") 
                                           (id "taxja-fpukx") 

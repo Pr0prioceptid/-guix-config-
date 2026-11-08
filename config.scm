@@ -38,7 +38,8 @@
                      rsync
                      php
                      curl
-                     haskell-apps)
+                     haskell-apps
+                     gnupg)
 
 (operating-system 
   (kernel linux-lts)
@@ -98,7 +99,9 @@
                           ;; run 'sudo tailscale up' for first connection
                           tailscale
                           smartmontools
-                          git-annex) %base-packages))
+                          git-annex
+                          ;; for encrypting git annex repos
+                          gnupg) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

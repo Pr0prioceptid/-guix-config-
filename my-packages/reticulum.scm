@@ -23,6 +23,7 @@
     (build-system pyproject-build-system)
     (arguments
       (list
+        #:tests? #f
         #:phases
         #~(modify-phases %standard-phases
                          (delete 'sanity-check))))

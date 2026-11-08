@@ -40,7 +40,6 @@
                      php
                      curl
                      haskell-apps
-                     gnupg
                      )
 
 (operating-system 
@@ -102,8 +101,6 @@
                           tailscale
                           smartmontools
                           git-annex
-                          ;; for encrypting git annex repos
-                          gnupg
                           ) %base-packages))
 
   (services

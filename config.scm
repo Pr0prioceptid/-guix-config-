@@ -19,7 +19,8 @@
                      desktop
                      databases
                      web
-                     containers)
+                     containers
+                     )
 
 (use-package-modules vim
                      screen
@@ -40,7 +41,8 @@
                      curl
                      haskell-apps
                      gnupg
-                     networking)
+                     networking
+                     )
 
 (operating-system 
   (kernel linux-lts)
@@ -103,7 +105,8 @@
                           git-annex
                           ;; for encrypting git annex repos
                           gnupg
-                          yggdrasil) %base-packages))
+                          yggdrasil
+                          ) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

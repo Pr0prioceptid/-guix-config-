@@ -39,7 +39,8 @@
                      php
                      curl
                      haskell-apps
-                     gnupg)
+                     gnupg
+                     networking)
 
 (operating-system 
   (kernel linux-lts)
@@ -101,7 +102,8 @@
                           smartmontools
                           git-annex
                           ;; for encrypting git annex repos
-                          gnupg) %base-packages))
+                          gnupg
+                          yggdrasil) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

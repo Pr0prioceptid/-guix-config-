@@ -19,7 +19,8 @@
                      desktop
                      databases
                      web
-                     containers)
+                     containers
+                     )
 
 (use-package-modules vim
                      screen
@@ -39,7 +40,8 @@
                      php
                      curl
                      haskell-apps
-                     gnupg)
+                     gnupg
+                     )
 
 (operating-system 
   (kernel linux-lts)
@@ -101,7 +103,8 @@
                           smartmontools
                           git-annex
                           ;; for encrypting git annex repos
-                          gnupg) %base-packages))
+                          gnupg
+                          ) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

@@ -37,4 +37,3 @@
       packet radio, @code{WiFi} and everything in between.")
       (license #f)))
 
-python-rns

@@ -12,7 +12,9 @@
              (my-packages rss-bridge)
              (my-services rss-bridge)
              (my-services wallabag)
-             (btv tailscale))
+             (btv tailscale)
+             (my-packages reticulum)
+             )
 
 (use-service-modules networking 
                      ssh 
@@ -101,6 +103,7 @@
                           tailscale
                           smartmontools
                           git-annex
+                          python-rns
                           ) %base-packages))
 
   (services

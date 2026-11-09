@@ -1,4 +1,14 @@
 (list (channel
+        (name 'rosenthal)
+        (url "https://codeberg.org/hako/rosenthal.git")
+        (branch "trunk")
+        (commit "bfe0d7379d399c7886e7c991d0c4bd01a3dfb015")
+        (introduction
+          (make-channel-introduction
+            "7677db76330121a901604dfbad19077893865f35"
+            (openpgp-fingerprint
+              "13E7 6CD6 E649 C28C 3385  4DF5 5E5A A665 6149 17F7"))))
+      (channel
        (name 'nonguix)
        (url "https://gitlab.com/nonguix/nonguix")
        (branch "master")

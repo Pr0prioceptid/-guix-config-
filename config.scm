@@ -11,7 +11,10 @@
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
              (my-services rss-bridge)
-             (my-services wallabag))
+             (my-services wallabag)
+             (rosenthal packages networking)
+             (rosenthal services networking)
+             )
 
 (use-service-modules networking 
                      ssh 
@@ -98,6 +101,7 @@
                           github-cli
                           smartmontools
                           git-annex
+                          tailscale
                           ) %base-packages))
 
   (services
@@ -141,6 +145,7 @@
                  ;;runtime for open-container-initiative s.t. defaults to docker
                  ;; and cannot be changed within an extension definition.
                  (service oci-service-type (oci-configuration (runtime 'podman)))
+                 (service tailscale-service-type)
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service

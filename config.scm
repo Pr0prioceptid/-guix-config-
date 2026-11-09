@@ -11,8 +11,7 @@
              (my-services rsync-ebooks)
              (my-packages rss-bridge)
              (my-services rss-bridge)
-             (my-services wallabag)
-             (btv tailscale))
+             (my-services wallabag))
 
 (use-service-modules networking 
                      ssh 
@@ -97,8 +96,6 @@
                           php
                           curl
                           github-cli
-                          ;; run 'sudo tailscale up' for first connection
-                          tailscale
                           smartmontools
                           git-annex
                           ) %base-packages))
@@ -144,7 +141,6 @@
                  ;;runtime for open-container-initiative s.t. defaults to docker
                  ;; and cannot be changed within an extension definition.
                  (service oci-service-type (oci-configuration (runtime 'podman)))
-                 (service tailscale-service-type)
                  my-syncthing-service
                  my-rss-bridge-service
                  my-transmission-service

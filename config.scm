@@ -12,15 +12,18 @@
              (my-packages rss-bridge)
              (my-services rss-bridge)
              (my-services wallabag)
-             (btv tailscale)
-             (my-services calibre))
+             (my-services calibre)
+             (rosenthal packages networking)
+             (rosenthal services networking)
+             )
 
 (use-service-modules networking 
                      ssh 
                      desktop
                      databases
                      web
-                     containers)
+                     containers
+                     )
 
 (use-package-modules vim
                      screen
@@ -39,7 +42,9 @@
                      rsync
                      php
                      curl
-                     ebook)
+                     ebook
+                     haskell-apps
+                     )
 
 (operating-system 
   (kernel linux-lts)
@@ -96,9 +101,12 @@
                           php
                           curl
                           github-cli
+                          calibre
+                          smartmontools
+                          git-annex
                           ;; run 'sudo tailscale up' for first connection
                           tailscale
-                          calibre) %base-packages))
+                          ) %base-packages))
 
   (services
    (append (list (service static-networking-service-type 

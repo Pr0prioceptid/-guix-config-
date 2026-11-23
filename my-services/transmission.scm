@@ -1,10 +1,12 @@
 (define-module (my-services transmission)
   #:use-module (gnu services)
-  #:use-module (gnu services file-sharing))
+  #:use-module (gnu services file-sharing)
+  #:use-module (my-packages transmission))
 
 (define-public my-transmission-service
   (service transmission-daemon-service-type
            (transmission-daemon-configuration
+             (transmission transmission-4.1.3)
             ;; only devices on the localhost or localnetwork are permitted to remote control the torrent
             (rpc-whitelist-enabled? #t)
             (rpc-whitelist '("::1" "127.0.0.1" "192.168.0.*"))

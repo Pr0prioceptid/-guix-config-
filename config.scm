@@ -14,6 +14,7 @@
              (my-services wallabag)
              (rosenthal packages networking)
              (rosenthal services networking)
+             (my-packages transmission)
              )
 
 (use-service-modules networking 
@@ -32,7 +33,6 @@
                      file-systems
                      samba
                      syncthing
-                     bittorrent
                      web
                      databases
                      i2p
@@ -81,11 +81,7 @@
                           fscrypt
                           cifs-utils
                           syncthing
-                          ;; careful, we need transmission locked on v4.1.3 for
-                          ;; myanonamouse, so use an inferior or a modified
-                          ;; package definition before using guix pull to
-                          ;; upgrade
-                          transmission
+                          transmission-4.1.3
                           postgresql
                           miniflux
                           i2pd

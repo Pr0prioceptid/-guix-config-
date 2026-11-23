@@ -9,7 +9,9 @@
              (gnu services)
              (guix gexp)
              (gnu home services shells)
-             (gnu home services dotfiles))
+             (gnu home services dotfiles)
+             (gnu home services ssh)
+             )
 
 (home-environment
   ;; Below is the list of packages that will show up in your
@@ -46,5 +48,14 @@
                              (variables
                                `(("editing-mode" . "vi")
                                  ("show-mode-in-prompt" . #t)
-                                 ("colored-stats" . #t))))))
+                                 ("colored-stats" . #t)))))
+                  (service home-openssh-service-type
+                           (home-openssh-configuration
+                             (hosts
+                               (list (openssh-host
+                                       (name "X555LA")
+                                       (host-name "100.68.219.123")
+                                       (user "user")
+                                       ;; Redeployment requires this file to be brought with
+                                       (identity-file "~/.ssh/id_x55la_ed25519")))))))
             %base-home-services)))
